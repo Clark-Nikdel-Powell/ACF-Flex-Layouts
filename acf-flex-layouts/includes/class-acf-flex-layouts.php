@@ -154,9 +154,9 @@ class ACF_Flex_Layouts {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'acf/init', $plugin_admin, 'register_flex_layouts', 20 );
-//		$this->loader->add_action( 'acf/fields/flexible_content/layout_title/name=layouts', $plugin_admin, 'add_flexible_content_label' );
-//		$this->loader->add_action( 'acf/fields/flexible_content/layout_title/name=layouts', $plugin_admin, 'add_flexible_content_label_color' );
-		$this->loader->add_action( 'acf/fields/flexible_content/layout_title/name=layouts', $plugin_admin, 'add_row_expand_row_collapse_row_buttons', 100, 4 );
+		$this->loader->add_filter( 'acf/fields/flexible_content/layout_title/name=layouts', $plugin_admin, 'add_flexible_content_label', 20, 4 );
+		$this->loader->add_filter( 'acf/fields/flexible_content/layout_title/name=layouts', $plugin_admin, 'add_flexible_content_label_color', 20, 4 );
+		$this->loader->add_filter( 'acf/fields/flexible_content/layout_title/name=layouts', $plugin_admin, 'add_row_expand_row_collapse_row_buttons', 100, 4 );
 		$this->loader->add_action( 'acf/prepare_field/name=layouts', $plugin_admin, 'add_expand_all_collapse_all_buttons', 20, 1 );
 
 	}
@@ -172,8 +172,7 @@ class ACF_Flex_Layouts {
 
 		$plugin_public = new ACF_Flex_Layouts_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_filter( 'the_content', $plugin_public, 'add_acf_organisms_to_content', 10, 1 );
 
 	}
 

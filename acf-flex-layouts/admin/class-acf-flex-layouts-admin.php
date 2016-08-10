@@ -309,6 +309,8 @@ class ACF_Flex_Layouts_Admin {
 				$title .= '<style type="text/css"> .layout[data-id="' . $i . '"] .acf-fc-layout-order {background-color: ' . $bg_color . '; color: ' . $text_color . ';} </style>';
 			}
 		}
+
+		return $title;
 	}
 
 
@@ -322,7 +324,8 @@ class ACF_Flex_Layouts_Admin {
 		return $title;
 	}
 
-	public function import_function( ) {
+	public function import_function() {
+
 		// Bail early if no ACF data
 		if ( empty( $_POST['acf'] ) ) {
 			return;
