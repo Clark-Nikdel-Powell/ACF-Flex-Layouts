@@ -2,10 +2,30 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
-/*
-.acf-flexible-content .layout.indent {
-	margin-left: 30px;
+.acf-flexible-content .layout[data-layout="layout_open_row"][data-indent="0"] {
+	z-index: 10;
 }
-.acf-flexible-content .layout.double-indent {
-	margin-left: 60px;
-}*/
+.acf-flexible-content .layout[data-layout="layout_open_row"][data-indent="1"] {
+	z-index: 9;
+}
+.acf-flexible-content .layout[data-layout="layout_open_row"][data-indent="2"] {
+	z-index: 8;
+}
+.acf-flexible-content .layout[data-layout="layout_open_row"][data-indent="3"] {
+	z-index: 7;
+}
+.acf-flexible-content .layout[data-layout="layout_open_row"][data-indent="4"] {
+	z-index: 6;
+}
+.acf-flexible-content .layout[data-layout="layout_open_row"][data-indent="5"] {
+	z-index: 5;
+}
+.acf-flexible-content .layout[data-layout="layout_open_row"][data-indent="6"] {
+	z-index: 4;
+}
+.acf-flexible-content .layout {
+	transition: margin .5s ease;
+}
+.acf-flexible-content .layout.hide {
+	margin-top: -59px;
+}

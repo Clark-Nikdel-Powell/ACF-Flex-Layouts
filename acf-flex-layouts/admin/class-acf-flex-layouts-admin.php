@@ -313,17 +313,6 @@ class ACF_Flex_Layouts_Admin {
 		return $title;
 	}
 
-
-	public function add_row_expand_row_collapse_row_buttons( $title, $field, $layout, $i ) {
-
-		if ( 'layout_open_row' === $layout['name'] ) {
-			$title .= '<a href="#0" class="expand-row" title="Expand Row"><span class="dashicons dashicons-editor-expand"></span><span class="screen-reader-text">Expand Row</span></a>';
-			$title .= '<a href="#0" class="collapse-row" title="Collapse Row"><span class="dashicons dashicons-editor-contract"></span><span class="screen-reader-text">Collapse Row</span></a>';
-		}
-
-		return $title;
-	}
-
 	public function import_function() {
 
 		// Bail early if no ACF data
