@@ -2696,7 +2696,7 @@ acf_add_local_field_group( array(
 	'title'                 => 'Flex Content',
 	'fields'                => array(
 		array(
-			'key'               => 'field_56381b4c8e557',
+			'key'               => 'field_layouts',
 			'label'             => 'Layouts',
 			'name'              => 'layouts',
 			'type'              => 'flexible_content',

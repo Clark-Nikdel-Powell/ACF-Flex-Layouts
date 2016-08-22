@@ -114,8 +114,12 @@ class ACF_Flex_Layouts_Admin {
 
 	public function add_expand_all_collapse_all_buttons( $field ) {
 
-		$field['label'] .= '<a href="#" class="expand-layouts" title="Expand all Layouts"><span class="dashicons dashicons-editor-expand"></span><span class="screen-reader-text">Expand all Layouts</span></a>';
-		$field['label'] .= '<a href="#" class="collapse-layouts" title="Collapse all Layouts"><span class="dashicons dashicons-editor-contract"></span><span class="screen-reader-text">Collapse all Layouts</span></a>';
+		$field['label'] = '<div class="text">Layouts</div>';
+
+		$field['label'] .= '<div class="expand-collapse-layouts-buttons">';
+		$field['label'] .= '<a href="#" class="acf-icon small collapse-all-layouts" title="Collapse all Layouts"><span class="collapse-all-layouts-icon"></span><span class="screen-reader-text">Collapse all Layouts</span></a>';
+		$field['label'] .= '<a href="#" class="acf-icon small expand-all-layouts" title="Expand all Layouts"><span class="expand-all-layouts-icon"></span><span class="screen-reader-text">Expand all Layouts</span></a>';
+		$field['label'] .= '</div>';
 
 		return $field;
 	}

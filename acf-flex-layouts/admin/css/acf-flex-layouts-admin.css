@@ -1,7 +1,182 @@
-/**
- * All of the CSS for your admin-specific functionality should be
- * included in this file.
- */
+/*——————————————————————————————————————————————————————————
+/  Expand/Collapse Layout Links & Icons
+——————————————————————————————————————————————————————————*/
+.acf-field .acf-label label[for="acf-field_layouts"] {
+	display: flex;
+	justify-content: space-between;
+}
+
+a.expand-all-layouts,
+a.collapse-all-layouts {
+	color: #777777;
+}
+a.expand-all-layouts:hover,
+a.collapse-all-layouts:hover {
+	color: #ffffff;
+	background-color: #777777;
+}
+
+.collapse-all-layouts {
+	margin-right: 6px;
+}
+
+.expand-all-layouts-icon,
+.collapse-all-layouts-icon {
+	display: block;
+	height: 100%;
+	position: relative;
+}
+
+.expand-all-layouts-icon:before,
+.expand-all-layouts-icon:after,
+.collapse-all-layouts-icon:before,
+.collapse-all-layouts-icon:after {
+	display: inline-block;
+	font-family: "acf";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%);
+
+}
+
+.collapse-all-layouts-icon:before,
+.collapse-all-layouts-icon:after {
+	content: '\e810';
+}
+.collapse-all-layouts-icon:before {
+	top: -13%;
+	font-size: 11px;
+}
+.collapse-all-layouts-icon:after {
+	top: 19%;
+	font-size: 13px;
+}
+
+.expand-all-layouts-icon:before,
+.expand-all-layouts-icon:after {
+	content: '\e80f';
+}
+.expand-all-layouts-icon:before {
+	top: -8%;
+	font-size: 13px;
+}
+.expand-all-layouts-icon:after {
+	top: 22%;
+	font-size: 11px;
+}
+
+/*——————————————————————————————————————————————————————————
+/  Expand/Collapse Row Icons
+——————————————————————————————————————————————————————————*/
+
+/*——————————————————————————————————————————
+/  Expand/Collapse Styles
+——————————————————————————————————————————*/
+li.collapse-row.hide,
+li.expand-row.hide {
+	display: none;
+}
+
+a.collapse-row,
+a.expand-row {
+	display: inline-block;
+	width: 20px;
+	height: 18px;
+	position: relative;
+	color: #999;
+}
+
+a.collapse-row:before,
+a.collapse-row:after,
+a.expand-row:before,
+a.expand-row:after {
+	display: block;
+	content: '';
+	width: 18px;
+	position: absolute;
+	border-radius: 1px;
+	border: 1px solid #bbb;
+}
+a.collapse-row:before,
+a.expand-row:before {
+	height: 3px;
+}
+a.collapse-row:after,
+a.expand-row:after {
+	height: 10px;
+	top: 6px;
+}
+
+/*——————————————————————————————————————————
+/  Collapse Row Styles
+——————————————————————————————————————————*/
+a.collapse-row:hover {
+	color: #ffffff;
+}
+a.collapse-row:hover:before,
+a.collapse-row:hover:after {
+	background-color: #b4b9be;
+	border-color: #b4b9be;
+}
+
+/*——————————————————————————————————————————
+/  Expand-Row Styles
+——————————————————————————————————————————*/
+a.expand-row {
+	color: #ffffff;
+}
+a.expand-row:before,
+a.expand-row:after {
+	background-color: #b4b9be;
+	border-color: #b4b9be;
+}
+a.expand-row:hover:before,
+a.expand-row:hover:after {
+	border: 1px solid #777;
+	background-color: #777;
+}
+
+
+/*——————————————————————————————————————————
+/  Icon Styles
+——————————————————————————————————————————*/
+.collapse-row-icon,
+.expand-row-icon {
+	display: block;
+	height: 18px;
+	position: relative;
+	z-index: 1;
+}
+.collapse-row-icon:before,
+.expand-row-icon:before {
+	display: block;
+	font-family: "acf";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	position: absolute;
+	top: 4px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 11px;
+}
+
+.collapse-row-icon:before {
+	content: '\e810';
+}
+.expand-row-icon:before {
+	content: '\e80f';
+}
+
+/*——————————————————————————————————————————————————————————
+/  Row Z-Indices
+——————————————————————————————————————————————————————————
+Indented rows need different z-index values based on their indent-level.
+*/
 .acf-flexible-content .layout[data-layout="layout_open_row"][data-indent="0"] {
 	z-index: 10;
 }
@@ -23,6 +198,10 @@
 .acf-flexible-content .layout[data-layout="layout_open_row"][data-indent="6"] {
 	z-index: 4;
 }
+
+/*——————————————————————————————————————————————————————————
+/  Show/Hide Layouts
+——————————————————————————————————————————————————————————*/
 .acf-flexible-content .layout {
 	transition: margin .5s ease;
 }
