@@ -1,10 +1,10 @@
 <?php
 acf_add_local_field_group( array(
-	'key'                   => 'group_57a1f652d56eb',
+	'key'                   => 'group_afl_label_label_color_name',
 	'title'                 => 'Label/Label Color/Name',
 	'fields'                => array(
 		array(
-			'key'               => 'field_57a1f665c89be',
+			'key'               => 'field_label',
 			'label'             => 'Label',
 			'name'              => 'label',
 			'type'              => 'text',
@@ -25,7 +25,7 @@ acf_add_local_field_group( array(
 			'disabled'          => 0,
 		),
 		array(
-			'key'               => 'field_57a1f6aec89bf',
+			'key'               => 'field_label_color',
 			'label'             => 'Label Color',
 			'name'              => 'label_color',
 			'type'              => 'select',
@@ -68,7 +68,7 @@ acf_add_local_field_group( array(
 			'placeholder'       => '',
 		),
 		array(
-			'key'               => 'field_57a1f6f3c89c0',
+			'key'               => 'field_name',
 			'label'             => 'Name',
 			'name'              => 'name',
 			'type'              => 'text',
