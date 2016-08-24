@@ -102,7 +102,7 @@ $open_column_sub_fields = [
 	$label_label_color_name_clone_args,
 	$classes_id_indent_clone_hide_args,
 	array(
-		'key'               => 'field_577bb5d294a03',
+		'key'               => 'open_column_field_inside_classes',
 		'label'             => 'Inside Classes',
 		'name'              => 'inside_class',
 		'type'              => 'text',
