@@ -1,7 +1,7 @@
 <?php
 namespace CNP;
 
-if ( class_exists( 'AtomTemplate' ) && ! class_exists( 'ACF_Content' ) ) {
+if ( class_exists( 'CNP\AtomTemplate' ) && ! class_exists( 'CNP\ACF_Content' ) ) {
 
 	class ACF_Content extends AtomTemplate {
 

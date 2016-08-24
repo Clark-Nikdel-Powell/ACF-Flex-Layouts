@@ -8,7 +8,7 @@ namespace CNP;
  *
  * @package CNP
  */
-if ( class_exists( 'AtomTemplate' ) && ! class_exists( 'ACF_OpenRow' ) ) {
+if ( class_exists( 'CNP\AtomTemplate' ) && ! class_exists( 'CNP\ACF_OpenRow' ) ) {
 
 	class ACF_OpenRow extends AtomTemplate {
 

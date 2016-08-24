@@ -78,7 +78,7 @@ acf_add_local_field_group( array(
 			'conditional_logic' => 0,
 			'wrapper'           => array(
 				'width' => '17',
-				'class' => '',
+				'class' => 'afl-field-hide',
 				'id'    => '',
 			),
 			'default_value'     => false,

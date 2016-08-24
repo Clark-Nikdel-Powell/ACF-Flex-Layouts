@@ -1040,22 +1040,6 @@ $slideshow_sub_fields = [
 				'default_value'     => '',
 			),
 			array(
-				'key'               => 'slideshow_field_slide_show_hide',
-				'label'             => 'Show/Hide',
-				'name'              => 'show',
-				'type'              => 'true_false',
-				'instructions'      => 'Check this box to show the slide. Uncheck it to hide the slide.',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'message'           => '',
-				'default_value'     => 1,
-			),
-			array(
 				'key'               => 'slideshow_field_slide_classes',
 				'label'             => 'Classes',
 				'name'              => 'class',
@@ -1107,7 +1091,7 @@ $slideshow_sub_fields = [
 				'conditional_logic' => 0,
 				'wrapper'           => array(
 					'width' => '17',
-					'class' => '',
+					'class' => 'afl-field-hide',
 					'id'    => '',
 				),
 				'default_value'     => false,
@@ -1723,22 +1707,6 @@ $tab_sub_fields = [
 				'disabled'          => 0,
 			),
 			array(
-				'key'               => 'tabs_field_tabs_show_hide',
-				'label'             => 'Show/Hide',
-				'name'              => 'show',
-				'type'              => 'true_false',
-				'instructions'      => 'Check this box to show the slide. Uncheck it to hide the slide.',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'message'           => '',
-				'default_value'     => 1,
-			),
-			array(
 				'key'               => 'tabs_field_tabs_classes',
 				'label'             => 'Classes',
 				'name'              => 'class',
@@ -1790,7 +1758,7 @@ $tab_sub_fields = [
 				'conditional_logic' => 0,
 				'wrapper'           => array(
 					'width' => '17',
-					'class' => '',
+					'class' => 'afl-field-hide',
 					'id'    => '',
 				),
 				'default_value'     => false,
@@ -2572,7 +2540,7 @@ $blurblist_sub_fields = [
 				'required'          => 0,
 				'conditional_logic' => 0,
 				'wrapper'           => array(
-					'width' => 50,
+					'width' => 40,
 					'class' => '',
 					'id'    => '',
 				),
@@ -2593,7 +2561,7 @@ $blurblist_sub_fields = [
 				'required'          => 0,
 				'conditional_logic' => 0,
 				'wrapper'           => array(
-					'width' => '33',
+					'width' => '38',
 					'class' => '',
 					'id'    => '',
 				),
@@ -2614,8 +2582,8 @@ $blurblist_sub_fields = [
 				'required'          => 0,
 				'conditional_logic' => 0,
 				'wrapper'           => array(
-					'width' => '17',
-					'class' => '',
+					'width' => '22',
+					'class' => 'afl-field-hide',
 					'id'    => '',
 				),
 				'default_value'     => false,

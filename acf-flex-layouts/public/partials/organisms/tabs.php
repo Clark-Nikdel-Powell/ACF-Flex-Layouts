@@ -1,7 +1,7 @@
 <?php
 namespace CNP;
 
-if ( class_exists( 'OrganismTemplate' ) && ! class_exists( 'ACF_BlurbList' ) ) {
+if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_Tabs' ) ) {
 
 	class ACF_Tabs extends OrganismTemplate {
 
@@ -143,6 +143,8 @@ if ( class_exists( 'OrganismTemplate' ) && ! class_exists( 'ACF_BlurbList' ) ) {
 		 * @param $tab_args
 		 * @param $tab_data
 		 * @param $tab_index
+		 *
+		 * @return bool
 		 */
 		public function generate_tab( $tab_heading_args, $tab_args, $tab_data, $tab_index ) {
 
@@ -150,6 +152,10 @@ if ( class_exists( 'OrganismTemplate' ) && ! class_exists( 'ACF_BlurbList' ) ) {
 
 			// Trim all tab data first, so that an empty space doesn't get used as content by mistake.
 			$tab_data = Utility::multidimensional_array_map( 'trim', $tab_data );
+
+			if ( isset( $tab_data['hide'] ) && true == $tab_data['hide'] ) {
+				return false;
+			}
 
 			$tab_slug = str_replace( ' ', '-', preg_replace( '/[^A-Za-z0-9 ]/', '', strtolower( $tab_data['tab_title'] ) ) );
 

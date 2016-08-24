@@ -192,11 +192,18 @@ Indented rows need different z-index values based on their indent-level.
 }
 
 /*——————————————————————————————————————————————————————————
-/  Show/Hide Layouts
+/  Expand/Collapse Layouts
 ——————————————————————————————————————————————————————————*/
 .acf-flexible-content .layout {
 	transition: margin .5s ease;
 }
 .acf-flexible-content .layout.hide {
 	margin-top: -59px;
+}
+
+/*——————————————————————————————————————————————————————————
+/  Hidden Layout Styles
+——————————————————————————————————————————————————————————*/
+.layout--isHidden {
+	opacity: .5;
 }

@@ -1,7 +1,7 @@
 <?php
 namespace CNP;
 
-if ( class_exists( 'OrganismTemplate' ) && ! class_exists( 'ACF_Header' ) ) {
+if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_Header' ) ) {
 
 	class ACF_Header extends OrganismTemplate {
 

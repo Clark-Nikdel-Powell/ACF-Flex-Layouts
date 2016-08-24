@@ -1,7 +1,7 @@
 <?php
 namespace CNP;
 
-if ( class_exists( 'AtomTemplate' ) && ! class_exists( 'ACF_CloseColumn' ) ) {
+if ( class_exists( 'CNP\AtomTemplate' ) && ! class_exists( 'CNP\ACF_CloseColumn' ) ) {
 
 	class ACF_CloseColumn extends AtomTemplate {
 

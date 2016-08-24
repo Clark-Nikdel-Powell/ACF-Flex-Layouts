@@ -1,7 +1,7 @@
 <?php
 namespace CNP;
 
-if ( class_exists( 'OrganismTemplate' ) && ! class_exists( 'ACF_BlurbList' ) ) {
+if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_BlurbList' ) ) {
 
 	class ACF_BlurbList extends OrganismTemplate {
 
@@ -124,10 +124,19 @@ if ( class_exists( 'OrganismTemplate' ) && ! class_exists( 'ACF_BlurbList' ) ) {
 
 		}
 
+		/**
+		 * @param $blurb_data
+		 *
+		 * @return bool
+		 */
 		private function generate_blurb( $blurb_data ) {
 
 			// Trim all slide data first, so that an empty space doesn't get used as content by mistake.
 			$blurb_data = Utility::multidimensional_array_map( 'trim', $blurb_data );
+
+			if ( isset( $blurb_data['hide'] ) && true == $blurb_data['hide'] ) {
+				return false;
+			}
 
 			$blurb_args = $this->blurb_organism_args;
 

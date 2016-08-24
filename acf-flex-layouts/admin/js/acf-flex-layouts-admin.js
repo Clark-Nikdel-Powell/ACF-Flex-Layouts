@@ -7,16 +7,12 @@
 
     // Collapse all layouts
     $('body').on('click', 'a.collapse-all-layouts', function (event) {
-        $('.layout:not(.-collapsed) a[data-event="collapse-layout"]').each(function (index) {
-            $(this).click();
-        });
+        $('.layout:not(.-collapsed) a[data-event="collapse-layout"]').trigger('click');
     });
 
     // Expand all layouts
     $('body').on('click', 'a.expand-all-layouts', function (event) {
-        $('.layout.-collapsed a[data-event="collapse-layout"]').each(function (index) {
-            $(this).click();
-        });
+        $('.layout.-collapsed a[data-event="collapse-layout"]').trigger('click');
     });
 
     /*——————————————————————————————————————————————————————————
@@ -71,34 +67,62 @@
      ——————————————————————————————————————————————————————————*/
 
     // Indent on input change
-    $('.indent-level input').on('change', function (event) {
+    $('.indent-level input[type="number"]').on('change', function (event) {
 
         var indent_amount = $(this).val();
-        var layout_div = $(this).parents('.layout');
+        var $layout_div = $(this).parents('.layout');
 
-        indent_layout(indent_amount, layout_div);
+        indent_layout(indent_amount, $layout_div);
     });
 
     // Indent on page load
-    $('.indent-level input').each(function (index, el) {
+    $('.indent-level input[type="number"]').each(function (index, el) {
 
         var indent_amount = $(this).val();
-        var layout_div = $(this).parents('.layout');
+        var $layout_div = $(this).parents('.layout');
 
-        indent_layout(indent_amount, layout_div);
+        indent_layout(indent_amount, $layout_div);
     });
 
     // Indent function
-    function indent_layout(indent_amount, layout_div) {
+    function indent_layout(indent_amount, $layout_div) {
 
         if ('' === indent_amount) {
             indent_amount = '0';
         }
 
         var multiplier = 30;
-        layout_div.css('margin-left', indent_amount * multiplier);
+        $layout_div.css('margin-left', indent_amount * multiplier);
 
-        layout_div.attr('data-indent', indent_amount);
+        $layout_div.attr('data-indent', indent_amount);
+    }
+
+    /*——————————————————————————————————————————————————————————
+     /  Hidden Layouts
+     ——————————————————————————————————————————————————————————*/
+    $('.afl-field-hide input[type="checkbox"]').on('change', function (event) {
+
+        var hidden = $(this).is(':checked');
+        var $layout_div = $(this).closest('.layout, tr.acf-row');
+
+        toggle_layout_hidden_state(hidden, $layout_div);
+    });
+
+    $('.afl-field-hide input[type="checkbox"]').each(function (index, el) {
+
+        var hidden = $(this).is(':checked');
+        var $layout_div = $(this).closest('.layout, tr.acf-row');
+
+        toggle_layout_hidden_state(hidden, $layout_div);
+    });
+
+    function toggle_layout_hidden_state(hidden, $layout_div) {
+
+        if (true === hidden) {
+            $layout_div.addClass('layout--isHidden');
+        } else if (false === hidden) {
+            $layout_div.removeClass('layout--isHidden');
+        }
     }
 
 })(jQuery);

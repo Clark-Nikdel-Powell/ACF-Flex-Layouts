@@ -1,7 +1,7 @@
 <?php
 namespace CNP;
 
-if ( class_exists( 'OrganismTemplate' ) && ! class_exists( 'ACF_Slideshow' ) ) {
+if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_Slideshow' ) ) {
 
 	class ACF_Slideshow extends OrganismTemplate {
 
@@ -115,11 +115,17 @@ if ( class_exists( 'OrganismTemplate' ) && ! class_exists( 'ACF_Slideshow' ) ) {
 		 * @param $slide_args
 		 * @param $slide_data
 		 * @param $slide_index
+		 *
+		 * @return mixed
 		 */
 		public function generate_slide( $slide_args, $slide_data, $slide_index ) {
 
 			// Trim all slide data first, so that an empty space doesn't get used as content by mistake.
 			$slide_data = Utility::multidimensional_array_map( 'trim', $slide_data );
+
+			if ( isset( $slide_data['hide'] ) && true == $slide_data['hide'] ) {
+				return false;
+			}
 
 			// Put this in a separate method so that it's less to copy/paste when extending the class.
 			$slide_args = self::set_slide_classes_and_id( $slide_args, $slide_data );

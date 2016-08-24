@@ -57,21 +57,21 @@ class ACF_Flex_Layouts_Public {
 	public function add_pattern_library_atoms_and_organisms() {
 
 		// Atoms
-		include_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/open-row.php' );
-		include_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/close-row.php' );
-		include_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/open-column.php' );
-		include_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/close-column.php' );
-		include_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/content.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/open-row.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/close-row.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/open-column.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/close-column.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/content.php' );
 
 		// Organisms
-		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/blurb.php' );
-		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/blurb-list.php' );
-		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/gallery.php' );
-		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/header.php' );
-		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/map.php' );
-		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/post-list.php' );
-		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/slideshow.php' );
-		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/tabs.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/blurb.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/blurb-list.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/gallery.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/header.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/map.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/post-list.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/slideshow.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/tabs.php' );
 
 	}
 
