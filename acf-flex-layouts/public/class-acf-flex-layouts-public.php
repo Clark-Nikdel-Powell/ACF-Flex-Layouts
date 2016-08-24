@@ -121,7 +121,7 @@ class ACF_Flex_Layouts_Public {
 
 					$content = apply_filters( $atom_or_organism->name . '_before', $content );
 
-					if ( '' !== $atom_or_organism->markup ) {
+					if ( '' !== $atom_or_organism->markup && false === $atom_or_organism->hide ) {
 						$content .= $atom_or_organism->markup;
 					}
 
