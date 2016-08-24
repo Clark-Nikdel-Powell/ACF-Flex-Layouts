@@ -27,9 +27,9 @@ class ACF_Flex_Layouts_Public {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
+	 * @var      string    $acf_flex_layouts    The ID of this plugin.
 	 */
-	private $plugin_name;
+	private $acf_flex_layouts;
 
 	/**
 	 * The version of this plugin.
@@ -44,12 +44,12 @@ class ACF_Flex_Layouts_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of the plugin.
+	 * @param      string    $acf_flex_layouts       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $acf_flex_layouts, $version ) {
 
-		$this->plugin_name = $plugin_name;
+		$this->acf_flex_layouts = $acf_flex_layouts;
 		$this->version = $version;
 
 	}
@@ -73,7 +73,7 @@ class ACF_Flex_Layouts_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/acf-flex-layouts-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->acf_flex_layouts, plugin_dir_url( __FILE__ ) . 'css/acf-flex-layouts-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,7 +96,7 @@ class ACF_Flex_Layouts_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/acf-flex-layouts-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->acf_flex_layouts, plugin_dir_url( __FILE__ ) . 'js/acf-flex-layouts-public.js', array( 'jquery' ), $this->version, false );
 
 	}
 

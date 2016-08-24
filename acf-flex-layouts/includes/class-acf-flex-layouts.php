@@ -44,9 +44,9 @@ class ACF_Flex_Layouts {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
+	 * @var      string    $acf_flex_layouts    The string used to uniquely identify this plugin.
 	 */
-	protected $plugin_name;
+	protected $acf_flex_layouts;
 
 	/**
 	 * The current version of the plugin.
@@ -68,7 +68,7 @@ class ACF_Flex_Layouts {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'acf-flex-layouts';
+		$this->acf_flex_layouts = 'acf-flex-layouts';
 		$this->version = '1.0.0';
 
 		$this->load_dependencies();
@@ -149,14 +149,16 @@ class ACF_Flex_Layouts {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new ACF_Flex_Layouts_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new ACF_Flex_Layouts_Admin( $this->get_acf_flex_layouts(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'init', $plugin_admin, 'register_template_post_type', 20 );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles', 20 );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts', 20 );
 		$this->loader->add_action( 'acf/init', $plugin_admin, 'register_flex_layouts', 20 );
 		$this->loader->add_filter( 'acf/fields/flexible_content/layout_title/name=layouts', $plugin_admin, 'add_flexible_content_label', 20, 4 );
 		$this->loader->add_filter( 'acf/fields/flexible_content/layout_title/name=layouts', $plugin_admin, 'add_flexible_content_label_color', 20, 4 );
 		$this->loader->add_action( 'acf/prepare_field/name=layouts', $plugin_admin, 'add_expand_all_collapse_all_buttons', 20, 1 );
+		$this->loader->add_action( 'acf/save_post', $plugin_admin, 'import_template', 1 );
 
 	}
 
@@ -169,7 +171,7 @@ class ACF_Flex_Layouts {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new ACF_Flex_Layouts_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new ACF_Flex_Layouts_Public( $this->get_acf_flex_layouts(), $this->get_version() );
 
 		$this->loader->add_filter( 'the_content', $plugin_public, 'add_acf_organisms_to_content', 10, 1 );
 
@@ -191,8 +193,8 @@ class ACF_Flex_Layouts {
 	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
 	 */
-	public function get_plugin_name() {
-		return $this->plugin_name;
+	public function get_acf_flex_layouts() {
+		return $this->acf_flex_layouts;
 	}
 
 	/**

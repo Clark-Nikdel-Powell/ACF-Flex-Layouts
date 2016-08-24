@@ -41,7 +41,4 @@ class ACF_Flex_Layouts_i18n {
 		);
 
 	}
-
-
-
 }

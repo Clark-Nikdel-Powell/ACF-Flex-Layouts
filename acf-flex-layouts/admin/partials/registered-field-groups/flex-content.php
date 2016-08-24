@@ -13,7 +13,7 @@ $label_label_color_name_clone_args = [
 		'id'    => '',
 	),
 	'clone'             => array(
-		0 => 'group_57a1f652d56eb',
+		0 => 'group_afl_label_label_color_name',
 	),
 	'display'           => 'seamless',
 	'layout'            => 'block',
@@ -22,9 +22,9 @@ $label_label_color_name_clone_args = [
 	'replace'           => 1,
 ];
 
-$classes_id_clone_args = [
-	'label'             => 'Classes/ID',
-	'name'              => 'classes_id',
+$classes_id_indent_clone_hide_args = [
+	'label'             => 'Classes/ID/Indent',
+	'name'              => 'classes_id_indent',
 	'type'              => 'clone',
 	'instructions'      => '',
 	'required'          => 0,
@@ -35,7 +35,7 @@ $classes_id_clone_args = [
 		'id'    => '',
 	),
 	'clone'             => array(
-		0 => 'group_57a1f7c2051ea',
+		0 => 'group_afl_classes_id_indent',
 	),
 	'display'           => 'seamless',
 	'layout'            => 'block',
@@ -48,532 +48,562 @@ $classes_id_clone_args = [
 /  Open Row
 ——————————————————————————————————————————————————————————*/
 #region Open Row
+$open_row_sub_fields = [
+	$label_label_color_name_clone_args,
+	$classes_id_indent_clone_hide_args,
+];
+$open_row_sub_fields = apply_filters( 'afl/sub_fields/layout=open_row', $open_row_sub_fields );
+
 $open_row_layout_args                         = [
-	'key'        => '563a1ba77d9fa',
+	'key'        => 'afl_layout_open_row',
 	'name'       => 'layout_open_row',
 	'label'      => 'Open Row',
 	'display'    => 'block',
-	'sub_fields' => array(
-		$label_label_color_name_clone_args,
-		$classes_id_clone_args,
-	),
+	'sub_fields' => $open_row_sub_fields,
 	'min'        => '',
 	'max'        => '',
 ];
-$open_row_layout_args['sub_fields'][0]['key'] = 'field_open_row_label_label_color_name';
-$open_row_layout_args['sub_fields'][1]['key'] = 'field_open_row_classes_id';
+$open_row_layout_args['sub_fields'][0]['key'] = 'open_row_field_label_label_color_name';
+$open_row_layout_args['sub_fields'][1]['key'] = 'open_row_field_classes_id';
+
+$open_row_layout_args = apply_filters( 'afl/layout_args/layout=open_row', $open_row_layout_args );
 #endregion
 
 /*——————————————————————————————————————————————————————————
 /  Close Row
 ——————————————————————————————————————————————————————————*/
 #region Close Row
+$close_row_sub_fields = [
+	$label_label_color_name_clone_args,
+	$classes_id_indent_clone_hide_args,
+];
+$close_row_sub_fields = apply_filters( 'afl/sub_fields/layout=close_row', $close_row_sub_fields );
+
 $close_row_layout_args                         = [
-	'key'        => '563a1bc37d9fb',
+	'key'        => 'acf_layout_close_row',
 	'name'       => 'layout_close_row',
 	'label'      => 'Close Row',
 	'display'    => 'block',
-	'sub_fields' => array(
-		$label_label_color_name_clone_args,
-		$classes_id_clone_args,
-	),
+	'sub_fields' => $close_row_sub_fields,
 	'min'        => '',
 	'max'        => '',
 ];
-$close_row_layout_args['sub_fields'][0]['key'] = 'field_close_row_label_label_color_name';
-$close_row_layout_args['sub_fields'][1]['key'] = 'field_close_row_classes_id';
+$close_row_layout_args['sub_fields'][0]['key'] = 'close_row_field_label_label_color_name';
+$close_row_layout_args['sub_fields'][1]['key'] = 'close_row_field_classes_id';
+
+$close_row_layout_args = apply_filters( 'afl/layout_args/layout=close_row', $close_row_layout_args );
 #endregion
 
 /*——————————————————————————————————————————————————————————
 /  Open Column
 ——————————————————————————————————————————————————————————*/
 #region Open Column
+$open_column_sub_fields = [
+	$label_label_color_name_clone_args,
+	$classes_id_indent_clone_hide_args,
+	array(
+		'key'               => 'field_577bb5d294a03',
+		'label'             => 'Inside Classes',
+		'name'              => 'inside_class',
+		'type'              => 'text',
+		'instructions'      => 'Comma-separated list. No default. Can modified with a filter.',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'maxlength'         => '',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+];
+$open_column_sub_fields = apply_filters( 'afl/sub_fields/layout=open_column', $open_column_sub_fields );
+
 $open_column_layout_args                         = [
-	'key'        => '5776c1bd32209',
+	'key'        => 'field_open_column',
 	'name'       => 'layout_open_column',
 	'label'      => 'Open Column',
 	'display'    => 'block',
-	'sub_fields' => array(
-		$label_label_color_name_clone_args,
-		$classes_id_clone_args,
-		array(
-			'key'               => 'field_577bb5d294a03',
-			'label'             => 'Inside Classes',
-			'name'              => 'inside_class',
-			'type'              => 'text',
-			'instructions'      => 'Comma-separated list. No default. Can modified with a filter.',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'maxlength'         => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-	),
+	'sub_fields' => $open_column_sub_fields,
 	'min'        => '',
 	'max'        => '',
 ];
-$open_column_layout_args['sub_fields'][0]['key'] = 'field_open_column_label_label_color_name';
-$open_column_layout_args['sub_fields'][1]['key'] = 'field_open_column_classes_id';
+$open_column_layout_args['sub_fields'][0]['key'] = 'open_column_field_label_label_color_name';
+$open_column_layout_args['sub_fields'][1]['key'] = 'open_column_field_classes_id';
+
+$open_column_layout_args = apply_filters( 'afl/layout_args/layout=open_column', $open_column_layout_args );
 #endregion
 
 /*——————————————————————————————————————————————————————————
 /  Close Column
 ——————————————————————————————————————————————————————————*/
 #region Close Column
+$close_column_sub_fields = [
+	$label_label_color_name_clone_args,
+	$classes_id_indent_clone_hide_args,
+];
+$close_column_sub_fields = apply_filters( 'afl/sub_fields/layout=close_column', $close_column_sub_fields );
+
 $close_column_layout_args                         = [
-	'key'        => '5776c29a3220e',
+	'key'        => 'field_close_column',
 	'name'       => 'layout_close_column',
 	'label'      => 'Close Column',
 	'display'    => 'block',
-	'sub_fields' => array(
-		$label_label_color_name_clone_args,
-		$classes_id_clone_args,
-	),
+	'sub_fields' => $close_column_sub_fields,
 	'min'        => '',
 	'max'        => '',
 ];
-$close_column_layout_args['sub_fields'][0]['key'] = 'field_close_column_label_label_color_name';
-$close_column_layout_args['sub_fields'][1]['key'] = 'field_close_column_classes_id';
+$close_column_layout_args['sub_fields'][0]['key'] = 'close_column_field_label_label_color_name';
+$close_column_layout_args['sub_fields'][1]['key'] = 'close_column_field_classes_id';
+
+$close_column_layout_args = apply_filters( 'afl/layout_args/layout=close_column', $close_column_layout_args );
 #endregion
 
 /*——————————————————————————————————————————————————————————
 /  Content
 ——————————————————————————————————————————————————————————*/
 #region Content
+$content_sub_fields = [
+	$label_label_color_name_clone_args,
+	$classes_id_indent_clone_hide_args,
+	array(
+		'key'               => 'content_field_content',
+		'label'             => 'Content',
+		'name'              => 'content',
+		'type'              => 'wysiwyg',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'tabs'              => 'all',
+		'toolbar'           => 'full',
+		'media_upload'      => 1,
+	),
+];
+$content_sub_fields = apply_filters( 'afl/sub_fields/layout=content', $content_sub_fields );
+
 $content_layout_args                         = [
-	'key'        => '5638c419fa436',
+	'key'        => 'afl_layout_content',
 	'name'       => 'layout_content',
 	'label'      => 'Content',
 	'display'    => 'block',
-	'sub_fields' => array(
-		$label_label_color_name_clone_args,
-		$classes_id_clone_args,
-		array(
-			'key'               => 'field_5638c422fa437',
-			'label'             => 'Content',
-			'name'              => 'content',
-			'type'              => 'wysiwyg',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'tabs'              => 'all',
-			'toolbar'           => 'full',
-			'media_upload'      => 1,
-		),
-	),
+	'sub_fields' => $content_sub_fields,
 	'min'        => '',
 	'max'        => '',
 ];
-$content_layout_args['sub_fields'][0]['key'] = 'field_content_label_label_color_name';
-$content_layout_args['sub_fields'][1]['key'] = 'field_content_classes_id';
+$content_layout_args['sub_fields'][0]['key'] = 'content_field_label_label_color_name';
+$content_layout_args['sub_fields'][1]['key'] = 'content_field_classes_id';
+
+$content_layout_args = apply_filters( 'afl/layout_args/layout=content', $content_layout_args );
 #endregion
 
 /*——————————————————————————————————————————————————————————
 /  Header
 ——————————————————————————————————————————————————————————*/
 #region Header
+$header_sub_fields = [
+	$label_label_color_name_clone_args,
+	$classes_id_indent_clone_hide_args,
+	array(
+		'key'               => 'header_field_elements',
+		'label'             => 'Elements',
+		'name'              => 'elements',
+		'type'              => 'select',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'choices'           => array(
+			'Title'       => 'Title',
+			'Subtitle'    => 'Subtitle',
+			'Description' => 'Description',
+			'Link'        => 'Link',
+			'Background'  => 'Background',
+		),
+		'default_value'     => array(
+			0 => 'Title',
+			1 => 'Subtitle',
+			2 => 'Description',
+			3 => 'Link',
+			4 => 'Background',
+		),
+		'allow_null'        => 0,
+		'multiple'          => 1,
+		'ui'                => 1,
+		'ajax'              => 1,
+		'placeholder'       => '',
+		'disabled'          => 0,
+		'readonly'          => 0,
+		'return_format'     => 'value',
+	),
+	array(
+		'key'               => 'header_field_title',
+		'label'             => 'Title',
+		'name'              => 'title',
+		'type'              => 'text',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'header_field_elements',
+					'operator' => '==',
+					'value'    => 'Title',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'maxlength'         => '',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+	array(
+		'key'               => 'header_field_subtitle',
+		'label'             => 'Subtitle',
+		'name'              => 'subtitle',
+		'type'              => 'text',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'header_field_elements',
+					'operator' => '==',
+					'value'    => 'Subtitle',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'maxlength'         => '',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+	array(
+		'key'               => 'header_field_description',
+		'label'             => 'Description',
+		'name'              => 'description',
+		'type'              => 'textarea',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'header_field_elements',
+					'operator' => '==',
+					'value'    => 'Description',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'maxlength'         => '',
+		'rows'              => 3,
+		'new_lines'         => 'wpautop',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+	array(
+		'key'               => 'header_field_link',
+		'label'             => 'Link',
+		'name'              => 'link',
+		'type'              => 'page_link',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'header_field_elements',
+					'operator' => '==',
+					'value'    => 'Link',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '50',
+			'class' => '',
+			'id'    => '',
+		),
+		'post_type'         => array(),
+		'taxonomy'          => array(),
+		'allow_null'        => 0,
+		'allow_archives'    => 1,
+		'multiple'          => 0,
+	),
+	array(
+		'key'               => 'header_field_link_text',
+		'label'             => 'Link Text',
+		'name'              => 'link_text',
+		'type'              => 'text',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'header_field_elements',
+					'operator' => '==',
+					'value'    => 'Link',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '50',
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'maxlength'         => '',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+	array(
+		'key'               => 'header_field_background_type',
+		'label'             => 'Background Type',
+		'name'              => 'background_type',
+		'type'              => 'radio',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'header_field_elements',
+					'operator' => '==',
+					'value'    => 'Background',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '100',
+			'class' => '',
+			'id'    => '',
+		),
+		'choices'           => array(
+			'Image' => 'Image',
+			'Video' => 'Video',
+			'Color' => 'Color',
+		),
+		'other_choice'      => 0,
+		'save_other_choice' => 0,
+		'default_value'     => '',
+		'layout'            => 'horizontal',
+		'allow_null'        => 0,
+		'return_format'     => 'value',
+	),
+	array(
+		'key'               => 'header_field_background_image',
+		'label'             => 'Background Image',
+		'name'              => 'background_image',
+		'type'              => 'image',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'header_field_background_type',
+					'operator' => '==',
+					'value'    => 'Image',
+				),
+				array(
+					'field'    => 'header_field_elements',
+					'operator' => '==',
+					'value'    => 'Background',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '100',
+			'class' => '',
+			'id'    => '',
+		),
+		'return_format'     => 'id',
+		'preview_size'      => 'thumbnail',
+		'library'           => 'all',
+		'min_width'         => '',
+		'min_height'        => '',
+		'min_size'          => '',
+		'max_width'         => '',
+		'max_height'        => '',
+		'max_size'          => '',
+		'mime_types'        => '',
+	),
+	array(
+		'key'               => 'header_field_mp4',
+		'label'             => 'MP4',
+		'name'              => 'mp4',
+		'type'              => 'file',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'header_field_background_type',
+					'operator' => '==',
+					'value'    => 'Video',
+				),
+				array(
+					'field'    => 'header_field_elements',
+					'operator' => '==',
+					'value'    => 'Background',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '33.333',
+			'class' => '',
+			'id'    => '',
+		),
+		'return_format'     => 'array',
+		'library'           => 'all',
+		'min_size'          => '',
+		'max_size'          => '',
+		'mime_types'        => 'mp4',
+	),
+	array(
+		'key'               => 'header_field_webm',
+		'label'             => 'Webm',
+		'name'              => 'webm',
+		'type'              => 'file',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'header_field_background_type',
+					'operator' => '==',
+					'value'    => 'Video',
+				),
+				array(
+					'field'    => 'header_field_elements',
+					'operator' => '==',
+					'value'    => 'Background',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '33.333',
+			'class' => '',
+			'id'    => '',
+		),
+		'return_format'     => 'array',
+		'library'           => 'all',
+		'min_size'          => '',
+		'max_size'          => '',
+		'mime_types'        => 'webm',
+	),
+	array(
+		'key'               => 'header_field_jpg',
+		'label'             => 'JPG',
+		'name'              => 'jpg',
+		'type'              => 'file',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'header_field_background_type',
+					'operator' => '==',
+					'value'    => 'Video',
+				),
+				array(
+					'field'    => 'header_field_elements',
+					'operator' => '==',
+					'value'    => 'Background',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '33.333',
+			'class' => '',
+			'id'    => '',
+		),
+		'return_format'     => 'array',
+		'library'           => 'all',
+		'min_size'          => '',
+		'max_size'          => '',
+		'mime_types'        => 'jpg',
+	),
+	array(
+		'key'               => 'header_field_background_color',
+		'label'             => 'Background Color',
+		'name'              => 'background_color',
+		'type'              => 'color_picker',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'header_field_background_type',
+					'operator' => '==',
+					'value'    => 'Color',
+				),
+				array(
+					'field'    => 'header_field_elements',
+					'operator' => '==',
+					'value'    => 'Background',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+	),
+];
+$header_sub_fields = apply_filters( 'afl/sub_fields/layout=header', $header_sub_fields );
+
 $header_layout_args                         = [
-	'key'        => '5638c4a2fa43a',
+	'key'        => 'afl_layout_header',
 	'name'       => 'layout_header',
 	'label'      => 'Header',
 	'display'    => 'block',
-	'sub_fields' => array(
-		$label_label_color_name_clone_args,
-		$classes_id_clone_args,
-		array(
-			'key'               => 'field_572944fdaf95d',
-			'label'             => 'Elements',
-			'name'              => 'elements',
-			'type'              => 'select',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'choices'           => array(
-				'Title'       => 'Title',
-				'Subtitle'    => 'Subtitle',
-				'Description' => 'Description',
-				'Link'        => 'Link',
-				'Background'  => 'Background',
-			),
-			'default_value'     => array(
-				0 => 'Title',
-				1 => 'Subtitle',
-				2 => 'Description',
-				3 => 'Link',
-				4 => 'Background',
-			),
-			'allow_null'        => 0,
-			'multiple'          => 1,
-			'ui'                => 1,
-			'ajax'              => 1,
-			'placeholder'       => '',
-			'disabled'          => 0,
-			'readonly'          => 0,
-			'return_format'     => 'value',
-		),
-		array(
-			'key'               => 'field_5638c4c8fa43c',
-			'label'             => 'Title',
-			'name'              => 'title',
-			'type'              => 'text',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_572944fdaf95d',
-						'operator' => '==',
-						'value'    => 'Title',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'maxlength'         => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-		array(
-			'key'               => 'field_5638c4d0fa43d',
-			'label'             => 'Subtitle',
-			'name'              => 'subtitle',
-			'type'              => 'text',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_572944fdaf95d',
-						'operator' => '==',
-						'value'    => 'Subtitle',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'maxlength'         => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-		array(
-			'key'               => 'field_5638c4dafa43e',
-			'label'             => 'Description',
-			'name'              => 'description',
-			'type'              => 'textarea',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_572944fdaf95d',
-						'operator' => '==',
-						'value'    => 'Description',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'maxlength'         => '',
-			'rows'              => 3,
-			'new_lines'         => 'wpautop',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-		array(
-			'key'               => 'field_5638c4e5fa43f',
-			'label'             => 'Link',
-			'name'              => 'link',
-			'type'              => 'page_link',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_572944fdaf95d',
-						'operator' => '==',
-						'value'    => 'Link',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '50',
-				'class' => '',
-				'id'    => '',
-			),
-			'post_type'         => array(),
-			'taxonomy'          => array(),
-			'allow_null'        => 0,
-			'allow_archives'    => 1,
-			'multiple'          => 0,
-		),
-		array(
-			'key'               => 'field_5638c4f0fa440',
-			'label'             => 'Link Text',
-			'name'              => 'link_text',
-			'type'              => 'text',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_572944fdaf95d',
-						'operator' => '==',
-						'value'    => 'Link',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '50',
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'maxlength'         => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-		array(
-			'key'               => 'field_5728dd18127f9',
-			'label'             => 'Background Type',
-			'name'              => 'background_type',
-			'type'              => 'radio',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_572944fdaf95d',
-						'operator' => '==',
-						'value'    => 'Background',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'choices'           => array(
-				'Image' => 'Image',
-				'Video' => 'Video',
-				'Color' => 'Color',
-			),
-			'other_choice'      => 0,
-			'save_other_choice' => 0,
-			'default_value'     => '',
-			'layout'            => 'horizontal',
-			'allow_null'        => 0,
-			'return_format'     => 'value',
-		),
-		array(
-			'key'               => 'field_5638c4b0fa43b',
-			'label'             => 'Background Image',
-			'name'              => 'background_image',
-			'type'              => 'image',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_5728dd18127f9',
-						'operator' => '==',
-						'value'    => 'Image',
-					),
-					array(
-						'field'    => 'field_572944fdaf95d',
-						'operator' => '==',
-						'value'    => 'Background',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => 50,
-				'class' => '',
-				'id'    => '',
-			),
-			'return_format'     => 'id',
-			'preview_size'      => 'thumbnail',
-			'library'           => 'all',
-			'min_width'         => '',
-			'min_height'        => '',
-			'min_size'          => '',
-			'max_width'         => '',
-			'max_height'        => '',
-			'max_size'          => '',
-			'mime_types'        => '',
-		),
-		array(
-			'key'               => 'field_5728ddbb127fa',
-			'label'             => 'MP4',
-			'name'              => 'mp4',
-			'type'              => 'file',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_5728dd18127f9',
-						'operator' => '==',
-						'value'    => 'Video',
-					),
-					array(
-						'field'    => 'field_572944fdaf95d',
-						'operator' => '==',
-						'value'    => 'Background',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '33.333',
-				'class' => '',
-				'id'    => '',
-			),
-			'return_format'     => 'array',
-			'library'           => 'all',
-			'min_size'          => '',
-			'max_size'          => '',
-			'mime_types'        => 'mp4',
-		),
-		array(
-			'key'               => 'field_5728dde5127fb',
-			'label'             => 'Webm',
-			'name'              => 'webm',
-			'type'              => 'file',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_5728dd18127f9',
-						'operator' => '==',
-						'value'    => 'Video',
-					),
-					array(
-						'field'    => 'field_572944fdaf95d',
-						'operator' => '==',
-						'value'    => 'Background',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '33.333',
-				'class' => '',
-				'id'    => '',
-			),
-			'return_format'     => 'array',
-			'library'           => 'all',
-			'min_size'          => '',
-			'max_size'          => '',
-			'mime_types'        => 'webm',
-		),
-		array(
-			'key'               => 'field_5728ddfa127fd',
-			'label'             => 'JPG',
-			'name'              => 'jpg',
-			'type'              => 'file',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_5728dd18127f9',
-						'operator' => '==',
-						'value'    => 'Video',
-					),
-					array(
-						'field'    => 'field_572944fdaf95d',
-						'operator' => '==',
-						'value'    => 'Background',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '33.333',
-				'class' => '',
-				'id'    => '',
-			),
-			'return_format'     => 'array',
-			'library'           => 'all',
-			'min_size'          => '',
-			'max_size'          => '',
-			'mime_types'        => 'jpg',
-		),
-		array(
-			'key'               => 'field_5728de08127fe',
-			'label'             => 'Background Color',
-			'name'              => 'background_color',
-			'type'              => 'color_picker',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_5728dd18127f9',
-						'operator' => '==',
-						'value'    => 'Color',
-					),
-					array(
-						'field'    => 'field_572944fdaf95d',
-						'operator' => '==',
-						'value'    => 'Background',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-		),
-	),
+	'sub_fields' => $header_sub_fields,
 	'min'        => '',
 	'max'        => '',
 ];
-$header_layout_args['sub_fields'][0]['key'] = 'field_header_label_label_color_name';
-$header_layout_args['sub_fields'][1]['key'] = 'field_header_classes_id';
+$header_layout_args['sub_fields'][0]['key'] = 'header_field_label_label_color_name';
+$header_layout_args['sub_fields'][1]['key'] = 'header_field_classes_id';
+
+$header_layout_args = apply_filters( 'afl/layout_args/layout=header', $header_layout_args );
 #endregion
 
 /*——————————————————————————————————————————————————————————
@@ -582,9 +612,9 @@ $header_layout_args['sub_fields'][1]['key'] = 'field_header_classes_id';
 #region Slideshow
 $slideshow_sub_fields = [
 	'label_label_color_name' => $label_label_color_name_clone_args,
-	'classes_id'             => $classes_id_clone_args,
+	'classes_id'             => $classes_id_indent_clone_hide_args,
 	'elements'               => array(
-		'key'               => 'field_5791054024d9f',
+		'key'               => 'slideshow_field_elements',
 		'label'             => 'Elements',
 		'name'              => 'elements',
 		'type'              => 'select',
@@ -622,7 +652,7 @@ $slideshow_sub_fields = [
 		'return_format'     => 'value',
 	),
 	'slideshow_background'   => array(
-		'key'               => 'field_5791054024da0',
+		'key'               => 'slideshow_field_background',
 		'label'             => 'Slideshow Background',
 		'name'              => 'slideshow_background',
 		'type'              => 'image',
@@ -631,7 +661,7 @@ $slideshow_sub_fields = [
 		'conditional_logic' => array(
 			array(
 				array(
-					'field'    => 'field_5791054024d9f',
+					'field'    => 'slideshow_field_elements',
 					'operator' => '==',
 					'value'    => 'Slideshow Background',
 				),
@@ -654,7 +684,7 @@ $slideshow_sub_fields = [
 		'mime_types'        => '',
 	),
 	'slides'                 => array(
-		'key'               => 'field_5791054024da1',
+		'key'               => 'slideshow_field_slides',
 		'label'             => 'Slides',
 		'name'              => 'slides',
 		'type'              => 'repeater',
@@ -666,14 +696,14 @@ $slideshow_sub_fields = [
 			'class' => '',
 			'id'    => '',
 		),
-		'collapsed'         => 'field_5791054024da2',
+		'collapsed'         => 'slideshow_field_slide_title',
 		'min'               => '',
 		'max'               => '',
 		'layout'            => 'block',
 		'button_label'      => 'Add Slide',
 		'sub_fields'        => array(
 			array(
-				'key'               => 'field_5791054024da2',
+				'key'               => 'slideshow_field_slide_title',
 				'label'             => 'Title',
 				'name'              => 'title',
 				'type'              => 'text',
@@ -682,7 +712,7 @@ $slideshow_sub_fields = [
 				'conditional_logic' => array(
 					array(
 						array(
-							'field'    => 'field_5791054024d9f',
+							'field'    => 'slideshow_field_elements',
 							'operator' => '==',
 							'value'    => 'Slide Title',
 						),
@@ -702,7 +732,7 @@ $slideshow_sub_fields = [
 				'disabled'          => 0,
 			),
 			array(
-				'key'               => 'field_5791054024da3',
+				'key'               => 'slideshow_field_slide_subtitle',
 				'label'             => 'Subtitle',
 				'name'              => 'subtitle',
 				'type'              => 'text',
@@ -711,7 +741,7 @@ $slideshow_sub_fields = [
 				'conditional_logic' => array(
 					array(
 						array(
-							'field'    => 'field_5791054024d9f',
+							'field'    => 'slideshow_field_elements',
 							'operator' => '==',
 							'value'    => 'Slide Subtitle',
 						),
@@ -731,7 +761,7 @@ $slideshow_sub_fields = [
 				'disabled'          => 0,
 			),
 			array(
-				'key'               => 'field_5791054024da4',
+				'key'               => 'slideshow_field_slide_description',
 				'label'             => 'Description',
 				'name'              => 'description',
 				'type'              => 'textarea',
@@ -740,7 +770,7 @@ $slideshow_sub_fields = [
 				'conditional_logic' => array(
 					array(
 						array(
-							'field'    => 'field_5791054024d9f',
+							'field'    => 'slideshow_field_elements',
 							'operator' => '==',
 							'value'    => 'Slide Description',
 						),
@@ -760,7 +790,7 @@ $slideshow_sub_fields = [
 				'disabled'          => 0,
 			),
 			array(
-				'key'               => 'field_5791054024da5',
+				'key'               => 'slideshow_field_slide_link',
 				'label'             => 'Link',
 				'name'              => 'link',
 				'type'              => 'page_link',
@@ -769,7 +799,7 @@ $slideshow_sub_fields = [
 				'conditional_logic' => array(
 					array(
 						array(
-							'field'    => 'field_5791054024d9f',
+							'field'    => 'slideshow_field_elements',
 							'operator' => '==',
 							'value'    => 'Slide Link',
 						),
@@ -787,7 +817,7 @@ $slideshow_sub_fields = [
 				'allow_archives'    => 1,
 			),
 			array(
-				'key'               => 'field_5791054024da6',
+				'key'               => 'slideshow_field_slide_link_text',
 				'label'             => 'Link Text',
 				'name'              => 'link_text',
 				'type'              => 'text',
@@ -796,7 +826,7 @@ $slideshow_sub_fields = [
 				'conditional_logic' => array(
 					array(
 						array(
-							'field'    => 'field_5791054024d9f',
+							'field'    => 'slideshow_field_elements',
 							'operator' => '==',
 							'value'    => 'Slide Link',
 						),
@@ -816,7 +846,7 @@ $slideshow_sub_fields = [
 				'disabled'          => 0,
 			),
 			array(
-				'key'               => 'field_5791054024da7',
+				'key'               => 'slideshow_field_slide_background',
 				'label'             => 'Background Type',
 				'name'              => 'background_type',
 				'type'              => 'radio',
@@ -825,7 +855,7 @@ $slideshow_sub_fields = [
 				'conditional_logic' => array(
 					array(
 						array(
-							'field'    => 'field_5791054024d9f',
+							'field'    => 'slideshow_field_elements',
 							'operator' => '==',
 							'value'    => 'Slide Background',
 						),
@@ -849,7 +879,7 @@ $slideshow_sub_fields = [
 				'return_format'     => 'value',
 			),
 			array(
-				'key'               => 'field_5791054024da8',
+				'key'               => 'slideshow_field_slide_background_image',
 				'label'             => 'Background Image',
 				'name'              => 'background_image',
 				'type'              => 'image',
@@ -858,12 +888,12 @@ $slideshow_sub_fields = [
 				'conditional_logic' => array(
 					array(
 						array(
-							'field'    => 'field_5791054024da7',
+							'field'    => 'slideshow_field_slide_background',
 							'operator' => '==',
 							'value'    => 'Image',
 						),
 						array(
-							'field'    => 'field_5791054024d9f',
+							'field'    => 'slideshow_field_elements',
 							'operator' => '==',
 							'value'    => 'Slide Background',
 						),
@@ -886,7 +916,7 @@ $slideshow_sub_fields = [
 				'mime_types'        => '',
 			),
 			array(
-				'key'               => 'field_5791054024da9',
+				'key'               => 'slideshow_field_slide_mp4',
 				'label'             => 'MP4',
 				'name'              => 'mp4',
 				'type'              => 'file',
@@ -895,12 +925,12 @@ $slideshow_sub_fields = [
 				'conditional_logic' => array(
 					array(
 						array(
-							'field'    => 'field_5791054024da7',
+							'field'    => 'slideshow_field_slide_background',
 							'operator' => '==',
 							'value'    => 'Video',
 						),
 						array(
-							'field'    => 'field_5791054024d9f',
+							'field'    => 'slideshow_field_elements',
 							'operator' => '==',
 							'value'    => 'Slide Background',
 						),
@@ -918,7 +948,7 @@ $slideshow_sub_fields = [
 				'mime_types'        => 'mp4',
 			),
 			array(
-				'key'               => 'field_5791054024daa',
+				'key'               => 'slideshow_field_slide_webm',
 				'label'             => 'Webm',
 				'name'              => 'webm',
 				'type'              => 'file',
@@ -927,12 +957,12 @@ $slideshow_sub_fields = [
 				'conditional_logic' => array(
 					array(
 						array(
-							'field'    => 'field_5791054024da7',
+							'field'    => 'slideshow_field_slide_background',
 							'operator' => '==',
 							'value'    => 'Video',
 						),
 						array(
-							'field'    => 'field_5791054024d9f',
+							'field'    => 'slideshow_field_elements',
 							'operator' => '==',
 							'value'    => 'Slide Background',
 						),
@@ -950,7 +980,7 @@ $slideshow_sub_fields = [
 				'mime_types'        => 'webm',
 			),
 			array(
-				'key'               => 'field_5791054024dab',
+				'key'               => 'slideshow_field_slide_jpg',
 				'label'             => 'JPG',
 				'name'              => 'jpg',
 				'type'              => 'file',
@@ -959,12 +989,12 @@ $slideshow_sub_fields = [
 				'conditional_logic' => array(
 					array(
 						array(
-							'field'    => 'field_5791054024da7',
+							'field'    => 'slideshow_field_slide_background',
 							'operator' => '==',
 							'value'    => 'Video',
 						),
 						array(
-							'field'    => 'field_5791054024d9f',
+							'field'    => 'slideshow_field_elements',
 							'operator' => '==',
 							'value'    => 'Slide Background',
 						),
@@ -982,7 +1012,7 @@ $slideshow_sub_fields = [
 				'mime_types'        => 'jpg',
 			),
 			array(
-				'key'               => 'field_5791054024dac',
+				'key'               => 'slideshow_field_slide_background_color',
 				'label'             => 'Background Color',
 				'name'              => 'background_color',
 				'type'              => 'color_picker',
@@ -991,12 +1021,12 @@ $slideshow_sub_fields = [
 				'conditional_logic' => array(
 					array(
 						array(
-							'field'    => 'field_5791054024da7',
+							'field'    => 'slideshow_field_slide_background',
 							'operator' => '==',
 							'value'    => 'Color',
 						),
 						array(
-							'field'    => 'field_5791054024d9f',
+							'field'    => 'slideshow_field_elements',
 							'operator' => '==',
 							'value'    => 'Slide Background',
 						),
@@ -1010,7 +1040,7 @@ $slideshow_sub_fields = [
 				'default_value'     => '',
 			),
 			array(
-				'key'               => 'field_5791054024dad',
+				'key'               => 'slideshow_field_slide_show_hide',
 				'label'             => 'Show/Hide',
 				'name'              => 'show',
 				'type'              => 'true_false',
@@ -1026,11 +1056,11 @@ $slideshow_sub_fields = [
 				'default_value'     => 1,
 			),
 			array(
-				'key'               => 'field_5791054024dae',
+				'key'               => 'slideshow_field_slide_classes',
 				'label'             => 'Classes',
 				'name'              => 'class',
 				'type'              => 'text',
-				'instructions'      => '',
+				'instructions'      => 'Comma-separated list.',
 				'required'          => 0,
 				'conditional_logic' => 0,
 				'wrapper'           => array(
@@ -1047,11 +1077,1498 @@ $slideshow_sub_fields = [
 				'disabled'          => 0,
 			),
 			array(
-				'key'               => 'field_5791054024daf',
+				'key'               => 'slideshow_field_slide_id',
 				'label'             => 'ID',
 				'name'              => 'id',
 				'type'              => 'text',
+				'instructions'      => 'One word only.',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '33',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			),
+			array(
+				'key'               => 'slideshow_field_slide_hide',
+				'label'             => 'Hide',
+				'name'              => 'hide',
+				'type'              => 'true_false',
+				'instructions'      => 'Don\'t show this.',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '17',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => false,
+			),
+		),
+	),
+];
+$slideshow_sub_fields = apply_filters( 'afl/sub_fields/layout=slideshow', $slideshow_sub_fields );
+
+$slideshow_layout_args                                                = [
+	'key'        => 'afl_layout_slideshow',
+	'name'       => 'layout_slideshow',
+	'label'      => 'Slideshow',
+	'display'    => 'block',
+	'sub_fields' => $slideshow_sub_fields,
+	'min'        => '',
+	'max'        => '',
+];
+$slideshow_layout_args['sub_fields']['label_label_color_name']['key'] = 'slideshow_field_label_label_color_name';
+$slideshow_layout_args['sub_fields']['classes_id']['key']             = 'slideshow_field_classes_id';
+
+$slideshow_layout_args = apply_filters( 'afl/layout_args/layout=slideshow', $slideshow_layout_args );
+#endregion
+
+/*——————————————————————————————————————————————————————————
+/  Post List
+——————————————————————————————————————————————————————————*/
+#region Post List
+$post_list_sub_fields = [
+	$label_label_color_name_clone_args,
+	$classes_id_indent_clone_hide_args,
+	array(
+		'key'               => 'post_list_field_list_title',
+		'label'             => 'List Title',
+		'name'              => 'list_title',
+		'type'              => 'text',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'maxlength'         => '',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+	array(
+		'key'               => 'post_list_field_data_type',
+		'label'             => 'Data Type',
+		'name'              => 'data_type',
+		'type'              => 'select',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'choices'           => array(
+			'Automatic' => 'Automatic',
+			'Manual'    => 'Manual',
+		),
+		'default_value'     => array(),
+		'allow_null'        => 0,
+		'multiple'          => 0,
+		'ui'                => 0,
+		'ajax'              => 0,
+		'placeholder'       => '',
+		'disabled'          => 0,
+		'readonly'          => 0,
+		'return_format'     => 'value',
+	),
+	array(
+		'key'               => 'post_list_field_post_type',
+		'label'             => 'Post Type',
+		'name'              => 'post_type',
+		'type'              => 'post_type_selector',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'post_list_field_data_type',
+					'operator' => '==',
+					'value'    => 'Automatic',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => 50,
+			'class' => '',
+			'id'    => '',
+		),
+		'fields[post_type'  => array(
+			'select_type' => 0,
+		),
+		'select_type'       => 2,
+	),
+	array(
+		'key'               => 'post_list_field_number_of_posts',
+		'label'             => 'Number of Posts',
+		'name'              => 'number_of_posts',
+		'type'              => 'number',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'post_list_field_data_type',
+					'operator' => '==',
+					'value'    => 'Automatic',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => 50,
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'min'               => 1,
+		'max'               => '',
+		'step'              => '',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+	array(
+		'key'               => 'post_list_field_manual_posts',
+		'label'             => 'Manual Posts',
+		'name'              => 'manual_posts',
+		'type'              => 'relationship',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'post_list_field_data_type',
+					'operator' => '==',
+					'value'    => 'Manual',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'post_type'         => array(),
+		'taxonomy'          => array(),
+		'filters'           => array(
+			0 => 'search',
+			1 => 'post_type',
+			2 => 'taxonomy',
+		),
+		'elements'          => '',
+		'min'               => '',
+		'max'               => '',
+		'return_format'     => 'object',
+	),
+	array(
+		'key'               => 'post_list_field_list_link',
+		'label'             => 'List Link',
+		'name'              => 'link',
+		'type'              => 'page_link',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => 50,
+			'class' => '',
+			'id'    => '',
+		),
+		'post_type'         => array(),
+		'taxonomy'          => array(),
+		'allow_null'        => 0,
+		'multiple'          => 0,
+		'allow_archives'    => 1,
+	),
+	array(
+		'key'               => 'post_list_field_list_link_text',
+		'label'             => 'List Link Text',
+		'name'              => 'link_text',
+		'type'              => 'text',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => 50,
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'maxlength'         => '',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+];
+$post_list_sub_fields = apply_filters( 'afl/sub_fields/layout=post_list', $post_list_sub_fields );
+
+$post_list_layout_args                         = [
+	'key'        => 'afl_layout_post_list',
+	'name'       => 'layout_post_list',
+	'label'      => 'Post List',
+	'display'    => 'block',
+	'sub_fields' => $post_list_sub_fields,
+	'min'        => '',
+	'max'        => '',
+];
+$post_list_layout_args['sub_fields'][0]['key'] = 'post_list_field_label_label_color_name';
+$post_list_layout_args['sub_fields'][1]['key'] = 'post_list_field_classes_id';
+
+$post_list_layout_args = apply_filters( 'afl/layout_args/layout=post_list', $post_list_layout_args );
+#endregion
+
+/*——————————————————————————————————————————————————————————
+/  Map
+——————————————————————————————————————————————————————————*/
+#region Map
+$map_sub_fields = [
+	$label_label_color_name_clone_args,
+	$classes_id_indent_clone_hide_args,
+	array(
+		'key'               => 'map_field_title',
+		'label'             => 'Title',
+		'name'              => 'title',
+		'type'              => 'text',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => 75,
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'maxlength'         => '',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+	array(
+		'key'               => 'map_field_zoom_level',
+		'label'             => 'Zoom Level',
+		'name'              => 'zoom_level',
+		'type'              => 'number',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => 25,
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => 12,
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'min'               => 1,
+		'max'               => 16,
+		'step'              => 1,
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+	array(
+		'key'               => 'map_field_markers',
+		'label'             => 'Markers',
+		'name'              => 'markers',
+		'type'              => 'repeater',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => 75,
+			'class' => '',
+			'id'    => '',
+		),
+		'min'               => '',
+		'max'               => '',
+		'layout'            => 'block',
+		'button_label'      => 'Add Marker',
+		'collapsed'         => '',
+		'sub_fields'        => array(
+			array(
+				'key'               => 'map_field_markers_marker',
+				'label'             => 'Marker',
+				'name'              => 'marker',
+				'type'              => 'google_map',
 				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'center_lat'        => '',
+				'center_lng'        => '',
+				'zoom'              => '',
+				'height'            => 200,
+			),
+		),
+	),
+	array(
+		'key'               => 'map_field_options',
+		'label'             => 'Options',
+		'name'              => 'options',
+		'type'              => 'checkbox',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => 25,
+			'class' => '',
+			'id'    => '',
+		),
+		'choices'           => array(
+			'show_markers'     => 'Show Markers',
+			'disable_controls' => 'Disable Controls',
+			'allow_panning'    => 'Allow Panning',
+			'allow_dragging'   => 'Allow Dragging',
+			'allow_zooming'    => 'Allow Zooming',
+		),
+		'default_value'     => array(
+			'true' => 'true',
+		),
+		'layout'            => 'vertical',
+		'toggle'            => 0,
+		'return_format'     => 'value',
+	),
+];
+$map_sub_fields = apply_filters( 'afl/sub_fields/layout=map', $map_sub_fields );
+
+$map_layout_args                         = [
+	'key'        => 'afl_layout_map',
+	'name'       => 'layout_map',
+	'label'      => 'Map',
+	'display'    => 'block',
+	'sub_fields' => $map_sub_fields,
+	'min'        => '',
+	'max'        => '',
+];
+$map_layout_args['sub_fields'][0]['key'] = 'map_field_label_label_color_name';
+$map_layout_args['sub_fields'][1]['key'] = 'map_field_classes_id';
+
+$map_layout_args = apply_filters( 'afl/layout_args/layout=map', $map_layout_args );
+#endregion
+
+/*——————————————————————————————————————————————————————————
+/  Tabs
+——————————————————————————————————————————————————————————*/
+#region Tabs
+$tab_sub_fields = [
+	$label_label_color_name_clone_args,
+	$classes_id_indent_clone_hide_args,
+	array(
+		'key'               => 'tabs_field_elements',
+		'label'             => 'Elements',
+		'name'              => 'elements',
+		'type'              => 'select',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'choices'           => array(
+			'Section Background Image' => 'Section Background Image',
+			'Title'                    => 'Title',
+			'Subtitle'                 => 'Subtitle',
+			'Text'                     => 'Text',
+			'Link'                     => 'Link',
+		),
+		'default_value'     => array(
+			0 => 'Section Background Image',
+			1 => 'Title',
+			2 => 'Subtitle',
+			3 => 'Text',
+			4 => 'Link',
+		),
+		'allow_null'        => 0,
+		'multiple'          => 1,
+		'ui'                => 1,
+		'ajax'              => 1,
+		'placeholder'       => '',
+		'disabled'          => 0,
+		'readonly'          => 0,
+		'return_format'     => 'value',
+	),
+	array(
+		'key'               => 'tabs_field_background_image',
+		'label'             => 'Background Image',
+		'name'              => 'background_image',
+		'type'              => 'image',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'tabs_field_elements',
+					'operator' => '==',
+					'value'    => 'Section Background Image',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'return_format'     => 'id',
+		'preview_size'      => 'thumbnail',
+		'library'           => 'all',
+		'min_width'         => '',
+		'min_height'        => '',
+		'min_size'          => '',
+		'max_width'         => '',
+		'max_height'        => '',
+		'max_size'          => '',
+		'mime_types'        => '',
+	),
+	array(
+		'key'               => 'tabs_field_tabs',
+		'label'             => 'Tabs',
+		'name'              => 'tabs',
+		'type'              => 'repeater',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'collapsed'         => 'tabs_field_tabs_tab_title',
+		'min'               => '',
+		'max'               => '',
+		'layout'            => 'block',
+		'button_label'      => 'Add Tab',
+		'sub_fields'        => array(
+			array(
+				'key'               => 'tabs_field_tabs_tab_title',
+				'label'             => 'Tab Title',
+				'name'              => 'tab_title',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 1,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			),
+			array(
+				'key'               => 'tabs_field_tabs_title',
+				'label'             => 'Title',
+				'name'              => 'title',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'tabs_field_elements',
+							'operator' => '==',
+							'value'    => 'Title',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			),
+			array(
+				'key'               => 'tabs_field_tabs_subtitle',
+				'label'             => 'Subtitle',
+				'name'              => 'subtitle',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'tabs_field_elements',
+							'operator' => '==',
+							'value'    => 'Subtitle',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			),
+			array(
+				'key'               => 'tabs_field_tabs_text',
+				'label'             => 'Text',
+				'name'              => 'text',
+				'type'              => 'wysiwyg',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'tabs_field_elements',
+							'operator' => '==',
+							'value'    => 'Text',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'tabs'              => 'all',
+				'toolbar'           => 'full',
+				'media_upload'      => 1,
+			),
+			array(
+				'key'               => 'tabs_field_tabs_link',
+				'label'             => 'Link',
+				'name'              => 'link',
+				'type'              => 'url',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'tabs_field_elements',
+							'operator' => '==',
+							'value'    => 'Link',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => 50,
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+			),
+			array(
+				'key'               => 'tabs_field_tabs_link_text',
+				'label'             => 'Link Text',
+				'name'              => 'link_text',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'tabs_field_elements',
+							'operator' => '==',
+							'value'    => 'Link',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => 50,
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			),
+			array(
+				'key'               => 'tabs_field_tabs_show_hide',
+				'label'             => 'Show/Hide',
+				'name'              => 'show',
+				'type'              => 'true_false',
+				'instructions'      => 'Check this box to show the slide. Uncheck it to hide the slide.',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'message'           => '',
+				'default_value'     => 1,
+			),
+			array(
+				'key'               => 'tabs_field_tabs_classes',
+				'label'             => 'Classes',
+				'name'              => 'class',
+				'type'              => 'text',
+				'instructions'      => 'Comma-separated list.',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '50',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			),
+			array(
+				'key'               => 'tabs_field_tabs_id',
+				'label'             => 'ID',
+				'name'              => 'id',
+				'type'              => 'text',
+				'instructions'      => 'One word only.',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '33',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			),
+			array(
+				'key'               => 'tabs_field_tabs_hide',
+				'label'             => 'Hide',
+				'name'              => 'hide',
+				'type'              => 'true_false',
+				'instructions'      => 'Don\'t show this.',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '17',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => false,
+			),
+		),
+	),
+];
+$tab_sub_fields = apply_filters( 'afl/sub_fields/layout=tab', $tab_sub_fields );
+
+$tabs_layout_args                         = [
+	'key'        => 'afl_layout_tabs',
+	'name'       => 'layout_tabs',
+	'label'      => 'Tabs',
+	'display'    => 'block',
+	'sub_fields' => $tab_sub_fields,
+	'min'        => '',
+	'max'        => '',
+];
+$tabs_layout_args['sub_fields'][0]['key'] = 'tabs_field_label_label_color_name';
+$tabs_layout_args['sub_fields'][1]['key'] = 'tabs_field_classes_id';
+
+$tabs_layout_args = apply_filters( 'afl/layout_args/layout=tab', $tabs_layout_args );
+#endregion
+
+/*——————————————————————————————————————————————————————————
+/  Blurb
+——————————————————————————————————————————————————————————*/
+#region Blurb
+$blurb_sub_fields = [
+	$label_label_color_name_clone_args,
+	$classes_id_indent_clone_hide_args,
+	array(
+		'key'               => 'blurb_field_elements',
+		'label'             => 'Elements',
+		'name'              => 'elements',
+		'type'              => 'select',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'choices'           => array(
+			'Image' => 'Image',
+			'Icon'  => 'Icon',
+			'Title' => 'Title',
+			'Text'  => 'Text',
+			'Link'  => 'Link',
+		),
+		'default_value'     => array(
+			0 => 'Image',
+			1 => 'Title',
+			2 => 'Text',
+			3 => 'Link',
+		),
+		'allow_null'        => 0,
+		'multiple'          => 1,
+		'ui'                => 1,
+		'ajax'              => 1,
+		'placeholder'       => '',
+		'disabled'          => 0,
+		'readonly'          => 0,
+		'return_format'     => 'value',
+	),
+	array(
+		'key'               => 'blurb_field_foreground_image',
+		'label'             => 'Image',
+		'name'              => 'foreground_image',
+		'type'              => 'image',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'blurb_field_elements',
+					'operator' => '==',
+					'value'    => 'Image',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => 50,
+			'class' => '',
+			'id'    => '',
+		),
+		'return_format'     => 'id',
+		'preview_size'      => 'thumbnail',
+		'library'           => 'all',
+		'min_width'         => '',
+		'min_height'        => '',
+		'min_size'          => '',
+		'max_width'         => '',
+		'max_height'        => '',
+		'max_size'          => '',
+		'mime_types'        => '',
+	),
+	array(
+		'key'               => 'blurb_field_icon_name',
+		'label'             => 'Icon Name',
+		'name'              => 'icon_name',
+		'type'              => 'text',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'blurb_field_elements',
+					'operator' => '==',
+					'value'    => 'Icon',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => 50,
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'maxlength'         => '',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+	array(
+		'key'               => 'blurb_field_media_placement',
+		'label'             => 'Media Placement',
+		'name'              => 'media_placement',
+		'type'              => 'radio',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'blurb_field_elements',
+					'operator' => '==',
+					'value'    => 'Image',
+				),
+			),
+			array(
+				array(
+					'field'    => 'blurb_field_elements',
+					'operator' => '==',
+					'value'    => 'Icon',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => 50,
+			'class' => '',
+			'id'    => '',
+		),
+		'choices'           => array(
+			'top'   => 'Top',
+			'left'  => 'Left',
+			'right' => 'Right',
+		),
+		'other_choice'      => 0,
+		'save_other_choice' => 0,
+		'default_value'     => '',
+		'layout'            => 'horizontal',
+		'allow_null'        => 0,
+		'return_format'     => 'value',
+	),
+	array(
+		'key'               => 'blurb_field_title',
+		'label'             => 'Title',
+		'name'              => 'title',
+		'type'              => 'text',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'blurb_field_elements',
+					'operator' => '==',
+					'value'    => 'Title',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'maxlength'         => '',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+	array(
+		'key'               => 'blurb_field_text',
+		'label'             => 'Text',
+		'name'              => 'text',
+		'type'              => 'wysiwyg',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'blurb_field_elements',
+					'operator' => '==',
+					'value'    => 'Text',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'tabs'              => 'all',
+		'toolbar'           => 'full',
+		'media_upload'      => 1,
+	),
+	array(
+		'key'               => 'blurb_field_link_text',
+		'label'             => 'Link Text',
+		'name'              => 'link_text',
+		'type'              => 'text',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'blurb_field_elements',
+					'operator' => '==',
+					'value'    => 'Link',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => 50,
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'maxlength'         => '',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+	array(
+		'key'               => 'blurb_field_link_url',
+		'label'             => 'Link URL',
+		'name'              => 'link_url',
+		'type'              => 'page_link',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'blurb_field_elements',
+					'operator' => '==',
+					'value'    => 'Link',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => 50,
+			'class' => '',
+			'id'    => '',
+		),
+		'post_type'         => array(),
+		'taxonomy'          => array(),
+		'allow_null'        => 0,
+		'multiple'          => 0,
+		'allow_archives'    => 1,
+	),
+];
+$blurb_sub_fields = apply_filters( 'afl/sub_fields/layout=blurb', $blurb_sub_fields );
+
+$blurb_layout_args                         = [
+	'key'        => 'afl_layout_blurb',
+	'name'       => 'layout_blurb',
+	'label'      => 'Blurb',
+	'display'    => 'block',
+	'sub_fields' => $blurb_sub_fields,
+	'min'        => '',
+	'max'        => '',
+];
+$blurb_layout_args['sub_fields'][0]['key'] = 'blurb_field_label_label_color_name';
+$blurb_layout_args['sub_fields'][1]['key'] = 'blurb_field_classes_id';
+
+$blurb_layout_args = apply_filters( 'afl/layout_args/layout=blurb', $blurb_layout_args );
+#endregion
+
+/*——————————————————————————————————————————————————————————
+/  Blurblist
+——————————————————————————————————————————————————————————*/
+#region Blurblist
+$blurblist_sub_fields = [
+	$label_label_color_name_clone_args,
+	$classes_id_indent_clone_hide_args,
+	array(
+		'key'               => 'blurb_list_field_background_type',
+		'label'             => 'Background Type',
+		'name'              => 'background_type',
+		'type'              => 'radio',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '33.333',
+			'class' => '',
+			'id'    => '',
+		),
+		'choices'           => array(
+			'None'  => 'None',
+			'Image' => 'Image',
+			'Color' => 'Color',
+		),
+		'other_choice'      => 0,
+		'save_other_choice' => 0,
+		'default_value'     => '',
+		'layout'            => 'horizontal',
+		'allow_null'        => 0,
+		'return_format'     => 'value',
+	),
+	array(
+		'key'               => 'blurb_list_field_link_type',
+		'label'             => 'Link Type',
+		'name'              => 'link_type',
+		'type'              => 'radio',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '33.333',
+			'class' => '',
+			'id'    => '',
+		),
+		'choices'           => array(
+			'Button'     => 'Button',
+			'Background' => 'Background',
+		),
+		'other_choice'      => 0,
+		'save_other_choice' => 0,
+		'default_value'     => '',
+		'layout'            => 'horizontal',
+		'allow_null'        => 0,
+		'return_format'     => 'value',
+	),
+	array(
+		'key'               => 'blurb_list_field_link_address',
+		'label'             => 'Link Address',
+		'name'              => 'link_location',
+		'type'              => 'radio',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '33.333',
+			'class' => '',
+			'id'    => '',
+		),
+		'choices'           => array(
+			'Internal' => 'Internal',
+			'External' => 'External',
+		),
+		'other_choice'      => 0,
+		'save_other_choice' => 0,
+		'default_value'     => '',
+		'layout'            => 'horizontal',
+		'allow_null'        => 0,
+		'return_format'     => 'value',
+	),
+	array(
+		'key'               => 'blurb_list_field_blurb_classes',
+		'label'             => 'Blurb Classes',
+		'name'              => 'blurb_classes',
+		'type'              => 'text',
+		'instructions'      => 'Classes that are shared for each blurb (good for column classes).',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'maxlength'         => '',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+	array(
+		'key'               => 'blurb_list_field_elements',
+		'label'             => 'Elements',
+		'name'              => 'elements',
+		'type'              => 'select',
+		'instructions'      => 'Control layout fields.',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'choices'           => array(
+			'List Title'  => 'List Title',
+			'List Intro'  => 'List Intro',
+			'Blurb Image' => 'Blurb Image',
+			'Blurb Title' => 'Blurb Title',
+			'Blurb Text'  => 'Blurb Text',
+			'Blurb Link'  => 'Blurb Link',
+			'List Link'   => 'List Link',
+		),
+		'default_value'     => array(
+			0 => 'List Title',
+			1 => 'List Intro',
+			2 => 'Blurb Image',
+			3 => 'Blurb Title',
+			4 => 'Blurb Text',
+			5 => 'Blurb Link',
+			6 => 'List Link',
+		),
+		'allow_null'        => 0,
+		'multiple'          => 1,
+		'ui'                => 1,
+		'ajax'              => 0,
+		'placeholder'       => '',
+		'disabled'          => 0,
+		'readonly'          => 0,
+		'return_format'     => 'value',
+	),
+	array(
+		'key'               => 'blurb_list_field_list_title',
+		'label'             => 'List Title',
+		'name'              => 'list_title',
+		'type'              => 'text',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'blurb_list_field_elements',
+					'operator' => '==',
+					'value'    => 'List Title',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'maxlength'         => '',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+	array(
+		'key'               => 'blurb_list_field_list_intro',
+		'label'             => 'List Intro',
+		'name'              => 'list_intro',
+		'type'              => 'text',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'blurb_list_field_elements',
+					'operator' => '==',
+					'value'    => 'List Intro',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'maxlength'         => '',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
+	array(
+		'key'               => 'blurb_list_field_blurbs',
+		'label'             => 'Blurbs',
+		'name'              => 'blurbs',
+		'type'              => 'repeater',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'collapsed'         => 'blurb_list_field_blurbs_blurb_label',
+		'min'               => '',
+		'max'               => '',
+		'layout'            => 'block',
+		'button_label'      => 'Add Blurb',
+		'sub_fields'        => array(
+			array(
+				'key'               => 'blurb_list_field_blurbs_blurb_label',
+				'label'             => 'Label',
+				'name'              => 'label',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 1,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			),
+			array(
+				'key'               => 'blurb_list_field_blurbs_blurb_foreground_image',
+				'label'             => 'Foreground Image',
+				'name'              => 'foreground_image',
+				'type'              => 'image',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'blurb_list_field_elements',
+							'operator' => '==',
+							'value'    => 'Blurb Image',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'return_format'     => 'id',
+				'preview_size'      => 'thumbnail',
+				'library'           => 'all',
+				'min_width'         => '',
+				'min_height'        => '',
+				'min_size'          => '',
+				'max_width'         => '',
+				'max_height'        => '',
+				'max_size'          => '',
+				'mime_types'        => '',
+			),
+			array(
+				'key'               => 'blurb_list_field_blurbs_blurb_title',
+				'label'             => 'Title',
+				'name'              => 'title',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'blurb_list_field_elements',
+							'operator' => '==',
+							'value'    => 'Blurb Title',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			),
+			array(
+				'key'               => 'blurb_list_field_blurbs_blurb_text',
+				'label'             => 'Text',
+				'name'              => 'text',
+				'type'              => 'wysiwyg',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'blurb_list_field_elements',
+							'operator' => '==',
+							'value'    => 'Blurb Text',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'tabs'              => 'all',
+				'toolbar'           => 'full',
+				'media_upload'      => 1,
+			),
+			array(
+				'key'               => 'blurb_list_field_blurbs_blurb_link',
+				'label'             => 'Link',
+				'name'              => 'link',
+				'type'              => 'url',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'blurb_list_field_elements',
+							'operator' => '==',
+							'value'    => 'Blurb Link',
+						),
+						array(
+							'field'    => 'blurb_list_field_link_address',
+							'operator' => '==',
+							'value'    => 'External',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+			),
+			array(
+				'key'               => 'blurb_list_field_blurbs_blurb_page_link',
+				'label'             => 'Page Link',
+				'name'              => 'page_link',
+				'type'              => 'page_link',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'blurb_list_field_link_address',
+							'operator' => '==',
+							'value'    => 'Internal',
+						),
+						array(
+							'field'    => 'blurb_list_field_elements',
+							'operator' => '==',
+							'value'    => 'Blurb Link',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'post_type'         => array(),
+				'taxonomy'          => array(),
+				'allow_null'        => 0,
+				'multiple'          => 0,
+				'allow_archives'    => 1,
+			),
+			array(
+				'key'               => 'blurb_list_field_blurbs_blurb_link_text',
+				'label'             => 'Link Text',
+				'name'              => 'link_text',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'blurb_list_field_link_type',
+							'operator' => '==',
+							'value'    => 'Button',
+						),
+						array(
+							'field'    => 'blurb_list_field_elements',
+							'operator' => '==',
+							'value'    => 'Blurb Link',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			),
+			array(
+				'key'               => 'blurb_list_field_blurbs_blurb_background_image',
+				'label'             => 'Background Image',
+				'name'              => 'background_image',
+				'type'              => 'image',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'blurb_list_field_background_type',
+							'operator' => '==',
+							'value'    => 'Image',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'return_format'     => 'id',
+				'preview_size'      => 'thumbnail',
+				'library'           => 'all',
+				'min_width'         => '',
+				'min_height'        => '',
+				'min_size'          => '',
+				'max_width'         => '',
+				'max_height'        => '',
+				'max_size'          => '',
+				'mime_types'        => '',
+			),
+			array(
+				'key'               => 'blurb_list_field_blurbs_blurb_background_color',
+				'label'             => 'Background Color',
+				'name'              => 'background_color',
+				'type'              => 'color_picker',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'blurb_list_field_background_type',
+							'operator' => '==',
+							'value'    => 'Color',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+			),
+			array(
+				'key'               => 'blurb_list_field_blurbs_blurb_classes',
+				'label'             => 'Classes',
+				'name'              => 'class',
+				'type'              => 'text',
+				'instructions'      => 'Comma-separated list.',
 				'required'          => 0,
 				'conditional_logic' => 0,
 				'wrapper'           => array(
@@ -1067,1608 +2584,196 @@ $slideshow_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-		),
-	),
-];
-$slideshow_sub_fields = apply_filters( 'acf_flex_layouts_slideshow_sub_fields', $slideshow_sub_fields );
-
-$slideshow_layout_args                                                = [
-	'key'        => '5791054024d9b',
-	'name'       => 'layout_slideshow',
-	'label'      => 'Slideshow',
-	'display'    => 'block',
-	'sub_fields' => $slideshow_sub_fields,
-	'min'        => '',
-	'max'        => '',
-];
-$slideshow_layout_args['sub_fields']['label_label_color_name']['key'] = 'field_slideshow_label_label_color_name';
-$slideshow_layout_args['sub_fields']['classes_id']['key']             = 'field_slideshow_classes_id';
-
-$slideshow_layout_args = apply_filters( 'acf_flex_layouts_slideshow_layout_args', $slideshow_layout_args );
-#endregion
-
-/*——————————————————————————————————————————————————————————
-/  Post List
-——————————————————————————————————————————————————————————*/
-#region Post List
-$post_list_layout_args                         = [
-	'key'        => '56381eafdaee1',
-	'name'       => 'layout_post_list',
-	'label'      => 'Post List',
-	'display'    => 'block',
-	'sub_fields' => array(
-		$label_label_color_name_clone_args,
-		$classes_id_clone_args,
-		array(
-			'key'               => 'field_563b63432ae8a',
-			'label'             => 'List Title',
-			'name'              => 'list_title',
-			'type'              => 'text',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'maxlength'         => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-		array(
-			'key'               => 'field_5728eea4a58e0',
-			'label'             => 'Data Type',
-			'name'              => 'data_type',
-			'type'              => 'select',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'choices'           => array(
-				'Automatic' => 'Automatic',
-				'Manual'    => 'Manual',
-			),
-			'default_value'     => array(),
-			'allow_null'        => 0,
-			'multiple'          => 0,
-			'ui'                => 0,
-			'ajax'              => 0,
-			'placeholder'       => '',
-			'disabled'          => 0,
-			'readonly'          => 0,
-			'return_format'     => 'value',
-		),
-		array(
-			'key'               => 'field_56381eeddaee2',
-			'label'             => 'Post Type',
-			'name'              => 'post_type',
-			'type'              => 'post_type_selector',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_5728eea4a58e0',
-						'operator' => '==',
-						'value'    => 'Automatic',
-					),
+			array(
+				'key'               => 'blurb_list_field_blurbs_blurb_id',
+				'label'             => 'ID',
+				'name'              => 'id',
+				'type'              => 'text',
+				'instructions'      => 'One word only.',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '33',
+					'class' => '',
+					'id'    => '',
 				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
 			),
-			'wrapper'           => array(
-				'width' => 50,
-				'class' => '',
-				'id'    => '',
-			),
-			'fields[post_type'  => array(
-				'select_type' => 0,
-			),
-			'select_type'       => 2,
-		),
-		array(
-			'key'               => 'field_56382053daee4',
-			'label'             => 'Number of Posts',
-			'name'              => 'number_of_posts',
-			'type'              => 'number',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_5728eea4a58e0',
-						'operator' => '==',
-						'value'    => 'Automatic',
-					),
+			array(
+				'key'               => 'blurb_list_field_blurbs_blurb_hide',
+				'label'             => 'Hide',
+				'name'              => 'hide',
+				'type'              => 'true_false',
+				'instructions'      => 'Don\'t show this.',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '17',
+					'class' => '',
+					'id'    => '',
 				),
-			),
-			'wrapper'           => array(
-				'width' => 50,
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'min'               => 1,
-			'max'               => '',
-			'step'              => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-		array(
-			'key'               => 'field_563b624a4d01b',
-			'label'             => 'Manual Posts',
-			'name'              => 'manual_posts',
-			'type'              => 'relationship',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_5728eea4a58e0',
-						'operator' => '==',
-						'value'    => 'Manual',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'post_type'         => array(),
-			'taxonomy'          => array(),
-			'filters'           => array(
-				0 => 'search',
-				1 => 'post_type',
-				2 => 'taxonomy',
-			),
-			'elements'          => '',
-			'min'               => '',
-			'max'               => '',
-			'return_format'     => 'object',
-		),
-		array(
-			'key'               => 'field_56382065daee5',
-			'label'             => 'List Link',
-			'name'              => 'link',
-			'type'              => 'page_link',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => 50,
-				'class' => '',
-				'id'    => '',
-			),
-			'post_type'         => array(),
-			'taxonomy'          => array(),
-			'allow_null'        => 0,
-			'multiple'          => 0,
-			'allow_archives'    => 1,
-		),
-		array(
-			'key'               => 'field_563820addaee6',
-			'label'             => 'List Link Text',
-			'name'              => 'link_text',
-			'type'              => 'text',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => 50,
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'maxlength'         => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-	),
-	'min'        => '',
-	'max'        => '',
-];
-$post_list_layout_args['sub_fields'][0]['key'] = 'field_post_list_label_label_color_name';
-$post_list_layout_args['sub_fields'][1]['key'] = 'field_post_list_classes_id';
-#endregion
-
-/*——————————————————————————————————————————————————————————
-/  Map
-——————————————————————————————————————————————————————————*/
-#region Map
-$map_layout_args                         = [
-	'key'        => '563820c9daee7',
-	'name'       => 'layout_map',
-	'label'      => 'Map',
-	'display'    => 'block',
-	'sub_fields' => array(
-		$label_label_color_name_clone_args,
-		$classes_id_clone_args,
-		array(
-			'key'               => 'field_5638b538fa415',
-			'label'             => 'Title',
-			'name'              => 'title',
-			'type'              => 'text',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => 75,
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'maxlength'         => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-		array(
-			'key'               => 'field_564205432acd0',
-			'label'             => 'Zoom Level',
-			'name'              => 'zoom_level',
-			'type'              => 'number',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => 25,
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => 12,
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'min'               => 1,
-			'max'               => 16,
-			'step'              => 1,
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-		array(
-			'key'               => 'field_5638b5effa416',
-			'label'             => 'Markers',
-			'name'              => 'markers',
-			'type'              => 'repeater',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => 75,
-				'class' => '',
-				'id'    => '',
-			),
-			'min'               => '',
-			'max'               => '',
-			'layout'            => 'block',
-			'button_label'      => 'Add Marker',
-			'collapsed'         => '',
-			'sub_fields'        => array(
-				array(
-					'key'               => 'field_5640cc07a7ffa',
-					'label'             => 'Marker',
-					'name'              => 'marker',
-					'type'              => 'google_map',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => 0,
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'center_lat'        => '',
-					'center_lng'        => '',
-					'zoom'              => '',
-					'height'            => 200,
-				),
-			),
-		),
-		array(
-			'key'               => 'field_5638b614fa417',
-			'label'             => 'Options',
-			'name'              => 'options',
-			'type'              => 'checkbox',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => 25,
-				'class' => '',
-				'id'    => '',
-			),
-			'choices'           => array(
-				'show_markers'     => 'Show Markers',
-				'disable_controls' => 'Disable Controls',
-				'allow_panning'    => 'Allow Panning',
-				'allow_dragging'   => 'Allow Dragging',
-				'allow_zooming'    => 'Allow Zooming',
-			),
-			'default_value'     => array(
-				'true' => 'true',
-			),
-			'layout'            => 'vertical',
-			'toggle'            => 0,
-			'return_format'     => 'value',
-		),
-	),
-	'min'        => '',
-	'max'        => '',
-];
-$map_layout_args['sub_fields'][0]['key'] = 'field_map_label_label_color_name';
-$map_layout_args['sub_fields'][1]['key'] = 'field_map_classes_id';
-#endregion
-
-/*——————————————————————————————————————————————————————————
-/  Tabs
-——————————————————————————————————————————————————————————*/
-#region Tabs
-$tabs_layout_args                         = [
-	'key'        => '5638bbecfa418',
-	'name'       => 'layout_tabs',
-	'label'      => 'Tabs',
-	'display'    => 'block',
-	'sub_fields' => array(
-		$label_label_color_name_clone_args,
-		$classes_id_clone_args,
-		array(
-			'key'               => 'field_572a3a2c946b3',
-			'label'             => 'Elements',
-			'name'              => 'elements',
-			'type'              => 'select',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'choices'           => array(
-				'Section Background Image' => 'Section Background Image',
-				'Title'                    => 'Title',
-				'Subtitle'                 => 'Subtitle',
-				'Text'                     => 'Text',
-				'Link'                     => 'Link',
-			),
-			'default_value'     => array(
-				0 => 'Section Background Image',
-				1 => 'Title',
-				2 => 'Subtitle',
-				3 => 'Text',
-				4 => 'Link',
-			),
-			'allow_null'        => 0,
-			'multiple'          => 1,
-			'ui'                => 1,
-			'ajax'              => 1,
-			'placeholder'       => '',
-			'disabled'          => 0,
-			'readonly'          => 0,
-			'return_format'     => 'value',
-		),
-		array(
-			'key'               => 'field_5638bcbbfa41f',
-			'label'             => 'Background Image',
-			'name'              => 'background_image',
-			'type'              => 'image',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_572a3a2c946b3',
-						'operator' => '==',
-						'value'    => 'Section Background Image',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'return_format'     => 'id',
-			'preview_size'      => 'thumbnail',
-			'library'           => 'all',
-			'min_width'         => '',
-			'min_height'        => '',
-			'min_size'          => '',
-			'max_width'         => '',
-			'max_height'        => '',
-			'max_size'          => '',
-			'mime_types'        => '',
-		),
-		array(
-			'key'               => 'field_5638bbf4fa419',
-			'label'             => 'Tabs',
-			'name'              => 'tabs',
-			'type'              => 'repeater',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'collapsed'         => 'field_5638d16ad3e54',
-			'min'               => '',
-			'max'               => '',
-			'layout'            => 'block',
-			'button_label'      => 'Add Tab',
-			'sub_fields'        => array(
-				array(
-					'key'               => 'field_5638d16ad3e54',
-					'label'             => 'Tab Title',
-					'name'              => 'tab_title',
-					'type'              => 'text',
-					'instructions'      => '',
-					'required'          => 1,
-					'conditional_logic' => 0,
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'placeholder'       => '',
-					'prepend'           => '',
-					'append'            => '',
-					'maxlength'         => '',
-					'readonly'          => 0,
-					'disabled'          => 0,
-				),
-				array(
-					'key'               => 'field_5638bc0efa41a',
-					'label'             => 'Title',
-					'name'              => 'title',
-					'type'              => 'text',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field'    => 'field_572a3a2c946b3',
-								'operator' => '==',
-								'value'    => 'Title',
-							),
-						),
-					),
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'placeholder'       => '',
-					'prepend'           => '',
-					'append'            => '',
-					'maxlength'         => '',
-					'readonly'          => 0,
-					'disabled'          => 0,
-				),
-				array(
-					'key'               => 'field_5638bc16fa41b',
-					'label'             => 'Subtitle',
-					'name'              => 'subtitle',
-					'type'              => 'text',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field'    => 'field_572a3a2c946b3',
-								'operator' => '==',
-								'value'    => 'Subtitle',
-							),
-						),
-					),
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'placeholder'       => '',
-					'prepend'           => '',
-					'append'            => '',
-					'maxlength'         => '',
-					'readonly'          => 0,
-					'disabled'          => 0,
-				),
-				array(
-					'key'               => 'field_5638bc20fa41c',
-					'label'             => 'Text',
-					'name'              => 'text',
-					'type'              => 'wysiwyg',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field'    => 'field_572a3a2c946b3',
-								'operator' => '==',
-								'value'    => 'Text',
-							),
-						),
-					),
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'tabs'              => 'all',
-					'toolbar'           => 'full',
-					'media_upload'      => 1,
-				),
-				array(
-					'key'               => 'field_5638bc3efa41d',
-					'label'             => 'Link',
-					'name'              => 'link',
-					'type'              => 'url',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field'    => 'field_572a3a2c946b3',
-								'operator' => '==',
-								'value'    => 'Link',
-							),
-						),
-					),
-					'wrapper'           => array(
-						'width' => 50,
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'placeholder'       => '',
-				),
-				array(
-					'key'               => 'field_5638bc97fa41e',
-					'label'             => 'Link Text',
-					'name'              => 'link_text',
-					'type'              => 'text',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field'    => 'field_572a3a2c946b3',
-								'operator' => '==',
-								'value'    => 'Link',
-							),
-						),
-					),
-					'wrapper'           => array(
-						'width' => 50,
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'placeholder'       => '',
-					'prepend'           => '',
-					'append'            => '',
-					'maxlength'         => '',
-					'readonly'          => 0,
-					'disabled'          => 0,
-				),
-				array(
-					'key'               => 'field_572a3a06946b2',
-					'label'             => 'Show/Hide',
-					'name'              => 'show',
-					'type'              => 'true_false',
-					'instructions'      => 'Check this box to show the slide. Uncheck it to hide the slide.',
-					'required'          => 0,
-					'conditional_logic' => 0,
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'message'           => '',
-					'default_value'     => 1,
-				),
-				array(
-					'key'               => 'field_572a3b75946b5',
-					'label'             => 'Classes',
-					'name'              => 'class',
-					'type'              => 'text',
-					'instructions'      => 'Comma-separated list.',
-					'required'          => 0,
-					'conditional_logic' => 0,
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'placeholder'       => '',
-					'prepend'           => '',
-					'append'            => '',
-					'maxlength'         => '',
-					'readonly'          => 0,
-					'disabled'          => 0,
-				),
-				array(
-					'key'               => 'field_572a3b83946b6',
-					'label'             => 'ID',
-					'name'              => 'id',
-					'type'              => 'text',
-					'instructions'      => 'One word only.',
-					'required'          => 0,
-					'conditional_logic' => 0,
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'placeholder'       => '',
-					'prepend'           => '',
-					'append'            => '',
-					'maxlength'         => '',
-					'readonly'          => 0,
-					'disabled'          => 0,
-				),
+				'default_value'     => false,
 			),
 		),
 	),
-	'min'        => '',
-	'max'        => '',
-];
-$tabs_layout_args['sub_fields'][0]['key'] = 'field_tabs_label_label_color_name';
-$tabs_layout_args['sub_fields'][1]['key'] = 'field_tabs_classes_id';
-#endregion
-
-/*——————————————————————————————————————————————————————————
-/  Blurb
-——————————————————————————————————————————————————————————*/
-#region Blurb
-$blurb_layout_args                         = [
-	'key'        => '5638bd05fa420',
-	'name'       => 'layout_blurb',
-	'label'      => 'Blurb',
-	'display'    => 'block',
-	'sub_fields' => array(
-		$label_label_color_name_clone_args,
-		$classes_id_clone_args,
-		array(
-			'key'               => 'field_572a38b8946b1',
-			'label'             => 'Elements',
-			'name'              => 'elements',
-			'type'              => 'select',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'choices'           => array(
-				'Image' => 'Image',
-				'Icon'  => 'Icon',
-				'Title' => 'Title',
-				'Text'  => 'Text',
-				'Link'  => 'Link',
-			),
-			'default_value'     => array(
-				0 => 'Image',
-				1 => 'Title',
-				2 => 'Text',
-				3 => 'Link',
-			),
-			'allow_null'        => 0,
-			'multiple'          => 1,
-			'ui'                => 1,
-			'ajax'              => 1,
-			'placeholder'       => '',
-			'disabled'          => 0,
-			'readonly'          => 0,
-			'return_format'     => 'value',
-		),
-		array(
-			'key'               => 'field_5638c0aefa42c',
-			'label'             => 'Image',
-			'name'              => 'foreground_image',
-			'type'              => 'image',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
+	array(
+		'key'               => 'blurb_list_field_list_link',
+		'label'             => 'List Link',
+		'name'              => 'list_link',
+		'type'              => 'page_link',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
 				array(
-					array(
-						'field'    => 'field_572a38b8946b1',
-						'operator' => '==',
-						'value'    => 'Image',
-					),
+					'field'    => 'blurb_list_field_elements',
+					'operator' => '==',
+					'value'    => 'List Link',
 				),
 			),
-			'wrapper'           => array(
-				'width' => 50,
-				'class' => '',
-				'id'    => '',
-			),
-			'return_format'     => 'id',
-			'preview_size'      => 'thumbnail',
-			'library'           => 'all',
-			'min_width'         => '',
-			'min_height'        => '',
-			'min_size'          => '',
-			'max_width'         => '',
-			'max_height'        => '',
-			'max_size'          => '',
-			'mime_types'        => '',
 		),
-		array(
-			'key'               => 'field_5730c0cf3c06a',
-			'label'             => 'Icon Name',
-			'name'              => 'icon_name',
-			'type'              => 'text',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_572a38b8946b1',
-						'operator' => '==',
-						'value'    => 'Icon',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => 50,
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'maxlength'         => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
+		'wrapper'           => array(
+			'width' => 50,
+			'class' => '',
+			'id'    => '',
 		),
-		array(
-			'key'               => 'field_5638c303fa431',
-			'label'             => 'Media Placement',
-			'name'              => 'media_placement',
-			'type'              => 'radio',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_572a38b8946b1',
-						'operator' => '==',
-						'value'    => 'Image',
-					),
-				),
-				array(
-					array(
-						'field'    => 'field_572a38b8946b1',
-						'operator' => '==',
-						'value'    => 'Icon',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => 50,
-				'class' => '',
-				'id'    => '',
-			),
-			'choices'           => array(
-				'top'   => 'Top',
-				'left'  => 'Left',
-				'right' => 'Right',
-			),
-			'other_choice'      => 0,
-			'save_other_choice' => 0,
-			'default_value'     => '',
-			'layout'            => 'horizontal',
-			'allow_null'        => 0,
-			'return_format'     => 'value',
-		),
-		array(
-			'key'               => 'field_5638bfa1fa427',
-			'label'             => 'Title',
-			'name'              => 'title',
-			'type'              => 'text',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_572a38b8946b1',
-						'operator' => '==',
-						'value'    => 'Title',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'maxlength'         => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-		array(
-			'key'               => 'field_5638bfe1fa428',
-			'label'             => 'Text',
-			'name'              => 'text',
-			'type'              => 'wysiwyg',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_572a38b8946b1',
-						'operator' => '==',
-						'value'    => 'Text',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'tabs'              => 'all',
-			'toolbar'           => 'full',
-			'media_upload'      => 1,
-		),
-		array(
-			'key'               => 'field_5638c01afa42a',
-			'label'             => 'Link Text',
-			'name'              => 'link_text',
-			'type'              => 'text',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_572a38b8946b1',
-						'operator' => '==',
-						'value'    => 'Link',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => 50,
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'maxlength'         => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-		array(
-			'key'               => 'field_57a0d872c7e66',
-			'label'             => 'Link URL',
-			'name'              => 'link_url',
-			'type'              => 'page_link',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_572a38b8946b1',
-						'operator' => '==',
-						'value'    => 'Link',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => 50,
-				'class' => '',
-				'id'    => '',
-			),
-			'post_type'         => array(),
-			'taxonomy'          => array(),
-			'allow_null'        => 0,
-			'multiple'          => 0,
-			'allow_archives'    => 1,
-		),
+		'post_type'         => array(),
+		'taxonomy'          => array(),
+		'allow_null'        => 0,
+		'multiple'          => 0,
+		'allow_archives'    => 1,
 	),
-	'min'        => '',
-	'max'        => '',
+	array(
+		'key'               => 'blurb_list_field_list_link_text',
+		'label'             => 'List Link Text',
+		'name'              => 'list_link_text',
+		'type'              => 'text',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'blurb_list_field_elements',
+					'operator' => '==',
+					'value'    => 'List Link',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => 50,
+			'class' => '',
+			'id'    => '',
+		),
+		'default_value'     => '',
+		'placeholder'       => '',
+		'prepend'           => '',
+		'append'            => '',
+		'maxlength'         => '',
+		'readonly'          => 0,
+		'disabled'          => 0,
+	),
 ];
-$blurb_layout_args['sub_fields'][0]['key'] = 'field_blurb_label_label_color_name';
-$blurb_layout_args['sub_fields'][1]['key'] = 'field_blurb_classes_id';
-#endregion
+$blurblist_sub_fields = apply_filters( 'afl/sub_fields/layout=blurb_list', $blurblist_sub_fields );
 
-/*——————————————————————————————————————————————————————————
-/  Blurblist
-——————————————————————————————————————————————————————————*/
-#region Blurblist
 $blurblist_layout_args                         = [
-	'key'        => '5728deb2127ff',
+	'key'        => 'afl_layout_blurb_list',
 	'name'       => 'layout_blurb_list',
 	'label'      => 'Blurb List',
 	'display'    => 'block',
-	'sub_fields' => array(
-		$label_label_color_name_clone_args,
-		$classes_id_clone_args,
-		array(
-			'key'               => 'field_5728deb212802',
-			'label'             => 'Background Type',
-			'name'              => 'background_type',
-			'type'              => 'radio',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '33.333',
-				'class' => '',
-				'id'    => '',
-			),
-			'choices'           => array(
-				'None'  => 'None',
-				'Image' => 'Image',
-				'Color' => 'Color',
-			),
-			'other_choice'      => 0,
-			'save_other_choice' => 0,
-			'default_value'     => '',
-			'layout'            => 'horizontal',
-			'allow_null'        => 0,
-			'return_format'     => 'value',
-		),
-		array(
-			'key'               => 'field_5728dfda1280c',
-			'label'             => 'Link Type',
-			'name'              => 'link_type',
-			'type'              => 'radio',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '33.333',
-				'class' => '',
-				'id'    => '',
-			),
-			'choices'           => array(
-				'Button'     => 'Button',
-				'Background' => 'Background',
-			),
-			'other_choice'      => 0,
-			'save_other_choice' => 0,
-			'default_value'     => '',
-			'layout'            => 'horizontal',
-			'allow_null'        => 0,
-			'return_format'     => 'value',
-		),
-		array(
-			'key'               => 'field_5728e24da43fc',
-			'label'             => 'Link Address',
-			'name'              => 'link_location',
-			'type'              => 'radio',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '33.333',
-				'class' => '',
-				'id'    => '',
-			),
-			'choices'           => array(
-				'Internal' => 'Internal',
-				'External' => 'External',
-			),
-			'other_choice'      => 0,
-			'save_other_choice' => 0,
-			'default_value'     => '',
-			'layout'            => 'horizontal',
-			'allow_null'        => 0,
-			'return_format'     => 'value',
-		),
-		array(
-			'key'               => 'field_5728e0a01280e',
-			'label'             => 'Elements',
-			'name'              => 'elements',
-			'type'              => 'select',
-			'instructions'      => 'Control layout fields.',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'choices'           => array(
-				'List Title'  => 'List Title',
-				'List Intro'  => 'List Intro',
-				'Blurb Image' => 'Blurb Image',
-				'Blurb Title' => 'Blurb Title',
-				'Blurb Text'  => 'Blurb Text',
-				'Blurb Link'  => 'Blurb Link',
-				'List Link'   => 'List Link',
-			),
-			'default_value'     => array(
-				0 => 'List Title',
-				1 => 'List Intro',
-				2 => 'Blurb Image',
-				3 => 'Blurb Title',
-				4 => 'Blurb Text',
-				5 => 'Blurb Link',
-				6 => 'List Link',
-			),
-			'allow_null'        => 0,
-			'multiple'          => 1,
-			'ui'                => 1,
-			'ajax'              => 0,
-			'placeholder'       => '',
-			'disabled'          => 0,
-			'readonly'          => 0,
-			'return_format'     => 'value',
-		),
-		array(
-			'key'               => 'field_5728e4aab101b',
-			'label'             => 'List Title',
-			'name'              => 'list_title',
-			'type'              => 'text',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_5728e0a01280e',
-						'operator' => '==',
-						'value'    => 'List Title',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'maxlength'         => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-		array(
-			'key'               => 'field_572a3c29946b7',
-			'label'             => 'List Intro',
-			'name'              => 'list_intro',
-			'type'              => 'text',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_5728e0a01280e',
-						'operator' => '==',
-						'value'    => 'List Intro',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'maxlength'         => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-		array(
-			'key'               => 'field_5728e3f4bb82c',
-			'label'             => 'Blurb Classes',
-			'name'              => 'blurb_classes',
-			'type'              => 'text',
-			'instructions'      => 'Classes that are shared for each blurb (good for column classes).',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'maxlength'         => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-		array(
-			'key'               => 'field_5728ded612809',
-			'label'             => 'Blurbs',
-			'name'              => 'blurbs',
-			'type'              => 'repeater',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'collapsed'         => 'field_5728eb648eebf',
-			'min'               => '',
-			'max'               => '',
-			'layout'            => 'block',
-			'button_label'      => 'Add Blurb',
-			'sub_fields'        => array(
-				array(
-					'key'               => 'field_5728eb648eebf',
-					'label'             => 'Label',
-					'name'              => 'label',
-					'type'              => 'text',
-					'instructions'      => '',
-					'required'          => 1,
-					'conditional_logic' => 0,
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'placeholder'       => '',
-					'prepend'           => '',
-					'append'            => '',
-					'maxlength'         => '',
-					'readonly'          => 0,
-					'disabled'          => 0,
-				),
-				array(
-					'key'               => 'field_5728e15ffd5bb',
-					'label'             => 'Foreground Image',
-					'name'              => 'foreground_image',
-					'type'              => 'image',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field'    => 'field_5728e0a01280e',
-								'operator' => '==',
-								'value'    => 'Blurb Image',
-							),
-						),
-					),
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'return_format'     => 'id',
-					'preview_size'      => 'thumbnail',
-					'library'           => 'all',
-					'min_width'         => '',
-					'min_height'        => '',
-					'min_size'          => '',
-					'max_width'         => '',
-					'max_height'        => '',
-					'max_size'          => '',
-					'mime_types'        => '',
-				),
-				array(
-					'key'               => 'field_5728deb212803',
-					'label'             => 'Title',
-					'name'              => 'title',
-					'type'              => 'text',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field'    => 'field_5728e0a01280e',
-								'operator' => '==',
-								'value'    => 'Blurb Title',
-							),
-						),
-					),
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'placeholder'       => '',
-					'prepend'           => '',
-					'append'            => '',
-					'maxlength'         => '',
-					'readonly'          => 0,
-					'disabled'          => 0,
-				),
-				array(
-					'key'               => 'field_5728deb212804',
-					'label'             => 'Text',
-					'name'              => 'text',
-					'type'              => 'wysiwyg',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field'    => 'field_5728e0a01280e',
-								'operator' => '==',
-								'value'    => 'Blurb Text',
-							),
-						),
-					),
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'tabs'              => 'all',
-					'toolbar'           => 'full',
-					'media_upload'      => 1,
-				),
-				array(
-					'key'               => 'field_5728deb212805',
-					'label'             => 'Link',
-					'name'              => 'link',
-					'type'              => 'url',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field'    => 'field_5728e0a01280e',
-								'operator' => '==',
-								'value'    => 'Blurb Link',
-							),
-							array(
-								'field'    => 'field_5728e24da43fc',
-								'operator' => '==',
-								'value'    => 'External',
-							),
-						),
-					),
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'placeholder'       => '',
-				),
-				array(
-					'key'               => 'field_5728e295a43fd',
-					'label'             => 'Page Link',
-					'name'              => 'page_link',
-					'type'              => 'page_link',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field'    => 'field_5728e24da43fc',
-								'operator' => '==',
-								'value'    => 'Internal',
-							),
-							array(
-								'field'    => 'field_5728e0a01280e',
-								'operator' => '==',
-								'value'    => 'Blurb Link',
-							),
-						),
-					),
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'post_type'         => array(),
-					'taxonomy'          => array(),
-					'allow_null'        => 0,
-					'multiple'          => 0,
-					'allow_archives'    => 1,
-				),
-				array(
-					'key'               => 'field_5728deb212806',
-					'label'             => 'Link Text',
-					'name'              => 'link_text',
-					'type'              => 'text',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field'    => 'field_5728dfda1280c',
-								'operator' => '==',
-								'value'    => 'Button',
-							),
-							array(
-								'field'    => 'field_5728e0a01280e',
-								'operator' => '==',
-								'value'    => 'Blurb Link',
-							),
-						),
-					),
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'placeholder'       => '',
-					'prepend'           => '',
-					'append'            => '',
-					'maxlength'         => '',
-					'readonly'          => 0,
-					'disabled'          => 0,
-				),
-				array(
-					'key'               => 'field_5728deb212801',
-					'label'             => 'Background Image',
-					'name'              => 'background_image',
-					'type'              => 'image',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field'    => 'field_5728deb212802',
-								'operator' => '==',
-								'value'    => 'Image',
-							),
-						),
-					),
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'return_format'     => 'id',
-					'preview_size'      => 'thumbnail',
-					'library'           => 'all',
-					'min_width'         => '',
-					'min_height'        => '',
-					'min_size'          => '',
-					'max_width'         => '',
-					'max_height'        => '',
-					'max_size'          => '',
-					'mime_types'        => '',
-				),
-				array(
-					'key'               => 'field_5728e0811280d',
-					'label'             => 'Background Color',
-					'name'              => 'background_color',
-					'type'              => 'color_picker',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field'    => 'field_5728deb212802',
-								'operator' => '==',
-								'value'    => 'Color',
-							),
-						),
-					),
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-				),
-				array(
-					'key'               => 'field_5728deb212807',
-					'label'             => 'Classes',
-					'name'              => 'class',
-					'type'              => 'text',
-					'instructions'      => 'Comma-separated list.',
-					'required'          => 0,
-					'conditional_logic' => 0,
-					'wrapper'           => array(
-						'width' => 50,
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'placeholder'       => '',
-					'prepend'           => '',
-					'append'            => '',
-					'maxlength'         => '',
-					'readonly'          => 0,
-					'disabled'          => 0,
-				),
-				array(
-					'key'               => 'field_5728deb212808',
-					'label'             => 'ID',
-					'name'              => 'id',
-					'type'              => 'text',
-					'instructions'      => 'One word only.',
-					'required'          => 0,
-					'conditional_logic' => 0,
-					'wrapper'           => array(
-						'width' => 50,
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'placeholder'       => '',
-					'prepend'           => '',
-					'append'            => '',
-					'maxlength'         => '',
-					'readonly'          => 0,
-					'disabled'          => 0,
-				),
-			),
-		),
-		array(
-			'key'               => 'field_5728ef26a58e1',
-			'label'             => 'List Link',
-			'name'              => 'list_link',
-			'type'              => 'page_link',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_5728e0a01280e',
-						'operator' => '==',
-						'value'    => 'List Link',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => 50,
-				'class' => '',
-				'id'    => '',
-			),
-			'post_type'         => array(),
-			'taxonomy'          => array(),
-			'allow_null'        => 0,
-			'multiple'          => 0,
-			'allow_archives'    => 1,
-		),
-		array(
-			'key'               => 'field_5728ef3aa58e2',
-			'label'             => 'List Link Text',
-			'name'              => 'list_link_text',
-			'type'              => 'text',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field'    => 'field_5728e0a01280e',
-						'operator' => '==',
-						'value'    => 'List Link',
-					),
-				),
-			),
-			'wrapper'           => array(
-				'width' => 50,
-				'class' => '',
-				'id'    => '',
-			),
-			'default_value'     => '',
-			'placeholder'       => '',
-			'prepend'           => '',
-			'append'            => '',
-			'maxlength'         => '',
-			'readonly'          => 0,
-			'disabled'          => 0,
-		),
-	),
+	'sub_fields' => $blurblist_sub_fields,
 	'min'        => '',
 	'max'        => '',
 ];
-$blurblist_layout_args['sub_fields'][0]['key'] = 'field_blurblist_label_label_color_name';
-$blurblist_layout_args['sub_fields'][1]['key'] = 'field_blurblist_classes_id';
+$blurblist_layout_args['sub_fields'][0]['key'] = 'blurblist_field_label_label_color_name';
+$blurblist_layout_args['sub_fields'][1]['key'] = 'blurblist_field_classes_id';
+
+$blurblist_layout_args = apply_filters( 'afl/layout_args/layout=blurb_list', $blurblist_layout_args );
 #endregion
 
 /*——————————————————————————————————————————————————————————
 /  Gallery
 ——————————————————————————————————————————————————————————*/
 #region Gallery
+$gallery_sub_fields = [
+	$label_label_color_name_clone_args,
+	$classes_id_indent_clone_hide_args,
+	array(
+		'key'               => 'gallery_field_images',
+		'label'             => 'Images',
+		'name'              => 'images',
+		'type'              => 'gallery',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'min'               => '',
+		'max'               => '',
+		'preview_size'      => 'thumbnail',
+		'library'           => 'all',
+		'min_width'         => '',
+		'min_height'        => '',
+		'min_size'          => '',
+		'max_width'         => '',
+		'max_height'        => '',
+		'max_size'          => '',
+		'mime_types'        => '',
+		'insert'            => 'append',
+	),
+	array(
+		'key'               => 'gallery_field_image_size',
+		'label'             => 'Image Size',
+		'name'              => 'image_size',
+		'type'              => 'select',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'choices'           => array(
+			'large'  => 'Large',
+			'medium' => 'Medium',
+		),
+		'default_value'     => array(
+			'Large' => 'Large',
+		),
+		'allow_null'        => 0,
+		'multiple'          => 0,
+		'ui'                => 0,
+		'ajax'              => 0,
+		'placeholder'       => '',
+		'disabled'          => 0,
+		'readonly'          => 0,
+		'return_format'     => 'value',
+	),
+];
+$gallery_sub_fields = apply_filters( 'afl/sub_fields/layout=gallery', $gallery_sub_fields );
+
 $gallery_layout_args                         = [
-	'key'        => '5638c3c0fa432',
+	'key'        => 'afl_layout_gallery',
 	'name'       => 'layout_gallery',
 	'label'      => 'Gallery',
 	'display'    => 'block',
-	'sub_fields' => array(
-		$label_label_color_name_clone_args,
-		$classes_id_clone_args,
-		array(
-			'key'               => 'field_5638c3c9fa433',
-			'label'             => 'Images',
-			'name'              => 'images',
-			'type'              => 'gallery',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'min'               => '',
-			'max'               => '',
-			'preview_size'      => 'thumbnail',
-			'library'           => 'all',
-			'min_width'         => '',
-			'min_height'        => '',
-			'min_size'          => '',
-			'max_width'         => '',
-			'max_height'        => '',
-			'max_size'          => '',
-			'mime_types'        => '',
-			'insert'            => 'append',
-		),
-		array(
-			'key'               => 'field_577d56e09645b',
-			'label'             => 'Image Size',
-			'name'              => 'image_size',
-			'type'              => 'select',
-			'instructions'      => '',
-			'required'          => 0,
-			'conditional_logic' => 0,
-			'wrapper'           => array(
-				'width' => '',
-				'class' => '',
-				'id'    => '',
-			),
-			'choices'           => array(
-				'large'  => 'Large',
-				'medium' => 'Medium',
-			),
-			'default_value'     => array(
-				'Large' => 'Large',
-			),
-			'allow_null'        => 0,
-			'multiple'          => 0,
-			'ui'                => 0,
-			'ajax'              => 0,
-			'placeholder'       => '',
-			'disabled'          => 0,
-			'readonly'          => 0,
-			'return_format'     => 'value',
-		),
-	),
+	'sub_fields' => $gallery_sub_fields,
 	'min'        => '',
 	'max'        => '',
 ];
-$gallery_layout_args['sub_fields'][0]['key'] = 'field_gallery_label_label_color_name';
-$gallery_layout_args['sub_fields'][1]['key'] = 'field_gallery_classes_id';
+$gallery_layout_args['sub_fields'][0]['key'] = 'gallery_field_label_label_color_name';
+$gallery_layout_args['sub_fields'][1]['key'] = 'gallery_field_classes_id';
+
+$gallery_layout_args = apply_filters( 'afl/layout_args/layout=gallery', $gallery_layout_args );
 #endregion
 
 /*——————————————————————————————————————————————————————————
@@ -2689,12 +2794,50 @@ $layouts_arr = [
 	'blurblist'    => $blurblist_layout_args,
 	'gallery'      => $gallery_layout_args,
 ];
-$layouts_arr = apply_filters( 'acf_flex_layouts_filter_layout_args', $layouts_arr );
+$layouts_arr = apply_filters( 'afl/group/layout_args', $layouts_arr );
+
+$location_arr = array(
+	array(
+		array(
+			'param'    => 'post_type',
+			'operator' => '==',
+			'value'    => 'page',
+		),
+	),
+	array(
+		array(
+			'param'    => 'post_type',
+			'operator' => '==',
+			'value'    => 'afl_template',
+		),
+	),
+);
+$location_arr = apply_filters( 'afl/group/location_args', $location_arr );
 
 acf_add_local_field_group( array(
-	'key'                   => 'group_5790f5c9f0797',
+	'key'                   => 'group_afl_flex_content',
 	'title'                 => 'Flex Content',
 	'fields'                => array(
+		'import' => array(
+			'key'               => 'field_import',
+			'label'             => 'Import Layout',
+			'name'              => 'import',
+			'type'              => 'post_object',
+			'instructions'      => 'Make a selection to add a preset template to the layouts list.',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => [
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			],
+			'default_value'     => '',
+			'post_type'         => 'afl_template',
+			'taxonomy'          => '',
+			'allow_null'        => true,
+			'multiple'          => true,
+			'return_format'     => 'id',
+		),
 		array(
 			'key'               => 'field_layouts',
 			'label'             => 'Layouts',
@@ -2714,15 +2857,7 @@ acf_add_local_field_group( array(
 			'layouts'           => $layouts_arr,
 		),
 	),
-	'location'              => array(
-		array(
-			array(
-				'param'    => 'post_type',
-				'operator' => '==',
-				'value'    => 'page',
-			),
-		),
-	),
+	'location'              => $location_arr,
 	'menu_order'            => 0,
 	'position'              => 'normal',
 	'style'                 => 'default',

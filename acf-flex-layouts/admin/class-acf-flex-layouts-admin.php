@@ -27,9 +27,9 @@ class ACF_Flex_Layouts_Admin {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string $plugin_name The ID of this plugin.
+	 * @var      string $acf_flex_layouts The ID of this plugin.
 	 */
-	private $plugin_name;
+	private $acf_flex_layouts;
 
 	/**
 	 * The version of this plugin.
@@ -45,14 +45,55 @@ class ACF_Flex_Layouts_Admin {
 	 *
 	 * @since    1.0.0
 	 *
-	 * @param      string $plugin_name The name of this plugin.
+	 * @param      string $acf_flex_layouts The name of this plugin.
 	 * @param      string $version The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $acf_flex_layouts, $version ) {
 
-		$this->plugin_name = $plugin_name;
-		$this->version     = $version;
+		$this->acf_flex_layouts = $acf_flex_layouts;
+		$this->version          = $version;
 
+	}
+
+	public function register_template_post_type() {
+
+		$acf_flex_layout_template_post_type_labels = [
+			'name'               => _x( 'Templates', 'post type general name', 'acf-flex-layouts' ),
+			'singular_name'      => _x( 'Template', 'post type singular name', 'acf-flex-layouts' ),
+			'menu_name'          => _x( 'Templates', 'admin menu', 'acf-flex-layouts' ),
+			'name_admin_bar'     => _x( 'Template', 'add new on admin bar', 'acf-flex-layouts' ),
+			'add_new'            => _x( 'Add New', 'book', 'acf-flex-layouts' ),
+			'add_new_item'       => __( 'Add New Template', 'acf-flex-layouts' ),
+			'new_item'           => __( 'New Template', 'acf-flex-layouts' ),
+			'edit_item'          => __( 'Edit Template', 'acf-flex-layouts' ),
+			'view_item'          => __( 'View Template', 'acf-flex-layouts' ),
+			'all_items'          => __( 'All Templates', 'acf-flex-layouts' ),
+			'search_items'       => __( 'Search Templates', 'acf-flex-layouts' ),
+			'parent_item_colon'  => __( 'Parent Templates:', 'acf-flex-layouts' ),
+			'not_found'          => __( 'No templates found.', 'acf-flex-layouts' ),
+			'not_found_in_trash' => __( 'No templates found in Trash.', 'acf-flex-layouts' ),
+		];
+		$acf_flex_layout_template_post_type_labels = apply_filters( 'acf_flex_layouts/post_type/labels', $acf_flex_layout_template_post_type_labels );
+
+		$acf_flex_layout_template_post_type_args = [
+			'labels'             => $acf_flex_layout_template_post_type_labels,
+			'description'        => __( 'Description.', 'acf-flex-layouts' ),
+			'public'             => false,
+			'publicly_queryable' => false,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => false,
+			'rewrite'            => false,
+			'capability_type'    => 'page',
+			'has_archive'        => false,
+			'hierarchical'       => false,
+			'menu_position'      => null,
+			'supports'           => [ 'title' ],
+			'menu_icon'          => 'dashicons-layout',
+		];
+		$acf_flex_layout_template_post_type_args = apply_filters( 'acf_flex_layouts/post_type/args', $acf_flex_layout_template_post_type_args );
+
+		register_post_type( 'afl_template', $acf_flex_layout_template_post_type_args );
 	}
 
 	/**
@@ -74,7 +115,7 @@ class ACF_Flex_Layouts_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/acf-flex-layouts-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->acf_flex_layouts, plugin_dir_url( __FILE__ ) . 'css/acf-flex-layouts-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -97,19 +138,19 @@ class ACF_Flex_Layouts_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/acf-flex-layouts-admin.js', array( 'jquery' ), $this->version, true );
+		wp_enqueue_script( $this->acf_flex_layouts, plugin_dir_url( __FILE__ ) . 'js/acf-flex-layouts-admin.js', array( 'jquery' ), $this->version, true );
 
 	}
 
 	public function register_flex_layouts() {
 
-		if ( function_exists( 'acf_add_local_field_group' ) ) :
+		if ( function_exists( 'acf_add_local_field_group' ) ) {
 
 			include_once( plugin_dir_path( __FILE__ ) . 'partials/registered-field-groups/label-label-color-name.php' );
-			include_once( plugin_dir_path( __FILE__ ) . 'partials/registered-field-groups/classes-id.php' );
+			include_once( plugin_dir_path( __FILE__ ) . 'partials/registered-field-groups/classes-id-indent-hide.php' );
 			include_once( plugin_dir_path( __FILE__ ) . 'partials/registered-field-groups/flex-content.php' );
 
-		endif;
+		}
 	}
 
 	public function add_expand_all_collapse_all_buttons( $field ) {
@@ -157,6 +198,8 @@ class ACF_Flex_Layouts_Admin {
 	 * @param $field
 	 * @param $layout
 	 * @param $i
+	 *
+	 * @return string $title
 	 */
 	public function add_flexible_content_label_color( $title, $field, $layout, $i ) {
 
@@ -317,22 +360,22 @@ class ACF_Flex_Layouts_Admin {
 		return $title;
 	}
 
-	public function import_function() {
+	public function import_template() {
 
 		// Bail early if no ACF data
 		if ( empty( $_POST['acf'] ) ) {
 			return;
 		}
 
-		// Flex layouts from this page (field_56381b4c8e557 is a Flexible Content field named "Layouts")
-		if ( is_array( $_POST['acf']['field_56381b4c8e557'] ) && ! empty( $_POST['acf']['field_56381b4c8e557'] ) ) {
-			$current_page_flex_layouts = $_POST['acf']['field_56381b4c8e557'];
+		// Flex layouts from this page
+		if ( is_array( $_POST['acf']['field_layouts'] ) && ! empty( $_POST['acf']['field_layouts'] ) ) {
+			$current_page_flex_layouts = $_POST['acf']['field_layouts'];
 		} else {
 			$current_page_flex_layouts = array();
 		}
 
-		// Determine if there are any pages to import (field_57924308049be is a Select field named "import_flex_layout")
-		$pages_to_import = $_POST['acf']['field_57924308049be'];
+		// Determine if there are any pages to import
+		$pages_to_import = $_POST['acf']['field_import'];
 
 		// If there aren't any layouts to import, skip the rest.
 		if ( empty( $pages_to_import ) ) {
@@ -352,13 +395,10 @@ class ACF_Flex_Layouts_Admin {
 		}
 
 		// Re-set the Layout field value with any imported pages, then continue saving.
-		$_POST['acf']['field_56381b4c8e557'] = $current_page_flex_layouts;
+		$_POST['acf']['field_layouts'] = $current_page_flex_layouts;
 
 
 		// Clear out the pages to import setting
-		$_POST['acf']['field_57924308049be'] = array();
-
-		// run before ACF saves the $_POST['acf'] data
-		//add_action( 'acf/save_post', 'SLU\import_layouts_from_a_different_page', 1 );
+		$_POST['acf']['field_import'] = array();
 	}
 }

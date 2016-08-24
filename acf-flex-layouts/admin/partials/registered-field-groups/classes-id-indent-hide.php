@@ -1,10 +1,10 @@
 <?php
 acf_add_local_field_group( array(
-	'key'                   => 'group_57a1f7c2051ea',
+	'key'                   => 'group_afl_classes_id_indent',
 	'title'                 => 'Classes/ID',
 	'fields'                => array(
 		array(
-			'key'               => 'field_57a1f7ca67764',
+			'key'               => 'field_classes',
 			'label'             => 'Classes',
 			'name'              => 'class',
 			'type'              => 'text',
@@ -12,7 +12,7 @@ acf_add_local_field_group( array(
 			'required'          => 0,
 			'conditional_logic' => 0,
 			'wrapper'           => array(
-				'width' => '50',
+				'width' => '40',
 				'class' => '',
 				'id'    => '',
 			),
@@ -25,7 +25,7 @@ acf_add_local_field_group( array(
 			'disabled'          => 0,
 		),
 		array(
-			'key'               => 'field_57a1f87467765',
+			'key'               => 'field_id',
 			'label'             => 'ID',
 			'name'              => 'id',
 			'type'              => 'text',
@@ -46,7 +46,7 @@ acf_add_local_field_group( array(
 			'disabled'          => 0,
 		),
 		array(
-			'key'               => 'indent_level',
+			'key'               => 'field_indent_level',
 			'label'             => 'Indent',
 			'name'              => 'indent',
 			'type'              => 'number',
@@ -54,7 +54,7 @@ acf_add_local_field_group( array(
 			'required'          => 0,
 			'conditional_logic' => 0,
 			'wrapper'           => array(
-				'width' => '25',
+				'width' => '18',
 				'class' => 'indent-level',
 				'id'    => '',
 			),
@@ -67,6 +67,21 @@ acf_add_local_field_group( array(
 			'step'              => '1',
 			'readonly'          => 0,
 			'disabled'          => 0,
+		),
+		array(
+			'key'               => 'field_hide',
+			'label'             => 'Hide',
+			'name'              => 'hide',
+			'type'              => 'true_false',
+			'instructions'      => 'Don\'t show this.',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '17',
+				'class' => '',
+				'id'    => '',
+			),
+			'default_value'     => false,
 		),
 	),
 	'location'              => array(
