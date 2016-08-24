@@ -54,51 +54,27 @@ class ACF_Flex_Layouts_Public {
 
 	}
 
-	/**
-	 * Register the stylesheets for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_styles() {
+	public function add_pattern_library_atoms_and_organisms() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in ACF_Flex_Layouts_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The ACF_Flex_Layouts_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
+		// Atoms
+		include_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/open-row.php' );
+		include_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/close-row.php' );
+		include_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/open-column.php' );
+		include_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/close-column.php' );
+		include_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/content.php' );
 
-		wp_enqueue_style( $this->acf_flex_layouts, plugin_dir_url( __FILE__ ) . 'css/acf-flex-layouts-public.css', array(), $this->version, 'all' );
+		// Organisms
+		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/blurb.php' );
+		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/blurb-list.php' );
+		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/gallery.php' );
+		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/header.php' );
+		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/map.php' );
+		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/post-list.php' );
+		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/slideshow.php' );
+		include_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/tabs.php' );
 
 	}
 
-	/**
-	 * Register the JavaScript for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in ACF_Flex_Layouts_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The ACF_Flex_Layouts_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_script( $this->acf_flex_layouts, plugin_dir_url( __FILE__ ) . 'js/acf-flex-layouts-public.js', array( 'jquery' ), $this->version, false );
-
-	}
 
 	/**
 	 * add_acf_organisms_to_content
