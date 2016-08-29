@@ -76,20 +76,24 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_BlurbLis
 					'inside' => [
 						'atom'  => '',
 						'parts' => [
-							'image' => [
+							'image'    => [
 								'atom'     => 'Image',
 								'tag_type' => 'false_without_content',
 								'sibling'  => 'text',
 							],
-							'title' => [
+							'title'    => [
 								'tag_type' => 'false_without_content',
 								'content'  => '',
 							],
-							'text'  => [
+							'subtitle' => [
 								'tag_type' => 'false_without_content',
 								'content'  => '',
 							],
-							'link'  => [
+							'text'     => [
+								'tag_type' => 'false_without_content',
+								'content'  => '',
+							],
+							'link'     => [
 								'atom'     => 'Link',
 								'tag_type' => 'false_without_content',
 							],
@@ -142,6 +146,7 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_BlurbLis
 
 			$blurb_args['structure']['inside']['parts']['image']['attachment_id'] = $blurb_data['foreground_image'];
 			$blurb_args['structure']['inside']['parts']['title']['content']       = $blurb_data['title'];
+			$blurb_args['structure']['inside']['parts']['subtitle']['content']    = $blurb_data['subtitle'];
 			$blurb_args['structure']['inside']['parts']['text']['content']        = $blurb_data['text'];
 
 			$blurb_args = $this->do_background_link( $blurb_args, $blurb_data );
