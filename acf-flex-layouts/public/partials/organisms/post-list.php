@@ -1,7 +1,7 @@
 <?php
 namespace CNP;
 
-if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_PostList' ) ) {
+if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_PostList' ) && class_exists( 'CNP\PostList' ) ) {
 
 	class ACF_PostList extends PostList {
 
