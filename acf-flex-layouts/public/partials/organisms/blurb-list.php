@@ -56,7 +56,6 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_BlurbLis
 					'sibling'  => 'blurbs',
 				],
 				'blurbs'    => [
-					'class'   => [ 'row' ],
 					'content' => '',
 					'sibling' => 'listlink',
 				],
