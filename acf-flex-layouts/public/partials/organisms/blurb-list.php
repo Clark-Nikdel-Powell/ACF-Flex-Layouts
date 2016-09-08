@@ -75,24 +75,20 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_BlurbLis
 					'inside' => [
 						'atom'  => '',
 						'parts' => [
-							'image'    => [
+							'image' => [
 								'atom'     => 'Image',
 								'tag_type' => 'false_without_content',
 								'sibling'  => 'text',
 							],
-							'title'    => [
+							'title' => [
 								'tag_type' => 'false_without_content',
 								'content'  => '',
 							],
-							'subtitle' => [
+							'text'  => [
 								'tag_type' => 'false_without_content',
 								'content'  => '',
 							],
-							'text'     => [
-								'tag_type' => 'false_without_content',
-								'content'  => '',
-							],
-							'link'     => [
+							'link'  => [
 								'atom'     => 'Link',
 								'tag_type' => 'false_without_content',
 							],
@@ -145,7 +141,6 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_BlurbLis
 
 			$blurb_args['structure']['inside']['parts']['image']['attachment_id'] = $blurb_data['foreground_image'];
 			$blurb_args['structure']['inside']['parts']['title']['content']       = $blurb_data['title'];
-			$blurb_args['structure']['inside']['parts']['subtitle']['content']    = $blurb_data['subtitle'];
 			$blurb_args['structure']['inside']['parts']['text']['content']        = $blurb_data['text'];
 
 			$blurb_args = $this->do_background_link( $blurb_args, $blurb_data );
@@ -153,6 +148,10 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_BlurbLis
 			$blurb_args = $this->do_button( $blurb_args, $blurb_data );
 			$blurb_args = $this->do_classes( $blurb_args, $blurb_data );
 			$blurb_args = $this->do_id( $blurb_args, $blurb_data );
+
+			$blurb_args_filter = $this->name . '_blurb_args';
+			$blurb_args        = apply_filters( $blurb_args_filter, $blurb_args, $blurb_data );
+			Atom::add_debug_entry( 'Filter', $blurb_args_filter );
 
 			$blurb = new OrganismTemplate( $blurb_args );
 			$blurb->get_markup();
