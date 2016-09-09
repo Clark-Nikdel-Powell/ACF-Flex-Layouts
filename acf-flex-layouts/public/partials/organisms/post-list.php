@@ -1,7 +1,7 @@
 <?php
 namespace CNP;
 
-if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_PostList' ) && class_exists( 'CNP\PostList' ) ) {
+if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_PostList' ) ) {
 
 	class ACF_PostList extends PostList {
 
@@ -30,6 +30,7 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_PostList
 						'tag_type' => 'false_without_content',
 						'content'  => $data['list_title'],
 					],
+					'posts-loop',
 				];
 			}
 
