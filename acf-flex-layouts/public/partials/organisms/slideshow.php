@@ -150,6 +150,10 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_Slidesho
 				$slide_args = Utility::set_or_unset( $slide_data['link_text'], $slide_args, array(), [ 'structure', 'text', 'parts', 'link', 'content' ], 'Click Here' );
 			}
 
+			$slide_args_filter = $this->name . '_slide_args';
+			$slide_args        = apply_filters( $slide_args_filter, $slide_args, $slide_data );
+			Atom::add_debug_entry( 'Filter', $slide_args_filter );
+
 			$slide = new OrganismTemplate( $slide_args );
 			$slide->get_markup();
 
