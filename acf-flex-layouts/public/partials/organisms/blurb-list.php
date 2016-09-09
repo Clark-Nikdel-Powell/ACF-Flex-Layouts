@@ -84,6 +84,10 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_BlurbLis
 								'tag_type' => 'false_without_content',
 								'content'  => '',
 							],
+							'subtitle' => [
+								'tag_type' => 'false_without_content',
+								'content'  => '',
+							],
 							'text'  => [
 								'tag_type' => 'false_without_content',
 								'content'  => '',
@@ -141,6 +145,7 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_BlurbLis
 
 			$blurb_args['structure']['inside']['parts']['image']['attachment_id'] = $blurb_data['foreground_image'];
 			$blurb_args['structure']['inside']['parts']['title']['content']       = $blurb_data['title'];
+			$blurb_args['structure']['inside']['parts']['subtitle']['content']    = $blurb_data['subtitle'];
 			$blurb_args['structure']['inside']['parts']['text']['content']        = $blurb_data['text'];
 
 			$blurb_args = $this->do_background_link( $blurb_args, $blurb_data );
