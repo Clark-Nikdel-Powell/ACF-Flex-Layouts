@@ -67,7 +67,7 @@ if ( class_exists( 'CNP\AtomTemplate' ) && ! class_exists( 'CNP\ACF_OpenColumn' 
 			parent::get_markup();
 
 			$inside       = $this->get_inside();
-			$this->markup = $this->markup['open'] . $inside['open'];
+			$this->markup = $this->markup['before'] . $this->markup['open'] . $this->markup['after'] . $inside['open'];
 		}
 	}
 }
