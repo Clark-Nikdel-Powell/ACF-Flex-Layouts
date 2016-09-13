@@ -110,10 +110,10 @@ class ACF_Flex_Layouts_Public {
 
 				$acf_atom_or_organism_class_name = 'CNP\\ACF_' . $acf_atom_or_organism_class_suffix;
 
-				$acf_atom_or_organism_class_name = apply_filters( 'acf_flex_layouts_class_name_for_output', $acf_atom_or_organism_class_name );
+				$acf_atom_or_organism_class_name = apply_filters( 'acf_flex_layouts_class_name_for_output', $acf_atom_or_organism_class_name, $layout_data );
 
 				$layout_name                     = str_replace( 'layout_', '', $layout_data['acf_fc_layout'] );
-				$acf_atom_or_organism_class_name = apply_filters( 'acf_flex_layouts_class_name_for_output/layout=' . $layout_name, $acf_atom_or_organism_class_name );
+				$acf_atom_or_organism_class_name = apply_filters( 'acf_flex_layouts_class_name_for_output/layout=' . $layout_name, $acf_atom_or_organism_class_name, $layout_data );
 
 				if ( class_exists( $acf_atom_or_organism_class_name ) ) {
 					$atom_or_organism = new $acf_atom_or_organism_class_name( $layout_data );
