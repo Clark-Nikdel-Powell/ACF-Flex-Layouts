@@ -146,6 +146,8 @@ class ACF_Flex_Layouts_Admin {
 
 		if ( function_exists( 'acf_add_local_field_group' ) ) {
 
+			include_once( plugin_dir_path( __FILE__ ) . 'partials/registered-field-groups/advanced-tab.php' );
+			include_once( plugin_dir_path( __FILE__ ) . 'partials/registered-field-groups/content-tab.php' );
 			include_once( plugin_dir_path( __FILE__ ) . 'partials/registered-field-groups/label-label-color-name.php' );
 			include_once( plugin_dir_path( __FILE__ ) . 'partials/registered-field-groups/classes-id-indent-hide.php' );
 			include_once( plugin_dir_path( __FILE__ ) . 'partials/registered-field-groups/flex-content.php' );
