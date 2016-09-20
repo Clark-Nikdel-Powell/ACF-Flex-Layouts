@@ -75,10 +75,10 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_BlurbLis
 					'inside' => [
 						'atom'  => '',
 						'parts' => [
+							'background' => array(),
 							'image' => [
 								'atom'     => 'Image',
 								'tag_type' => 'false_without_content',
-								'sibling'  => 'text',
 							],
 							'title' => [
 								'tag_type' => 'false_without_content',
@@ -268,7 +268,7 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_BlurbLis
 					$args['structure']['inside']['parts'] = $background + $args['structure']['inside']['parts'];
 				}
 				if ( $this->is_color_background() && isset( $data['background_color'] ) && ! empty( $data['background_color'] ) ) {
-					Utility::array_set_path( 'background-color:' . $data['background_color'], $args, 'structure/inside/attributes/style', '/' );
+					Utility::array_set_path( 'background-color:' . $data['background_color'], $args, 'structure/inside/parts/background/attributes/style', '/' );
 				}
 			}
 
