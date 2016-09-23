@@ -370,14 +370,18 @@ class ACF_Flex_Layouts_Admin {
 		}
 
 		// Flex layouts from this page
-		if ( is_array( $_POST['acf']['field_layouts'] ) && ! empty( $_POST['acf']['field_layouts'] ) ) {
+		if ( isset( $_POST['acf']['field_layouts'] ) && is_array( $_POST['acf']['field_layouts'] ) && ! empty( $_POST['acf']['field_layouts'] ) ) {
 			$current_page_flex_layouts = $_POST['acf']['field_layouts'];
 		} else {
 			$current_page_flex_layouts = array();
 		}
 
 		// Determine if there are any pages to import
-		$pages_to_import = $_POST['acf']['field_import'];
+		if ( isset( $_POST['acf']['field_import'] ) ) {
+			$pages_to_import = $_POST['acf']['field_import'];
+		} else {
+			$pages_to_import = array();
+		}
 
 		// If there aren't any layouts to import, skip the rest.
 		if ( empty( $pages_to_import ) ) {
