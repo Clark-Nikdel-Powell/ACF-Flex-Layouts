@@ -173,7 +173,7 @@ class ACF_Flex_Layouts {
 
 		$plugin_public = new ACF_Flex_Layouts_Public( $this->get_acf_flex_layouts(), $this->get_version() );
 
-		$this->loader->add_action( 'after_setup_theme', $plugin_public, 'add_pattern_library_atoms_and_organisms', 999 );
+		$this->loader->add_action( 'plugins_loaded', $plugin_public, 'add_pattern_library_atoms_and_organisms', 999 );
 		$this->loader->add_filter( 'the_content', $plugin_public, 'add_acf_organisms_to_content', 10, 1 );
 
 	}
