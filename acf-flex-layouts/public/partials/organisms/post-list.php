@@ -26,11 +26,21 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_PostList
 			if ( empty( $data['structure'] ) ) {
 
 				$data['structure'] = [
-					'listtitle' => [
+					'listtitle'  => [
 						'tag_type' => 'false_without_content',
 						'content'  => $data['list_title'],
+						'sibling'  => 'posts-loop',
 					],
-					'posts-loop',
+					'posts-loop' => [
+						'content' => '',
+						'sibling' => 'listlink',
+					],
+					'listlink'  => [
+						'atom'     => 'Link',
+						'tag_type' => 'false_without_content',
+						'content'  => $data['link_text'],
+						'href'     => $data['link'],
+					]
 				];
 			}
 
@@ -53,24 +63,6 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_PostList
 						],
 					],
 				];
-			}
-
-			// This isn't the greatest check we could make here, but I think it'll do.
-			if ( '' !== $data['link_text'] && '' !== $data['link'] ) {
-
-				$link_name = $data['name'] . '__' . 'listlink';
-				$link_args = [
-					'name'     => $link_name,
-					'tag_type' => 'false_without_content',
-					'content'  => $data['link_text'],
-					'href'     => $data['link'],
-				];
-				$link_obj  = new Link( $link_args );
-				$link_obj->get_markup();
-
-				if ( '' !== $link_obj->markup ) {
-					$data['after_content'] = $link_obj->markup;
-				}
 			}
 
 			self::get_posts( $data );
