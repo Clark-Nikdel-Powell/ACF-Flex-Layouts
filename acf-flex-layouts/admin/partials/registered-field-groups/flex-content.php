@@ -3063,7 +3063,14 @@ $layouts_arr = [
 	'blurblist'    => $blurblist_layout_args,
 	'gallery'      => $gallery_layout_args,
 ];
-$layouts_arr = apply_filters( 'afl/group/layout_args', $layouts_arr, $label_label_color_name_clone_args, $classes_id_indent_hide_clone_args );
+
+$extra_fields_args = [
+	'content_settings_tab_clone_args'   => $content_settings_tab_clone_args,
+	'advanced_settings_tab_clone_args'  => $advanced_settings_tab_clone_args,
+	'label_label_color_name_clone_args' => $label_label_color_name_clone_args,
+	'classes_id_indent_hide_clone_args' => $classes_id_indent_hide_clone_args,
+];
+$layouts_arr       = apply_filters( 'afl/group/layout_args', $layouts_arr, $extra_fields_args );
 
 
 $location_arr = array(
