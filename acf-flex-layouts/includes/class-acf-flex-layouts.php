@@ -217,5 +217,4 @@ class ACF_Flex_Layouts {
 	public function get_version() {
 		return $this->version;
 	}
-
 }

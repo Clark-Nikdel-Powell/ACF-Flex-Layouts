@@ -150,6 +150,7 @@ class ACF_Flex_Layouts_Admin {
 			include_once( plugin_dir_path( __FILE__ ) . 'partials/registered-field-groups/content-tab.php' );
 			include_once( plugin_dir_path( __FILE__ ) . 'partials/registered-field-groups/label-label-color-name.php' );
 			include_once( plugin_dir_path( __FILE__ ) . 'partials/registered-field-groups/classes-id-indent-hide.php' );
+			include_once( plugin_dir_path( __FILE__ ) . 'partials/registered-field-groups/prepend-append.php' );
 			include_once( plugin_dir_path( __FILE__ ) . 'partials/registered-field-groups/flex-content.php' );
 
 		}

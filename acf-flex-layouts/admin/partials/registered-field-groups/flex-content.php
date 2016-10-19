@@ -88,6 +88,28 @@ $classes_id_indent_hide_clone_args = [
 	'replace'           => 1,
 ];
 
+$prepend_append_clone_args = [
+	'label'             => 'Prepend/Append',
+	'name'              => 'prepend_append',
+	'type'              => 'clone',
+	'instructions'      => '',
+	'required'          => 0,
+	'conditional_logic' => 0,
+	'wrapper'           => array(
+		'width' => '',
+		'class' => '',
+		'id'    => '',
+	),
+	'clone'             => array(
+		0 => 'group_afl_prepend_append',
+	),
+	'display'           => 'seamless',
+	'layout'            => 'block',
+	'prefix_label'      => 0,
+	'prefix_name'       => 0,
+	'replace'           => 1,
+];
+
 /*——————————————————————————————————————————————————————————
 /  Open Row
 ——————————————————————————————————————————————————————————*/
@@ -3073,6 +3095,71 @@ $extra_fields_args = [
 $layouts_arr       = apply_filters( 'afl/group/layout_args', $layouts_arr, $extra_fields_args );
 
 
+/*——————————————————————————————————————————————————————————————————————————————
+/  Add Another Field Group with the "Section" Layout (Inception-style stuff here)
+——————————————————————————————————————————————————————————————————————————————
+The regular layouts need to be registered first, so that "Section" can clone them into it.
+*/
+
+/*——————————————————————————————————————————————————————————
+/  Section Layout Args
+——————————————————————————————————————————————————————————*/
+#region Section
+$section_sub_fields = [
+	'content_tab'            => $content_settings_tab_clone_args,
+	'layouts'                => [
+		'key'               => 'section_field_layouts',
+		'label'             => 'Section Layouts',
+		'name'              => 'section_layouts',
+		'type'              => 'flexible_content',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => [
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		],
+		'button_label'      => 'Add Layout',
+		'min'               => '',
+		'max'               => '',
+		'layouts'           => $layouts_arr,
+	],
+	'advanced_tab'           => $advanced_settings_tab_clone_args,
+	'label_label_color_name' => $label_label_color_name_clone_args,
+	'classes_id_indent_hide' => $classes_id_indent_hide_clone_args,
+	'prepend_append'         => $prepend_append_clone_args,
+];
+$section_sub_fields = apply_filters( 'afl/sub_fields/layout=section', $section_sub_fields );
+
+$section_layout_args                                                = [
+	'key'        => 'afl_layout_section',
+	'name'       => 'layout_section',
+	'label'      => 'Section',
+	'display'    => 'block',
+	'sub_fields' => $section_sub_fields,
+	'min'        => '',
+	'max'        => '',
+];
+$section_layout_args['sub_fields']['content_tab']['key']            = 'section_field_content_tab';
+$section_layout_args['sub_fields']['advanced_tab']['key']           = 'section_field_advanced_tab';
+$section_layout_args['sub_fields']['label_label_color_name']['key'] = 'section_field_label_label_color_name';
+$section_layout_args['sub_fields']['classes_id_indent_hide']['key'] = 'section_field_classes_id';
+$section_layout_args['sub_fields']['prepend_append']['key']         = 'section_field_prepend_append';
+
+$section_layout_args = apply_filters( 'afl/layout_args/layout=section', $section_layout_args );
+
+// Add Section to main layout args.
+array_unshift( $layouts_arr, $section_layout_args );
+$layouts_with_section_arr = $layouts_arr;
+
+#endregion
+
+
+/*——————————————————————————————————————————————————————————————————————————————
+/  Register Flex Content Field Group
+——————————————————————————————————————————————————————————————————————————————*/
+
 $location_arr = array(
 	array(
 		array(
@@ -3123,15 +3210,15 @@ acf_add_local_field_group( array(
 			'instructions'      => '',
 			'required'          => 0,
 			'conditional_logic' => 0,
-			'wrapper'           => array(
+			'wrapper'           => [
 				'width' => '',
 				'class' => '',
 				'id'    => '',
-			),
+			],
 			'button_label'      => 'Add Layout',
 			'min'               => '',
 			'max'               => '',
-			'layouts'           => $layouts_arr,
+			'layouts'           => $layouts_with_section_arr,
 		),
 	),
 	'location'              => $location_arr,

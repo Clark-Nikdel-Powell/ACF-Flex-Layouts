@@ -27,7 +27,7 @@ class ACF_Flex_Layouts_Public {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $acf_flex_layouts    The ID of this plugin.
+	 * @var      string $acf_flex_layouts The ID of this plugin.
 	 */
 	private $acf_flex_layouts;
 
@@ -36,7 +36,7 @@ class ACF_Flex_Layouts_Public {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
+	 * @var      string $version The current version of this plugin.
 	 */
 	private $version;
 
@@ -44,19 +44,24 @@ class ACF_Flex_Layouts_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $acf_flex_layouts       The name of the plugin.
-	 * @param      string    $version    The version of this plugin.
+	 *
+	 * @param      string $acf_flex_layouts The name of the plugin.
+	 * @param      string $version The version of this plugin.
 	 */
 	public function __construct( $acf_flex_layouts, $version ) {
 
 		$this->acf_flex_layouts = $acf_flex_layouts;
-		$this->version = $version;
+		$this->version          = $version;
 
 	}
 
 	public function add_pattern_library_atoms_and_organisms() {
 
+		// Functions
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/function-get-acf-organisms.php' );
+
 		// Atoms
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/section.php' );
 		require_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/open-row.php' );
 		require_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/close-row.php' );
 		require_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/open-column.php' );
@@ -91,43 +96,18 @@ class ACF_Flex_Layouts_Public {
 	 *
 	 * @return string The modified post content.
 	 */
-	function add_acf_organisms_to_content( $content ) {
+	public function add_acf_organisms_to_content( $content ) {
 
 		global $post;
 
 		// Check the post for layouts data
 		$all_layouts = get_field( 'layouts', $post->ID );
 
+
 		// If we have layouts, get the layout markup.
 		if ( ! empty( $all_layouts ) ) {
 
-			// Loop through the layouts
-			foreach ( $all_layouts as $layout_index => $layout_data ) {
-
-				// E.g., a layout named "layout_content" has a PHP class titled "CNP\ACF_Content."
-				// "layout_post_list" becomes "CNP\ACF_PostList"
-				$acf_atom_or_organism_class_suffix = str_replace( ' ', '', ucwords( str_replace( [ 'layout', '_' ], [ '', ' ' ], $layout_data['acf_fc_layout'] ) ) );
-
-				$acf_atom_or_organism_class_name = 'CNP\\ACF_' . $acf_atom_or_organism_class_suffix;
-
-				$acf_atom_or_organism_class_name = apply_filters( 'acf_flex_layouts_class_name_for_output', $acf_atom_or_organism_class_name, $layout_data );
-
-				$layout_name                     = str_replace( 'layout_', '', $layout_data['acf_fc_layout'] );
-				$acf_atom_or_organism_class_name = apply_filters( 'acf_flex_layouts_class_name_for_output/layout=' . $layout_name, $acf_atom_or_organism_class_name, $layout_data );
-
-				if ( class_exists( $acf_atom_or_organism_class_name ) ) {
-					$atom_or_organism = new $acf_atom_or_organism_class_name( $layout_data );
-					$atom_or_organism->get_markup();
-
-					$content = apply_filters( $atom_or_organism->name . '_before', $content );
-
-					if ( '' !== $atom_or_organism->markup && false === $atom_or_organism->hide ) {
-						$content .= $atom_or_organism->markup;
-					}
-
-					$content = apply_filters( $atom_or_organism->name . '_after', $content );
-				}
-			}
+			$content .= get_acf_organisms( $all_layouts );
 		}
 
 		return $content;
