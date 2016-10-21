@@ -32,7 +32,7 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_Blurb' )
 						'link'  => [
 							'atom'     => 'Link',
 							'tag_type' => 'false_without_content',
-							'href'     => isset( $data['link'] ) ? $data['link'] : '',
+							'href'     => isset( $data['link_url'] ) ? $data['link_url'] : '',
 							'content'  => isset( $data['link_text'] ) ? $data['link_text'] : '',
 						],
 					],
