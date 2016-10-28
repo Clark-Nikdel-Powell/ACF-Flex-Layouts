@@ -18,6 +18,9 @@ function get_acf_organisms( $all_layouts = array() ) {
 		$layout_name                     = str_replace( 'layout_', '', $layout_data['acf_fc_layout'] );
 		$acf_atom_or_organism_class_name = apply_filters( 'acf_flex_layouts_class_name_for_output/layout=' . $layout_name, $acf_atom_or_organism_class_name, $layout_data );
 
+		// Turn off filter suppression by default. If we need to enable it, do it manually.
+		$layout_data['suppress_filters'] = false;
+
 		if ( class_exists( $acf_atom_or_organism_class_name ) ) {
 			$atom_or_organism = new $acf_atom_or_organism_class_name( $layout_data );
 			$atom_or_organism->get_markup();
