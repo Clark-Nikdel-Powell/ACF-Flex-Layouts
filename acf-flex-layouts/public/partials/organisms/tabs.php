@@ -191,6 +191,14 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_Tabs' ) 
 			// Set Subtitle
 			$tab_args['structure']['content']['parts']['subtitle']['content'] = $tab_data['subtitle'];
 
+			// Set Image
+			if ( isset( $tab_data['image'] ) && $tab_data['image'] ) {
+				$tab_args['structure']['content']['parts']['image'] = [
+					'atom'          => 'Image',
+					'attachment_id' => $tab_data['image'],
+				];
+			}
+
 			// Set Text
 			$tab_args['structure']['content']['parts']['text']['content'] = $tab_data['text'];
 
@@ -199,7 +207,13 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_Tabs' ) 
 
 			if ( ! empty( $tab_args['structure']['content']['parts']['link']['href'] ) ) {
 				// An empty array is used for the unset value because the backup text will be used if content is not present.
-				$tab_args = Utility::set_or_unset( $tab_data['link_text'], $tab_args, array(), [ 'structure', 'content', 'parts', 'link', 'content' ], 'Click Here' );
+				$tab_args = Utility::set_or_unset( $tab_data['link_text'], $tab_args, array(), [
+					'structure',
+					'content',
+					'parts',
+					'link',
+					'content',
+				], 'Click Here' );
 			}
 
 			$tab = new OrganismTemplate( $tab_args );

@@ -1858,6 +1858,33 @@ $tab_sub_fields = [
 				'media_upload'      => 1,
 			),
 			array(
+				'key'               => 'tabs_field_tabs_image',
+				'label'             => 'Image',
+				'name'              => 'image',
+				'type'              => 'image',
+				'instructions'      => '',
+				'required'          => 0,
+				'return_format'     => 'id',
+				'preview_size'      => 'thumbnail',
+				'library'           => 'all',
+				'mime_types'        => '',
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'tabs_field_elements',
+							'operator' => '==',
+							'value'    => 'Image',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+			),
+			array(
 				'key'               => 'tabs_field_tabs_link',
 				'label'             => 'Link',
 				'name'              => 'link',
@@ -1990,6 +2017,7 @@ $tab_sub_fields = [
 			'Title'                    => 'Title',
 			'Subtitle'                 => 'Subtitle',
 			'Text'                     => 'Text',
+			'Image'                    => 'Image',
 			'Link'                     => 'Link',
 		),
 		'default_value'     => array(
