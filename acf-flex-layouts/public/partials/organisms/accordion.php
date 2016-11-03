@@ -45,6 +45,7 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_Accordio
 							],
 							'tag_type'   => 'false_without_content',
 							'content'    => '',
+							'sibling'    => 'content',
 						],
 						'content' => [
 							'attributes' => [
@@ -87,7 +88,7 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_Accordio
 			// Test for exceptions before we begin.
 			try {
 
-				if ( empty( $this->tabs ) ) {
+				if ( empty( $this->panels ) ) {
 					throw new \Exception( 'No panels found.' );
 				}
 			} catch ( \Exception $e ) {
