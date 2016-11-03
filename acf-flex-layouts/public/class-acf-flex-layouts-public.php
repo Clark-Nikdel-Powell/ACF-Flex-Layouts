@@ -69,6 +69,7 @@ class ACF_Flex_Layouts_Public {
 		require_once( plugin_dir_path( __FILE__ ) . 'partials/atoms/content.php' );
 
 		// Organisms
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/accordion.php' );
 		require_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/blurb.php' );
 		require_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/blurb-list.php' );
 		require_once( plugin_dir_path( __FILE__ ) . 'partials/organisms/gallery.php' );

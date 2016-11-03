@@ -2057,6 +2057,250 @@ $tabs_layout_args = apply_filters( 'afl/layout_args/layout=tab', $tabs_layout_ar
 #endregion
 
 /*——————————————————————————————————————————————————————————
+/  Accordion
+——————————————————————————————————————————————————————————*/
+#region Accordion
+$accordion_sub_fields = [
+	'content_tab'            => $content_settings_tab_clone_args,
+	'panels'                 => array(
+		'key'               => 'accordion_field_panels',
+		'label'             => 'Panels',
+		'name'              => 'panels',
+		'type'              => 'repeater',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'collapsed'         => 'accordion_field_panels_panel_title',
+		'min'               => '',
+		'max'               => '',
+		'layout'            => 'block',
+		'button_label'      => 'Add Panel',
+		'sub_fields'        => array(
+			array(
+				'key'               => 'accordion_field_panels_panel_title',
+				'label'             => 'Panel Title',
+				'name'              => 'panel_title',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 1,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			),
+			array(
+				'key'               => 'accordion_field_panel_title',
+				'label'             => 'Title',
+				'name'              => 'title',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'accordion_field_elements',
+							'operator' => '==',
+							'value'    => 'Title',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			),
+			array(
+				'key'               => 'accordion_field_panel_subtitle',
+				'label'             => 'Subtitle',
+				'name'              => 'subtitle',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'accordion_field_elements',
+							'operator' => '==',
+							'value'    => 'Subtitle',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			),
+			array(
+				'key'               => 'accordion_field_panel_text',
+				'label'             => 'Text',
+				'name'              => 'text',
+				'type'              => 'wysiwyg',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'accordion_field_elements',
+							'operator' => '==',
+							'value'    => 'Text',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'tabs'              => 'all',
+				'toolbar'           => 'full',
+				'media_upload'      => 1,
+			),
+			array(
+				'key'               => 'accordion_field_panel_classes',
+				'label'             => 'Classes',
+				'name'              => 'class',
+				'type'              => 'text',
+				'instructions'      => 'Comma-separated list.',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '50',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			),
+			array(
+				'key'               => 'accordion_field_panel_id',
+				'label'             => 'ID',
+				'name'              => 'id',
+				'type'              => 'text',
+				'instructions'      => 'One word only.',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '33',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+				'maxlength'         => '',
+				'readonly'          => 0,
+				'disabled'          => 0,
+			),
+			array(
+				'key'               => 'accordion_field_panel_hide',
+				'label'             => 'Hide',
+				'name'              => 'hide',
+				'type'              => 'true_false',
+				'instructions'      => 'Don\'t show this.',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '17',
+					'class' => 'afl-field-hide',
+					'id'    => '',
+				),
+				'default_value'     => false,
+			),
+		),
+	),
+	'advanced_tab'           => $advanced_settings_tab_clone_args,
+	'label_label_color_name' => $label_label_color_name_clone_args,
+	'classes_id_indent_hide' => $classes_id_indent_hide_clone_args,
+	'elements'               => array(
+		'key'               => 'accordion_field_elements',
+		'label'             => 'Elements',
+		'name'              => 'elements',
+		'type'              => 'select',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'choices'           => array(
+			'Title'    => 'Title',
+			'Subtitle' => 'Subtitle',
+			'Text'     => 'Text',
+		),
+		'default_value'     => array(
+			1 => 'Title',
+			2 => 'Subtitle',
+			3 => 'Text',
+		),
+		'allow_null'        => 0,
+		'multiple'          => 1,
+		'ui'                => 1,
+		'ajax'              => 1,
+		'placeholder'       => '',
+		'disabled'          => 0,
+		'readonly'          => 0,
+		'return_format'     => 'value',
+	),
+];
+$accordion_sub_fields = apply_filters( 'afl/sub_fields/layout=accordion', $accordion_sub_fields );
+
+$accordion_layout_args                                                = [
+	'key'        => 'afl_layout_accordion',
+	'name'       => 'layout_accordion',
+	'label'      => 'Accordion',
+	'display'    => 'block',
+	'sub_fields' => $accordion_sub_fields,
+	'min'        => '',
+	'max'        => '',
+];
+$accordion_layout_args['sub_fields']['content_tab']['key']            = 'accordion_field_content_tab';
+$accordion_layout_args['sub_fields']['advanced_tab']['key']           = 'accordion_field_advanced_tab';
+$accordion_layout_args['sub_fields']['label_label_color_name']['key'] = 'accordion_field_label_label_color_name';
+$accordion_layout_args['sub_fields']['classes_id_indent_hide']['key'] = 'accordion_field_classes_id';
+
+$accordion_layout_args = apply_filters( 'afl/layout_args/layout=accordion', $accordion_layout_args );
+#endregion
+
+/*——————————————————————————————————————————————————————————
 /  Blurb
 ——————————————————————————————————————————————————————————*/
 #region Blurb
@@ -3109,6 +3353,7 @@ $layouts_arr = [
 	'post_list'    => $post_list_layout_args,
 	'map'          => $map_layout_args,
 	'tabs'         => $tabs_layout_args,
+	'accordion'    => $accordion_layout_args,
 	'blurb'        => $blurb_layout_args,
 	'blurblist'    => $blurblist_layout_args,
 	'gallery'      => $gallery_layout_args,
