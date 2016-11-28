@@ -356,7 +356,7 @@ class ACF_Flex_Layouts_Admin {
 			}
 
 			if ( '' !== $bg_color && '' !== $text_color ) {
-				$title .= '<style type="text/css"> .layout[data-id="' . $i . '"] .acf-fc-layout-order {background-color: ' . $bg_color . '; color: ' . $text_color . ';} </style>';
+				$title .= '<style type="text/css"> .layout[data-layout="' . $layout['name'] . '"][data-id="' . $i . '"] .acf-fc-layout-order {background-color: ' . $bg_color . '; color: ' . $text_color . ';} </style>';
 			}
 		}
 

@@ -156,6 +156,7 @@ class ACF_Flex_Layouts {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts', 20 );
 		$this->loader->add_action( 'acf/init', $plugin_admin, 'register_flex_layouts', 20 );
 		$this->loader->add_filter( 'acf/fields/flexible_content/layout_title/name=layouts', $plugin_admin, 'add_flexible_content_label', 20, 4 );
+		$this->loader->add_filter( 'acf/fields/flexible_content/layout_title/name=section_layouts', $plugin_admin, 'add_flexible_content_label', 20, 4 );
 		$this->loader->add_filter( 'acf/fields/flexible_content/layout_title/name=layouts', $plugin_admin, 'add_flexible_content_label_color', 20, 4 );
 		$this->loader->add_action( 'acf/prepare_field/name=layouts', $plugin_admin, 'add_expand_all_collapse_all_buttons', 20, 1 );
 		$this->loader->add_action( 'acf/save_post', $plugin_admin, 'import_template', 1 );
