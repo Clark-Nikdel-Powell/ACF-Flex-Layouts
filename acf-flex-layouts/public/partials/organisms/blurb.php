@@ -25,6 +25,10 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_Blurb' )
 							'tag_type' => 'false_without_content',
 							'content'  => $data['title'],
 						],
+						'subtitle' => [
+							'tag_type' => 'false_without_content',
+							'content'  => $data['subtitle'],
+						],
 						'text'  => [
 							'tag_type' => 'false_without_content',
 							'content'  => $data['text'],
