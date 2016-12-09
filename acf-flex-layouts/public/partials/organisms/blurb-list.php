@@ -68,31 +68,32 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_BlurbLis
 			];
 
 			$this->blurb_organism_args = [
-				'name'       => $this->name . $this->separator . 'blurb',
-				'separator'  => '-',
-				'attributes' => array(),
-				'structure'  => [
+				'name'             => $this->name . $this->separator . 'blurb',
+				'separator'        => '-',
+				'attributes'       => array(),
+				'suppress_filters' => false,
+				'structure'        => [
 					'inside' => [
 						'atom'  => '',
 						'parts' => [
 							'background' => array(),
-							'image' => [
+							'image'      => [
 								'atom'     => 'Image',
 								'tag_type' => 'false_without_content',
 							],
-							'title' => [
+							'title'      => [
 								'tag_type' => 'false_without_content',
 								'content'  => '',
 							],
-							'subtitle' => [
+							'subtitle'   => [
 								'tag_type' => 'false_without_content',
 								'content'  => '',
 							],
-							'text'  => [
+							'text'       => [
 								'tag_type' => 'false_without_content',
 								'content'  => '',
 							],
-							'link'  => [
+							'link'       => [
 								'atom'     => 'Link',
 								'tag_type' => 'false_without_content',
 							],
