@@ -159,6 +159,11 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_Tabs' ) 
 
 			$tab_slug = str_replace( ' ', '-', preg_replace( '/[^A-Za-z0-9 ]/', '', strtolower( $tab_data['tab_title'] ) ) );
 
+			// Useful when we're translating the tab title.
+			if ( ! empty( $tab_data['id'] ) ) {
+				$tab_slug = $tab_data['id'];
+			}
+
 			// Set ID on Heading & Content
 			$tab_heading_args['structure']['link']['href'] = '#' . $tab_slug;
 			$tab_args['attributes']['id']                  = $tab_slug;
