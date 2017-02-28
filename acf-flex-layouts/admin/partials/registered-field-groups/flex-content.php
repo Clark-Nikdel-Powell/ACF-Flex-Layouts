@@ -582,39 +582,6 @@ $header_sub_fields = [
 		'readonly'          => 0,
 		'disabled'          => 0,
 	),
-	'background_type'        => array(
-		'key'               => 'header_field_background_type',
-		'label'             => 'Background Type',
-		'name'              => 'background_type',
-		'type'              => 'radio',
-		'instructions'      => '',
-		'required'          => 0,
-		'conditional_logic' => array(
-			array(
-				array(
-					'field'    => 'header_field_elements',
-					'operator' => '==',
-					'value'    => 'Background',
-				),
-			),
-		),
-		'wrapper'           => array(
-			'width' => '100',
-			'class' => '',
-			'id'    => '',
-		),
-		'choices'           => array(
-			'Image' => 'Image',
-			'Video' => 'Video',
-			'Color' => 'Color',
-		),
-		'other_choice'      => 0,
-		'save_other_choice' => 0,
-		'default_value'     => '',
-		'layout'            => 'horizontal',
-		'allow_null'        => 0,
-		'return_format'     => 'value',
-	),
 	'background_image'       => array(
 		'key'               => 'header_field_background_image',
 		'label'             => 'Background Image',
@@ -813,6 +780,39 @@ $header_sub_fields = [
 		'placeholder'       => '',
 		'disabled'          => 0,
 		'readonly'          => 0,
+		'return_format'     => 'value',
+	),
+	'background_type'        => array(
+		'key'               => 'header_field_background_type',
+		'label'             => 'Background Type',
+		'name'              => 'background_type',
+		'type'              => 'radio',
+		'instructions'      => '',
+		'required'          => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field'    => 'header_field_elements',
+					'operator' => '==',
+					'value'    => 'Background',
+				),
+			),
+		),
+		'wrapper'           => array(
+			'width' => '100',
+			'class' => '',
+			'id'    => '',
+		),
+		'choices'           => array(
+			'Image' => 'Image',
+			'Video' => 'Video',
+			'Color' => 'Color',
+		),
+		'other_choice'      => 0,
+		'save_other_choice' => 0,
+		'default_value'     => '',
+		'layout'            => 'horizontal',
+		'allow_null'        => 0,
 		'return_format'     => 'value',
 	),
 ];

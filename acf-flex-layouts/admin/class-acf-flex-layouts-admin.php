@@ -73,7 +73,7 @@ class ACF_Flex_Layouts_Admin {
 			'not_found'          => __( 'No templates found.', 'acf-flex-layouts' ),
 			'not_found_in_trash' => __( 'No templates found in Trash.', 'acf-flex-layouts' ),
 		];
-		$acf_flex_layout_template_post_type_labels = apply_filters( 'acf_flex_layouts/post_type/labels', $acf_flex_layout_template_post_type_labels );
+		$acf_flex_layout_template_post_type_labels = apply_filters( 'afl/post_type/labels', $acf_flex_layout_template_post_type_labels );
 
 		$acf_flex_layout_template_post_type_args = [
 			'labels'             => $acf_flex_layout_template_post_type_labels,
@@ -91,7 +91,7 @@ class ACF_Flex_Layouts_Admin {
 			'supports'           => [ 'title' ],
 			'menu_icon'          => 'dashicons-layout',
 		];
-		$acf_flex_layout_template_post_type_args = apply_filters( 'acf_flex_layouts/post_type/args', $acf_flex_layout_template_post_type_args );
+		$acf_flex_layout_template_post_type_args = apply_filters( 'afl/post_type/args', $acf_flex_layout_template_post_type_args );
 
 		register_post_type( 'afl_template', $acf_flex_layout_template_post_type_args );
 	}

@@ -99,11 +99,10 @@ class ACF_Flex_Layouts_Public {
 	 */
 	public function add_acf_organisms_to_content( $content ) {
 
-		global $post;
+		$current_post = apply_filters( 'afl/add_acf_organisms_to_content_post', get_post() );
 
 		// Check the post for layouts data
-		$all_layouts = get_field( 'layouts', $post->ID );
-
+		$all_layouts = get_field( 'layouts', $current_post->ID );
 
 		// If we have layouts, get the layout markup.
 		if ( ! empty( $all_layouts ) ) {
