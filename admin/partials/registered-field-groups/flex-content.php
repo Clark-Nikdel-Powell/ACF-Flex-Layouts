@@ -2611,6 +2611,8 @@ $blurb_layout_args = apply_filters( 'afl/layout_args/layout=blurb', $blurb_layou
 /  Blurblist
 ——————————————————————————————————————————————————————————*/
 #region Blurblist
+$blurblist_blurb_icons = apply_filters( 'afl/blurblist_icons', array() );
+
 $blurblist_sub_fields = [
 	'content_tab'            => $content_settings_tab_clone_args,
 	'list_title'             => array(
@@ -2712,6 +2714,35 @@ $blurblist_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
+			'blurb_icon'             => [
+				'key'               => 'blurb_list_field_blurbs_blurb_icon',
+				'label'             => 'Icon',
+				'name'              => 'icon',
+				'type'              => 'select',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'blurb_list_field_elements',
+							'operator' => '==',
+							'value'    => 'Blurb Icon',
+						),
+					),
+				),
+				'wrapper'           => [
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				],
+				'default_value'     => '',
+				'choices'           => $blurblist_blurb_icons,
+				'allow_null'        => false,
+				'multiple'          => false,
+				'ui'                => true,
+				'ajax'              => false,
+				'placeholder'       => '',
+			],
 			'blurb_foreground_image' => array(
 				'key'               => 'blurb_list_field_blurbs_blurb_foreground_image',
 				'label'             => 'Foreground Image',
@@ -3113,6 +3144,7 @@ $blurblist_sub_fields = [
 		'choices'           => array(
 			'List Title'     => 'List Title',
 			'List Intro'     => 'List Intro',
+			'Blurb Icon'     => 'Blurb Icon',
 			'Blurb Image'    => 'Blurb Image',
 			'Blurb Title'    => 'Blurb Title',
 			'Blurb Subtitle' => 'Blurb Subtitle',
@@ -3123,6 +3155,7 @@ $blurblist_sub_fields = [
 		'default_value'     => array(
 			0 => 'List Title',
 			1 => 'List Intro',
+			2 => 'Blurb Icon',
 			2 => 'Blurb Image',
 			3 => 'Blurb Title',
 			4 => 'Blurb Subtitle',
