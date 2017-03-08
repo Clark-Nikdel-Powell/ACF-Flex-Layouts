@@ -2611,7 +2611,7 @@ $blurb_layout_args = apply_filters( 'afl/layout_args/layout=blurb', $blurb_layou
 /  Blurblist
 ——————————————————————————————————————————————————————————*/
 #region Blurblist
-$blurblist_blurb_icons = apply_filters( 'afl/blurblist_icons', array() );
+$blurblist_blurb_icons = apply_filters( 'afl/site_icon_choices', array() );
 
 $blurblist_sub_fields = [
 	'content_tab'            => $content_settings_tab_clone_args,
