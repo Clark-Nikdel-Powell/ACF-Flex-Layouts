@@ -3267,7 +3267,7 @@ $blurblist_sub_fields = [
 		'disabled'          => 0,
 	),
 ];
-$blurblist_sub_fields = apply_filters( 'afl/sub_fields/layout=blurb_list', $blurblist_sub_fields );
+$blurblist_sub_fields = apply_filters( 'afl/sub_fields/layout=blurblist', $blurblist_sub_fields );
 
 $blurblist_layout_args                                                                    = [
 	'key'        => 'afl_layout_blurb_list',
@@ -3285,7 +3285,7 @@ $blurblist_layout_args['sub_fields']['classes_id_indent_hide']['key']           
 $blurblist_layout_args['sub_fields']['blurbs']['sub_fields']['blurb_content_tab']['key']  = 'blurblist_blurb_field_content_tab';
 $blurblist_layout_args['sub_fields']['blurbs']['sub_fields']['blurb_advanced_tab']['key'] = 'blurblist_blurb_field_advanced_tab';
 
-$blurblist_layout_args = apply_filters( 'afl/layout_args/layout=blurb_list', $blurblist_layout_args );
+$blurblist_layout_args = apply_filters( 'afl/layout_args/layout=blurblist', $blurblist_layout_args );
 #endregion
 
 /*——————————————————————————————————————————————————————————
