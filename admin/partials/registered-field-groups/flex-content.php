@@ -2081,7 +2081,7 @@ $accordion_sub_fields = [
 		'layout'            => 'block',
 		'button_label'      => 'Add Panel',
 		'sub_fields'        => array(
-			array(
+			'panels_panel_title' => array(
 				'key'               => 'accordion_field_panels_panel_title',
 				'label'             => 'Panel Title',
 				'name'              => 'panel_title',
@@ -2102,7 +2102,7 @@ $accordion_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			array(
+			'panel_title'        => array(
 				'key'               => 'accordion_field_panel_title',
 				'label'             => 'Title',
 				'name'              => 'title',
@@ -2131,7 +2131,7 @@ $accordion_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			array(
+			'panel_subtitle'     => array(
 				'key'               => 'accordion_field_panel_subtitle',
 				'label'             => 'Subtitle',
 				'name'              => 'subtitle',
@@ -2160,7 +2160,7 @@ $accordion_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			array(
+			'panel_text'         => array(
 				'key'               => 'accordion_field_panel_text',
 				'label'             => 'Text',
 				'name'              => 'text',
@@ -2186,7 +2186,7 @@ $accordion_sub_fields = [
 				'toolbar'           => 'full',
 				'media_upload'      => 1,
 			),
-			array(
+			'panel_classes'      => array(
 				'key'               => 'accordion_field_panel_classes',
 				'label'             => 'Classes',
 				'name'              => 'class',
@@ -2207,7 +2207,7 @@ $accordion_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			array(
+			'panel_id'           => array(
 				'key'               => 'accordion_field_panel_id',
 				'label'             => 'ID',
 				'name'              => 'id',
@@ -2228,7 +2228,7 @@ $accordion_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			array(
+			'panel_hide'         => array(
 				'key'               => 'accordion_field_panel_hide',
 				'label'             => 'Hide',
 				'name'              => 'hide',
@@ -3400,6 +3400,8 @@ $extra_fields_args = [
 ];
 $layouts_arr       = apply_filters( 'afl/group/layout_args', $layouts_arr, $extra_fields_args );
 
+asort($layouts_arr);
+
 
 /*——————————————————————————————————————————————————————————————————————————————
 /  Add Another Field Group with the "Section" Layout (Inception-style stuff here)
@@ -3458,6 +3460,8 @@ $section_layout_args = apply_filters( 'afl/layout_args/layout=section', $section
 // Add Section to main layout args.
 array_unshift( $layouts_arr, $section_layout_args );
 $layouts_with_section_arr = $layouts_arr;
+
+asort($layouts_with_section_arr);
 
 #endregion
 
