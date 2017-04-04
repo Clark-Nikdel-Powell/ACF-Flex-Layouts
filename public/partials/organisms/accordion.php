@@ -5,6 +5,7 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_Accordio
 
 	class ACF_Accordion extends OrganismTemplate {
 
+		public $title;
 		public $panels;
 		public $panel_organism_args;
 
@@ -14,11 +15,17 @@ if ( class_exists( 'CNP\OrganismTemplate' ) && ! class_exists( 'CNP\ACF_Accordio
 				$data['name'] = 'acf-accordion';
 			}
 
+			$this->title  = $data['accordion_title'];
 			$this->panels = ! empty( $data['panels'] ) ? $data['panels'] : array();
 
 			// Isset check in case this class is extended.
 			if ( ! isset( $data['structure'] ) ) {
 				$data['structure'] = [
+					'title'  => [
+						'tag_type' => 'false_without_content',
+						'content'  => $this->title,
+						'sibling'  => 'panels',
+					],
 					'panels' => [
 						'attributes' => [
 							'data-accordion' => '',
