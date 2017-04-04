@@ -15,6 +15,7 @@ The layouts are kept generic so that they can be reused in multiple use cases. T
 5. Slideshow
 6. Map
 7. Tabs
+7. Accordion
 8. Blurb
 9. Blurb List
 10. Post List

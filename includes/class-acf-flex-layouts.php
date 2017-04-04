@@ -69,7 +69,7 @@ class ACF_Flex_Layouts {
 	public function __construct() {
 
 		$this->acf_flex_layouts = 'acf-flex-layouts';
-		$this->version = '1.0.0';
+		$this->version = '1.1.4';
 
 		$this->load_dependencies();
 		$this->set_locale();
