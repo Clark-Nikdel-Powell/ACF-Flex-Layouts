@@ -1752,7 +1752,7 @@ $tab_sub_fields = [
 		'layout'            => 'block',
 		'button_label'      => 'Add Tab',
 		'sub_fields'        => array(
-			array(
+			'tab_title'      => array(
 				'key'               => 'tabs_field_tabs_tab_title',
 				'label'             => 'Tab Title',
 				'name'              => 'tab_title',
@@ -1773,7 +1773,7 @@ $tab_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			array(
+			'tabs_title'     => array(
 				'key'               => 'tabs_field_tabs_title',
 				'label'             => 'Title',
 				'name'              => 'title',
@@ -1802,7 +1802,7 @@ $tab_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			array(
+			'tabs_subtitle'  => array(
 				'key'               => 'tabs_field_tabs_subtitle',
 				'label'             => 'Subtitle',
 				'name'              => 'subtitle',
@@ -1831,7 +1831,7 @@ $tab_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			array(
+			'tabs_text'      => array(
 				'key'               => 'tabs_field_tabs_text',
 				'label'             => 'Text',
 				'name'              => 'text',
@@ -1857,7 +1857,7 @@ $tab_sub_fields = [
 				'toolbar'           => 'full',
 				'media_upload'      => 1,
 			),
-			array(
+			'tabs_image'     => array(
 				'key'               => 'tabs_field_tabs_image',
 				'label'             => 'Image',
 				'name'              => 'image',
@@ -1884,7 +1884,7 @@ $tab_sub_fields = [
 				),
 				'default_value'     => '',
 			),
-			array(
+			'tabs_link'      => array(
 				'key'               => 'tabs_field_tabs_link',
 				'label'             => 'Link',
 				'name'              => 'link',
@@ -1908,7 +1908,7 @@ $tab_sub_fields = [
 				'default_value'     => '',
 				'placeholder'       => '',
 			),
-			array(
+			'tabs_link_text' => array(
 				'key'               => 'tabs_field_tabs_link_text',
 				'label'             => 'Link Text',
 				'name'              => 'link_text',
@@ -1937,7 +1937,7 @@ $tab_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			array(
+			'tabs_classes'   => array(
 				'key'               => 'tabs_field_tabs_classes',
 				'label'             => 'Classes',
 				'name'              => 'class',
@@ -1958,7 +1958,7 @@ $tab_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			array(
+			'tabs_id'        => array(
 				'key'               => 'tabs_field_tabs_id',
 				'label'             => 'ID',
 				'name'              => 'id',
@@ -1979,7 +1979,7 @@ $tab_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			array(
+			'tabs_hide'      => array(
 				'key'               => 'tabs_field_tabs_hide',
 				'label'             => 'Hide',
 				'name'              => 'hide',
