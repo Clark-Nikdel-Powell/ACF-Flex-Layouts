@@ -9,8 +9,8 @@ function get_acf_organisms( $all_layouts = array() ) {
 
 		$acf_atom_or_organism_class_name = '';
 
-		// E.g., a layout named "layout_content" has a PHP class titled "CNP\ACF_Content."
-		// "layout_post_list" becomes "CNP\ACF_PostList"
+		// E.g., a layout named "layout_content" has a suffix titled "Content."
+		// "layout_post_list" becomes "PostList"
 		$acf_atom_or_organism_class_suffix = str_replace( ' ', '', ucwords( str_replace( [ 'layout', '_' ], [ '', ' ' ], $layout_data['acf_fc_layout'] ) ) );
 
 		if ( class_exists( '\CNP\OrganismTemplate' ) ) {
