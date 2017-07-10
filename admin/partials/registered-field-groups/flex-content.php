@@ -1380,7 +1380,7 @@ $post_list_sub_fields = [
 		'key'               => 'post_list_field_post_type',
 		'label'             => 'Post Type',
 		'name'              => 'post_type',
-		'type'              => 'posttype_select',
+		'type'              => 'post_type_selector',
 		'instructions'      => '',
 		'required'          => 0,
 		'conditional_logic' => array(
@@ -1464,7 +1464,7 @@ $post_list_sub_fields = [
 		'elements'          => '',
 		'min'               => '',
 		'max'               => '',
-		'return_format'     => 'object',
+		'return_format'     => 'id',
 	),
 	'list_link'              => array(
 		'key'               => 'post_list_field_list_link',
