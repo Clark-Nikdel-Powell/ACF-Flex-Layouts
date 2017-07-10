@@ -46,7 +46,7 @@ class ACF_Flex_Layouts_Public {
 	 * @since    1.0.0
 	 *
 	 * @param      string $acf_flex_layouts The name of the plugin.
-	 * @param      string $version The version of this plugin.
+	 * @param      string $version          The version of this plugin.
 	 */
 	public function __construct( $acf_flex_layouts, $version ) {
 
@@ -90,24 +90,38 @@ class ACF_Flex_Layouts_Public {
 	 *
 	 * @since 0.1
 	 *
-	 * @see (calls) cnp_get_acf_organism_markup
-	 * @global object $post Post object.
+	 * @see   (calls) cnp_get_acf_organism_markup
+	 * @global object $post    Post object.
 	 *
-	 * @param string $content The post content.
+	 * @param string  $content The post content.
 	 *
 	 * @return string The modified post content.
 	 */
-	public function add_acf_organisms_to_content( $content ) {
+	public static function add_acf_organisms_to_content( $content ) {
+
+		$kill_filter = apply_filters( 'afl/add_acf_organisms_to_content_killswitch', false );
+
+		if ( true === $kill_filter ) {
+			return $content;
+		}
 
 		$current_post = apply_filters( 'afl/add_acf_organisms_to_content_post', get_post() );
 
 		// Check the post for layouts data
 		$all_layouts = get_field( 'layouts', $current_post->ID );
 
+		// Content posiiton
+		$content_position = apply_filters( 'afl/add_acf_organisms_to_content_position', 'before' );
+
 		// If we have layouts, get the layout markup.
 		if ( ! empty( $all_layouts ) ) {
 
-			$content .= get_acf_organisms( $all_layouts );
+			if ( 'before' === $content_position ) {
+				$content .= get_acf_organisms( $all_layouts );
+			}
+			if ( 'after' === $content_position ) {
+				$content = get_acf_organisms( $all_layouts ) . $content;
+			}
 		}
 
 		return $content;
