@@ -1752,7 +1752,7 @@ $tab_sub_fields = [
 		'layout'            => 'block',
 		'button_label'      => 'Add Tab',
 		'sub_fields'        => array(
-			'tab_title'      => array(
+			array(
 				'key'               => 'tabs_field_tabs_tab_title',
 				'label'             => 'Tab Title',
 				'name'              => 'tab_title',
@@ -1773,7 +1773,7 @@ $tab_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			'tabs_title'     => array(
+			array(
 				'key'               => 'tabs_field_tabs_title',
 				'label'             => 'Title',
 				'name'              => 'title',
@@ -1802,7 +1802,7 @@ $tab_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			'tabs_subtitle'  => array(
+			array(
 				'key'               => 'tabs_field_tabs_subtitle',
 				'label'             => 'Subtitle',
 				'name'              => 'subtitle',
@@ -1831,7 +1831,7 @@ $tab_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			'tabs_text'      => array(
+			array(
 				'key'               => 'tabs_field_tabs_text',
 				'label'             => 'Text',
 				'name'              => 'text',
@@ -1857,7 +1857,7 @@ $tab_sub_fields = [
 				'toolbar'           => 'full',
 				'media_upload'      => 1,
 			),
-			'tabs_image'     => array(
+			array(
 				'key'               => 'tabs_field_tabs_image',
 				'label'             => 'Image',
 				'name'              => 'image',
@@ -1884,7 +1884,7 @@ $tab_sub_fields = [
 				),
 				'default_value'     => '',
 			),
-			'tabs_link'      => array(
+			array(
 				'key'               => 'tabs_field_tabs_link',
 				'label'             => 'Link',
 				'name'              => 'link',
@@ -1908,7 +1908,7 @@ $tab_sub_fields = [
 				'default_value'     => '',
 				'placeholder'       => '',
 			),
-			'tabs_link_text' => array(
+			array(
 				'key'               => 'tabs_field_tabs_link_text',
 				'label'             => 'Link Text',
 				'name'              => 'link_text',
@@ -1937,7 +1937,7 @@ $tab_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			'tabs_classes'   => array(
+			array(
 				'key'               => 'tabs_field_tabs_classes',
 				'label'             => 'Classes',
 				'name'              => 'class',
@@ -1958,7 +1958,7 @@ $tab_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			'tabs_id'        => array(
+			array(
 				'key'               => 'tabs_field_tabs_id',
 				'label'             => 'ID',
 				'name'              => 'id',
@@ -1979,7 +1979,7 @@ $tab_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			'tabs_hide'      => array(
+			array(
 				'key'               => 'tabs_field_tabs_hide',
 				'label'             => 'Hide',
 				'name'              => 'hide',
@@ -2722,8 +2722,8 @@ $blurblist_sub_fields = [
 		'layout'            => 'block',
 		'button_label'      => 'Add Blurb',
 		'sub_fields'        => array(
-			'blurb_content_tab'      => $content_settings_tab_clone_args,
-			'blurb_label'            => array(
+			$content_settings_tab_clone_args,
+			array(
 				'key'               => 'blurb_list_field_blurbs_blurb_label',
 				'label'             => 'Label',
 				'name'              => 'label',
@@ -2744,7 +2744,7 @@ $blurblist_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			'blurb_icon'             => [
+			array(
 				'key'               => 'blurb_list_field_blurbs_blurb_icon',
 				'label'             => 'Icon',
 				'name'              => 'icon',
@@ -2772,8 +2772,8 @@ $blurblist_sub_fields = [
 				'ui'                => true,
 				'ajax'              => false,
 				'placeholder'       => '',
-			],
-			'blurb_foreground_image' => array(
+			),
+			array(
 				'key'               => 'blurb_list_field_blurbs_blurb_foreground_image',
 				'label'             => 'Foreground Image',
 				'name'              => 'foreground_image',
@@ -2805,7 +2805,7 @@ $blurblist_sub_fields = [
 				'max_size'          => '',
 				'mime_types'        => '',
 			),
-			'blurb_title'            => array(
+			array(
 				'key'               => 'blurb_list_field_blurbs_blurb_title',
 				'label'             => 'Title',
 				'name'              => 'title',
@@ -2834,7 +2834,7 @@ $blurblist_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			'blurb_subtitle'         => array(
+			array(
 				'key'               => 'blurb_list_field_blurbs_blurb_subtitle',
 				'label'             => 'Subtitle',
 				'name'              => 'subtitle',
@@ -2863,7 +2863,7 @@ $blurblist_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			'blurb_text'             => array(
+			array(
 				'key'               => 'blurb_list_field_blurbs_blurb_text',
 				'label'             => 'Text',
 				'name'              => 'text',
@@ -2889,7 +2889,7 @@ $blurblist_sub_fields = [
 				'toolbar'           => 'full',
 				'media_upload'      => 1,
 			),
-			'blurb_link'             => array(
+			array(
 				'key'               => 'blurb_list_field_blurbs_blurb_link',
 				'label'             => 'Link',
 				'name'              => 'link',
@@ -2918,7 +2918,7 @@ $blurblist_sub_fields = [
 				'default_value'     => '',
 				'placeholder'       => '',
 			),
-			'blurb_page_link'        => array(
+			array(
 				'key'               => 'blurb_list_field_blurbs_blurb_page_link',
 				'label'             => 'Page Link',
 				'name'              => 'page_link',
@@ -2950,7 +2950,7 @@ $blurblist_sub_fields = [
 				'multiple'          => 0,
 				'allow_archives'    => 1,
 			),
-			'blurb_link_text'        => array(
+			array(
 				'key'               => 'blurb_list_field_blurbs_blurb_link_text',
 				'label'             => 'Link Text',
 				'name'              => 'link_text',
@@ -2984,7 +2984,7 @@ $blurblist_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			'blurb_background_image' => array(
+			array(
 				'key'               => 'blurb_list_field_blurbs_blurb_background_image',
 				'label'             => 'Background Image',
 				'name'              => 'background_image',
@@ -3016,7 +3016,7 @@ $blurblist_sub_fields = [
 				'max_size'          => '',
 				'mime_types'        => '',
 			),
-			'blurb_background_color' => array(
+			array(
 				'key'               => 'blurb_list_field_blurbs_blurb_background_color',
 				'label'             => 'Background Color',
 				'name'              => 'background_color',
@@ -3039,8 +3039,8 @@ $blurblist_sub_fields = [
 				),
 				'default_value'     => '',
 			),
-			'blurb_advanced_tab'     => $advanced_settings_tab_clone_args,
-			'blurb_classes'          => array(
+			$advanced_settings_tab_clone_args,
+			array(
 				'key'               => 'blurb_list_field_blurbs_blurb_classes',
 				'label'             => 'Classes',
 				'name'              => 'class',
@@ -3061,7 +3061,7 @@ $blurblist_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			'blurb_id'               => array(
+			array(
 				'key'               => 'blurb_list_field_blurbs_blurb_id',
 				'label'             => 'ID',
 				'name'              => 'id',
@@ -3082,7 +3082,7 @@ $blurblist_sub_fields = [
 				'readonly'          => 0,
 				'disabled'          => 0,
 			),
-			'blurb_hide'             => array(
+			array(
 				'key'               => 'blurb_list_field_blurbs_blurb_hide',
 				'label'             => 'Hide',
 				'name'              => 'hide',
@@ -3312,8 +3312,8 @@ $blurblist_layout_args['sub_fields']['content_tab']['key']                      
 $blurblist_layout_args['sub_fields']['advanced_tab']['key']                               = 'blurblist_field_advanced_tab';
 $blurblist_layout_args['sub_fields']['label_label_color_name']['key']                     = 'blurblist_field_label_label_color_name';
 $blurblist_layout_args['sub_fields']['classes_id_indent_hide']['key']                     = 'blurblist_field_classes_id';
-$blurblist_layout_args['sub_fields']['blurbs']['sub_fields']['blurb_content_tab']['key']  = 'blurblist_blurb_field_content_tab';
-$blurblist_layout_args['sub_fields']['blurbs']['sub_fields']['blurb_advanced_tab']['key'] = 'blurblist_blurb_field_advanced_tab';
+$blurblist_layout_args['sub_fields']['blurbs']['sub_fields'][0]['key']  = 'blurblist_blurb_field_content_tab';
+$blurblist_layout_args['sub_fields']['blurbs']['sub_fields'][12]['key'] = 'blurblist_blurb_field_advanced_tab';
 
 $blurblist_layout_args = apply_filters( 'afl/layout_args/layout=blurblist', $blurblist_layout_args );
 #endregion
