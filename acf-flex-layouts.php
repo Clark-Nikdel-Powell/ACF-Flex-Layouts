@@ -14,11 +14,11 @@
  *
  * @wordpress-plugin
  * Plugin Name:       ACF Flex Layouts
- * Plugin URI:        http://example.com/acf-flex-layouts-uri/
+ * Plugin URI:        https://github.com/Clark-Nikdel-Powell/ACF-Flex-Layouts/
  * Description:       A library of pre-built flexible content layouts for ACF.
  * Version:           1.1.6
- * Author:            Clark/Nikdel/Powell
- * Author URI:        http://example.com/
+ * Author:            CNP
+ * Author URI:        http://cnpagency.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       acf-flex-layouts
