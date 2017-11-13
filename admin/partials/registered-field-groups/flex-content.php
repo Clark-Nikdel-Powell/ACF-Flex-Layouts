@@ -2216,6 +2216,38 @@ $accordion_sub_fields = [
 				'media_upload'      => 1,
 			),
 			array(
+				'key'               => 'accordion_field_panel_image',
+				'label'             => 'Image',
+				'name'              => 'image',
+				'type'              => 'image',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'accordion_field_elements',
+							'operator' => '==',
+							'value'    => 'Image',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'return_format'     => 'id',
+				'preview_size'      => 'thumbnail',
+				'library'           => 'all',
+				'min_width'         => '',
+				'min_height'        => '',
+				'min_size'          => '',
+				'max_width'         => '',
+				'max_height'        => '',
+				'max_size'          => '',
+				'mime_types'        => '',
+			),
+			array(
 				'key'               => 'accordion_field_panel_classes',
 				'label'             => 'Classes',
 				'name'              => 'class',
@@ -2295,6 +2327,7 @@ $accordion_sub_fields = [
 			'Title'           => 'Title',
 			'Subtitle'        => 'Subtitle',
 			'Text'            => 'Text',
+			'Image'           => 'Image',
 		),
 		'default_value'     => array(
 			1 => 'Title',
