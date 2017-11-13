@@ -16,7 +16,7 @@
  * Plugin Name:       ACF Flex Layouts
  * Plugin URI:        https://github.com/Clark-Nikdel-Powell/ACF-Flex-Layouts/
  * Description:       A library of pre-built flexible content layouts for ACF.
- * Version:           1.2.1
+ * Version:           1.3.0
  * Author:            CNP
  * Author URI:        http://cnpagency.com/
  * License:           GPL-2.0+
