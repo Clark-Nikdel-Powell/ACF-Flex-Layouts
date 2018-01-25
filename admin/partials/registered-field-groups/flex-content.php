@@ -2583,10 +2583,10 @@ $blurb_sub_fields = [
 		'readonly'          => 0,
 		'disabled'          => 0,
 	),
-	'link_url'               => array(
-		'key'               => 'blurb_field_link_url',
+	'link'               => array(
+		'key'               => 'blurb_field_link',
 		'label'             => 'Link URL',
-		'name'              => 'link_url',
+		'name'              => 'link',
 		'type'              => 'page_link',
 		'instructions'      => '',
 		'required'          => 0,
