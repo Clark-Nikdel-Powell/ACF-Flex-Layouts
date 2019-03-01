@@ -3476,6 +3476,22 @@ The regular layouts need to be registered first, so that "Section" can clone the
 /  Section Layout Args
 ——————————————————————————————————————————————————————————*/
 #region Section
+$section_layouts_arr = $layouts_arr;
+foreach ( $section_layouts_arr as $layout_key => $layout ) {
+	$section_layouts_arr[ $layout_key ]['key'] .= '_section';
+	foreach ( $layout['sub_fields'] as $arr_key => $sub_field ) {
+		$section_layouts_arr[ $layout_key ]['sub_fields'][ $arr_key ]['key'] .= '_section';
+
+		if ( isset( $sub_field['sub_fields'] ) ) {
+			// We must go deeper.
+			foreach ( $sub_field['sub_fields'] as $index => $sub_sub_field ) {
+				// Kind of reidiculous, I know.
+				$section_layouts_arr[$layout_key]['sub_fields'][$arr_key]['sub_fields'][$index]['key'] .= '_section';
+			}
+		}
+	}
+}
+
 $section_sub_fields = [
 	'content_tab'            => $content_settings_tab_clone_args,
 	'layouts'                => [
