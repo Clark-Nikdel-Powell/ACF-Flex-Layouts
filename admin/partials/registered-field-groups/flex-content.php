@@ -2583,7 +2583,7 @@ $blurb_sub_fields = [
 		'readonly'          => 0,
 		'disabled'          => 0,
 	),
-	'link'               => array(
+	'link'                   => array(
 		'key'               => 'blurb_field_link',
 		'label'             => 'Link URL',
 		'name'              => 'link',
@@ -3332,7 +3332,7 @@ $blurblist_sub_fields = [
 ];
 $blurblist_sub_fields = apply_filters( 'afl/sub_fields/layout=blurblist', $blurblist_sub_fields );
 
-$blurblist_layout_args                                                                    = [
+$blurblist_layout_args                                                  = [
 	'key'        => 'afl_layout_blurb_list',
 	'name'       => 'layout_blurb_list',
 	'label'      => 'Blurb List',
@@ -3341,10 +3341,10 @@ $blurblist_layout_args                                                          
 	'min'        => '',
 	'max'        => '',
 ];
-$blurblist_layout_args['sub_fields']['content_tab']['key']                                = 'blurblist_field_content_tab';
-$blurblist_layout_args['sub_fields']['advanced_tab']['key']                               = 'blurblist_field_advanced_tab';
-$blurblist_layout_args['sub_fields']['label_label_color_name']['key']                     = 'blurblist_field_label_label_color_name';
-$blurblist_layout_args['sub_fields']['classes_id_indent_hide']['key']                     = 'blurblist_field_classes_id';
+$blurblist_layout_args['sub_fields']['content_tab']['key']              = 'blurblist_field_content_tab';
+$blurblist_layout_args['sub_fields']['advanced_tab']['key']             = 'blurblist_field_advanced_tab';
+$blurblist_layout_args['sub_fields']['label_label_color_name']['key']   = 'blurblist_field_label_label_color_name';
+$blurblist_layout_args['sub_fields']['classes_id_indent_hide']['key']   = 'blurblist_field_classes_id';
 $blurblist_layout_args['sub_fields']['blurbs']['sub_fields'][0]['key']  = 'blurblist_blurb_field_content_tab';
 $blurblist_layout_args['sub_fields']['blurbs']['sub_fields'][12]['key'] = 'blurblist_blurb_field_advanced_tab';
 
@@ -3510,7 +3510,7 @@ $section_sub_fields = [
 		'button_label'      => 'Add Layout',
 		'min'               => '',
 		'max'               => '',
-		'layouts'           => $layouts_arr,
+		'layouts'           => $section_layouts_arr,
 	],
 	'advanced_tab'           => $advanced_settings_tab_clone_args,
 	'label_label_color_name' => $label_label_color_name_clone_args,
