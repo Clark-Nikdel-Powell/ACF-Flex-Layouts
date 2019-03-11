@@ -893,6 +893,38 @@ $slideshow_sub_fields = [
 		'button_label'      => 'Add Slide',
 		'sub_fields'        => array(
 			array(
+				'key'               => 'slideshow_field_slide_foreground_image',
+				'label'             => 'Foreground Image',
+				'name'              => 'foreground_image',
+				'type'              => 'image',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'    => 'slideshow_field_elements',
+							'operator' => '==',
+							'value'    => 'Slide Foreground Image',
+						),
+					),
+				),
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'return_format'     => 'id',
+				'preview_size'      => 'medium',
+				'library'           => 'all',
+				'min_width'         => '',
+				'min_height'        => '',
+				'min_size'          => '',
+				'max_width'         => '',
+				'max_height'        => '',
+				'max_size'          => '',
+				'mime_types'        => '',
+			),
+			array(
 				'key'               => 'slideshow_field_slide_title',
 				'label'             => 'Title',
 				'name'              => 'title',
@@ -3477,20 +3509,34 @@ The regular layouts need to be registered first, so that "Section" can clone the
 ——————————————————————————————————————————————————————————*/
 #region Section
 $section_layouts_arr = $layouts_arr;
-foreach ( $section_layouts_arr as $layout_key => $layout ) {
-	$section_layouts_arr[ $layout_key ]['key'] .= '_section';
-	foreach ( $layout['sub_fields'] as $arr_key => $sub_field ) {
-		$section_layouts_arr[ $layout_key ]['sub_fields'][ $arr_key ]['key'] .= '_section';
+// Passing the variables by reference ("&") so we don't have to deal with ridiculously-long array paths.
+foreach ( $section_layouts_arr as $layout_key => &$loop_layout ) {
+	$loop_layout['key'] .= '_section';
+	foreach ( $loop_layout['sub_fields'] as $arr_key => &$loop_sub_field ) {
+		$loop_sub_field['key'] .= '_section';
 
-		if ( isset( $sub_field['sub_fields'] ) ) {
+		if ( isset( $loop_sub_field['sub_fields'] ) ) {
 			// We must go deeper.
-			foreach ( $sub_field['sub_fields'] as $index => $sub_sub_field ) {
-				// Kind of reidiculous, I know.
-				$section_layouts_arr[$layout_key]['sub_fields'][$arr_key]['sub_fields'][$index]['key'] .= '_section';
+			foreach ( $loop_sub_field['sub_fields'] as $index => &$loop_sub_sub_field ) {
+				// Kind of ridiculous, I know.
+				$loop_sub_sub_field['key'] .= '_section';
+
+				// Now we have to reset the conditional logic options too.
+				if ( is_array( $loop_sub_sub_field['conditional_logic'] ) ) {
+
+					foreach ( $loop_sub_sub_field['conditional_logic'][0] as $logic_index => &$loop_logic_condition ) {
+						$loop_logic_condition['field'] .= '_section';
+					}
+				}
 			}
 		}
 	}
 }
+// Clean up looped variables after we're done.
+unset($loop_layout);
+unset($loop_sub_field);
+unset($loop_sub_sub_field);
+unset($loop_logic_condition);
 
 $section_sub_fields = [
 	'content_tab'            => $content_settings_tab_clone_args,
