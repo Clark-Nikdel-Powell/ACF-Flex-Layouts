@@ -3515,6 +3515,13 @@ foreach ( $section_layouts_arr as $layout_key => &$loop_layout ) {
 	foreach ( $loop_layout['sub_fields'] as $arr_key => &$loop_sub_field ) {
 		$loop_sub_field['key'] .= '_section';
 
+		if ( is_array( $loop_sub_field['conditional_logic'] ) ) {
+
+			foreach ( $loop_sub_field['conditional_logic'][0] as &$loop_sub_field_logic_condition ) {
+				$loop_sub_field_logic_condition['field'] .= '_section';
+			}
+		}
+
 		if ( isset( $loop_sub_field['sub_fields'] ) ) {
 			// We must go deeper.
 			foreach ( $loop_sub_field['sub_fields'] as $index => &$loop_sub_sub_field ) {
@@ -3533,10 +3540,11 @@ foreach ( $section_layouts_arr as $layout_key => &$loop_layout ) {
 	}
 }
 // Clean up looped variables after we're done.
-unset($loop_layout);
-unset($loop_sub_field);
-unset($loop_sub_sub_field);
-unset($loop_logic_condition);
+unset( $loop_layout );
+unset( $loop_sub_field );
+unset( $loop_sub_field_logic_condition );
+unset( $loop_sub_sub_field );
+unset( $loop_logic_condition );
 
 $section_sub_fields = [
 	'content_tab'            => $content_settings_tab_clone_args,
